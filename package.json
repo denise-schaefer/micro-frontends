@@ -1,0 +1,11 @@
+{
+  "name": "micro-frontends",
+  "private": true,
+  "version": "1.0.0",
+  "description": "example repo for micro frontends with react and dependency inversion as integration pattern",
+  "main": "index.js",
+  "repository": "https://github.com/denise-schaefer/micro-frontends.git",
+  "author": "Denise Schäfer <denise.schaefer@dm.de>",
+  "license": "MIT",
+  "workspaces": ["search", "product", "content"]
+}
