@@ -8,6 +8,8 @@
         "build:watch": "cd client && webpack -w"
     },
     "dependencies": {
+        "@dm/i18n": "2.6.0",
+        "@dm/redux-store-provider": "5.2.0",
         "express": "4.16.4",
         "nodemon": "1.18.10"
     },

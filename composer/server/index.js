@@ -28,6 +28,7 @@ function render() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.5/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.5/umd/react-dom.production.min.js"></script>
 
+<script src="http://localhost:8080/composer.js"></script>
 <script src="http://localhost:3010/search.js"></script>
 <script src="http://localhost:3011/product.js"></script>
 
