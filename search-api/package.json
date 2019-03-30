@@ -16,11 +16,11 @@
 	},
 	"main": "lib/index.js",
 	"devDependencies": {
-		"@babel/cli": "7.1.5",
+		"@babel/cli": "7.2.3",
 		"@babel/core": "7.4.0",
 		"@babel/preset-env": "7.4.2",
 		"@babel/preset-flow": "7.0.0",
-		"expect": "23.6.0",
+		"expect": "24.5.0",
 		"flow-bin": "0.95.1"
 	}
 }
