@@ -1,0 +1,12 @@
+{
+	"search": {
+		"error": {
+			"headline": "Vyskytla sa technická chyba."
+		},
+		"fallback": {
+			"headline": "Vaše vyhľadávanie „{{query}}” nebolo úspešné."
+		},
+		"for": "Hľadanie podľa „{{query}}”"
+	},
+	"suggestions.label": "Mysleli ste:"
+}

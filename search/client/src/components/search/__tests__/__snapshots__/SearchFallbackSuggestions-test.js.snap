@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchFallbackSuggestions renders and matches snapshot (DE) 1`] = `
+Object {
+  "_locale": "de",
+  "_width": 1200,
+  "html": "
+<div data-dmid=search-fallback-suggestions className=suggestions__e925jf>
+  Meinten Sie:{ }
+  <a title=hello data-dmid=suggestion-link href=q=hello>
+    hello
+  </a>,{ }
+  <a title=world data-dmid=suggestion-link href=q=world>
+    world
+  </a>?
+</div>;
+",
+  "styles": "
+.suggestions__e925jf {
+  font-size: 1.125rem;
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+",
+}
+`;
+
+exports[`SearchFallbackSuggestions renders and matches snapshot (HU) 1`] = `
+Object {
+  "_locale": "de",
+  "_width": 1200,
+  "html": "
+<div data-dmid=search-fallback-suggestions className=suggestions__e925jf>
+  Erre gondolt:{ }
+  <a title=hello data-dmid=suggestion-link href=q=hello>
+    hello
+  </a>,{ }
+  <a title=world data-dmid=suggestion-link href=q=world>
+    world
+  </a>?
+</div>;
+",
+  "styles": "
+.suggestions__e925jf {
+  font-size: 1.125rem;
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+",
+}
+`;
+
+exports[`SearchFallbackSuggestions renders and matches snapshot when duplicate suggestions are found 1`] = `
+Object {
+  "_locale": "de",
+  "_width": 1200,
+  "html": "
+<div data-dmid=search-fallback-suggestions className=suggestions__e925jf>
+  Meinten Sie:{ }
+  <a title=baldrian data-dmid=suggestion-link href=q=baldrian>
+    baldrian
+  </a>,{ }
+  <a title=balea data-dmid=suggestion-link href=q=balea>
+    balea
+  </a>?
+</div>;
+",
+  "styles": "
+.suggestions__e925jf {
+  font-size: 1.125rem;
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+",
+}
+`;

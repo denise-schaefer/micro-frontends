@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchContainer renders and matches snapshot when no results are found (search fallback) 1`] = `
+Object {
+  "_locale": "de",
+  "_width": 1200,
+  "html": "
+<div data-dmid=search-container>
+  <div data-dmid=search-content-container>
+    <div data-dmid=search-body>
+      <div
+        data-dmid=search-fallback-container
+        className=searchFallbackContainer__1dsx585
+      >
+        <h1 data-dmid=search-fallback-headline className=headline__12u4gl8>
+          Ihre Suche nach „2ß9358ß239648” ergab leider keine Treffer
+        </h1>
+        <div
+          data-dmid=search-fallback-info-container
+          className=infoContainer__12ybgy7
+        >
+          <div
+            data-dmid=search-fallback-info-container-content
+            className=infoContainerContent__18pnl22
+          >
+            <div>content component 535460</div>
+          </div>
+          <div
+            data-dmid=search-fallback-info-container-content
+            className=infoContainerContent__18pnl22
+          >
+            <div>content component 535470</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>;
+",
+  "styles": "
+.headline__12u4gl8 {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  font-size: 1.75rem;
+  color: #002878;
+  text-align: center;
+  margin: 1.5625rem 0 2.5rem;
+}
+.infoContainer__12ybgy7 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-lines: multiple;
+  justify-content: space-around;
+  -webkit-box-pack: justify;
+  position: relative;
+  margin-top: 0;
+}
+.infoContainerContent__18pnl22:first-of-type {
+  padding-right: 2rem;
+}
+.infoContainerContent__18pnl22 {
+  flex: 0 0 auto;
+  width: 30%;
+}
+@media (max-width: 959px) {
+  .infoContainerContent__18pnl22:first-of-type {
+    padding-right: 0;
+  }
+  .infoContainerContent__18pnl22 {
+    flex: 1 0 100%;
+  }
+  .searchFallbackContainer__1dsx585 {
+    padding: 0 0.9375rem;
+  }
+}
+",
+}
+`;
+
+exports[`SearchContainer renders and matches snapshot when results are avaibable 1`] = `
+Object {
+  "_locale": "de",
+  "_width": 1200,
+  "html": "
+<div data-dmid=search-container>
+  <div data-dmid=search-nav className=searchNav__uw8rsa>
+    <div>Filter-Nav</div>
+  </div>
+  <div data-dmid=search-content-container>
+    <div data-dmid=search-header className=searchHeader__sjh0el>
+      <h1
+        data-dmid=search-header-headline
+        className=searchHeaderHeadline__15pbijf
+      >
+        Suche nach „bio”
+      </h1>
+      <div
+        data-dmid=search-tab-container
+        className=searchTabContainer__umvgrv
+      >
+        <button
+          type=submit
+          data-dmattributes=active
+          data-dmid=search-tab-PRODUCT
+          className=searchTab__hr83d3
+        >
+          <div>PRODUCT Search Tab 42</div>
+        </button>
+        <button
+          type=submit
+          data-dmattributes
+          data-dmid=search-tab-CONTENT
+          className=searchTab__g9xlgf
+        >
+          <div>CONTENT Search Tab 42</div>
+        </button>
+      </div>
+    </div>
+    <div data-dmid=search-body>
+      <div data-dmid=search-results>
+        <div>
+          <h1>Suche nach bio</h1>
+          <div>
+            <span>result 1</span>
+            <span>result 2</span>
+            <span>result 3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>;
+",
+  "styles": "
+.searchNav__uw8rsa {
+  width: 13.75em;
+  padding: 0 3.125rem 0 0;
+  display: block;
+}
+.searchHeader__sjh0el {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.searchTabContainer__umvgrv {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  margin-bottom: 2.5rem;
+}
+.searchHeaderHeadline__15pbijf {
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  font-size: 2.625rem;
+  color: #002878;
+  text-align: center;
+  margin: 0 0 1.25rem !important;
+}
+.searchTab__hr83d3:focus {
+  outline: none;
+}
+.searchTab__hr83d3:after {
+  box-sizing: border-box;
+  display: block;
+  content: \\" \\";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #002878;
+  z-index: 1;
+  background-color: #002878;
+  top: 2em;
+  margin-left: -6px;
+  left: 50%;
+  transform: rotate(45deg);
+}
+.searchTab__hr83d3 {
+  background-color: #002878;
+  height: 2.5rem;
+  line-height: 2.7em;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin: 0.3125rem;
+  border-radius: 1.5625rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  font-size: 1rem;
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  padding: 0 0.9375rem;
+}
+.searchTab__g9xlgf:focus {
+  outline: none;
+}
+.searchTab__g9xlgf:after {
+  box-sizing: border-box;
+  display: none;
+  content: \\" \\";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #002878;
+  z-index: 1;
+  background-color: #002878;
+  top: 2em;
+  margin-left: -6px;
+  left: 50%;
+  transform: rotate(45deg);
+}
+.searchTab__g9xlgf {
+  background-color: #e5e9f1;
+  height: 2.5rem;
+  line-height: 2.7em;
+  color: #002878;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  margin: 0.3125rem;
+  border-radius: 1.5625rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  font-size: 1rem;
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  padding: 0 0.9375rem;
+}
+@media (max-width: 959px) {
+  .searchNav__uw8rsa {
+    display: none;
+    width: 0;
+    padding: 0;
+  }
+  .searchHeader__sjh0el {
+    padding: 0 0.9375rem;
+  }
+}
+",
+}
+`;

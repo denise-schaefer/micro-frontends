@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchError renders and matches snapshot (DE) 1`] = `
+Object {
+  "_locale": "de",
+  "_width": 1200,
+  "html": "
+<div data-dmid=search-error-wrapper className=searchErrorWrapper__h06092>
+  <h1 data-dmid=search-error className=searchError__bc9skf>
+    Leider ist ein technischer Fehler aufgetreten.
+  </h1>
+</div>;
+",
+  "styles": "
+.searchError__bc9skf {
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  font-size: 1.75rem;
+  color: #002878;
+  text-align: center;
+  margin: 1.5625rem 0;
+}
+.searchErrorWrapper__h06092 {
+  padding-top: 3.75rem;
+}
+",
+}
+`;
+
+exports[`SearchError renders and matches snapshot (HU) 1`] = `
+Object {
+  "_locale": "de",
+  "_width": 1200,
+  "html": "
+<div data-dmid=search-error-wrapper className=searchErrorWrapper__h06092>
+  <h1 data-dmid=search-error className=searchError__bc9skf>
+    Technikai hiba történt.
+  </h1>
+</div>;
+",
+  "styles": "
+.searchError__bc9skf {
+  font-family: dmbrand-medium, Arial, Helvetica, sans-serif;
+  font-size: 1.75rem;
+  color: #002878;
+  text-align: center;
+  margin: 1.5625rem 0;
+}
+.searchErrorWrapper__h06092 {
+  padding-top: 3.75rem;
+}
+",
+}
+`;
