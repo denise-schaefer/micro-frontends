@@ -1,0 +1,7 @@
+lib/
+dist/
+assets/
+static/
+node_modules/
+webpack.config.babel.js
+*.json

@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "node": true,
-        "es6": true
+        "es6": true,
+        "jest/globals": true
     },
     "extends": [
         "eslint:recommended",
@@ -18,8 +19,18 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ],
     "rules": {
+    },
+  "overrides": [
+    {
+      "files": ["**/server/**/*"],
+      "rules": {
+        // for production usage, you need a logger
+        "no-console": [ "off" ]
+      }
     }
+  ]
 }
