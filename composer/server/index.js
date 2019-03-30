@@ -26,6 +26,10 @@ function render() {
 <script src="http://localhost:3010/search.js"></script>
 <script src="http://localhost:3011/product.js"></script>
 
+<script>
+    window.myNamespace.search.render('#root', {});
+</script>
+
 </body>
 </html>`;
 }
