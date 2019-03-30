@@ -10,65 +10,65 @@ export const SET_ACTIVE_SEARCH_PROVIDER = createActionName('SET_ACTIVE_SEARCH_PR
 export const RESET_SEARCH_STATE = createActionName('RESET_SEARCH_STATE');
 
 const updateSearchData = (ID, activeSearchProvider, queryData, data) => ({
-	type: UPDATE_SEARCH_DATA,
-	ID,
-	activeSearchProvider,
-	queryData,
-	data
+  type: UPDATE_SEARCH_DATA,
+  ID,
+  activeSearchProvider,
+  queryData,
+  data,
 });
 
 const updateCountData = (ID, data) => ({
-	type: UPDATE_COUNT_DATA,
-	ID,
-	data
+  type: UPDATE_COUNT_DATA,
+  ID,
+  data,
 });
 
 const updateSuggestions = (ID, data) => ({
-	type: UPDATE_SUGGESTIONS,
-	ID,
-	data
+  type: UPDATE_SUGGESTIONS,
+  ID,
+  data,
 });
 
 const searchError = (ID, activeSearchProvider, message) => ({
-	type: SEARCH_ERROR,
-	ID,
-	activeSearchProvider,
-	message
+  type: SEARCH_ERROR,
+  ID,
+  activeSearchProvider,
+  message,
 });
 
 const searchCountError = (ID, message) => ({
-	type: SEARCH_COUNT_ERROR,
-	ID,
-	message
+  type: SEARCH_COUNT_ERROR,
+  ID,
+  message,
 });
 
 const setLoadingState = isLoading => ({
-	type: SET_LOADING_STATE,
-	isLoading
+  type: SET_LOADING_STATE,
+  isLoading,
 });
 
 const setDisplaySuggestions = displaySuggestions => ({
-	type: SET_DISPLAY_SUGGESTIONS,
-	displaySuggestions
+  type: SET_DISPLAY_SUGGESTIONS,
+  displaySuggestions,
 });
 
 const setActiveSearchProvider = activeSearchProvider => ({
-	type: SET_ACTIVE_SEARCH_PROVIDER,
-	activeSearchProvider
+  type: SET_ACTIVE_SEARCH_PROVIDER,
+  activeSearchProvider,
 });
 
 const resetSearchState = () => ({
-	type: RESET_SEARCH_STATE
+  type: RESET_SEARCH_STATE,
 });
 
 export {
-	updateSearchData,
-	updateCountData,
-	updateSuggestions,
-	searchError,
-	searchCountError,
-	setLoadingState,
-	setDisplaySuggestions,
-	setActiveSearchProvider,
-	resetSearchState
+  updateSearchData,
+  updateCountData,
+  updateSuggestions,
+  searchError,
+  searchCountError,
+  setLoadingState,
+  setDisplaySuggestions,
+  setActiveSearchProvider,
+  resetSearchState,
 };

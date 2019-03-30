@@ -16,13 +16,13 @@ global.reducerRegistry = new ReducerRegistry();
 const { warn } = console;
 // eslint-disable-next-line no-console, func-names
 console.warn = function() {
-	// eslint-disable-next-line prefer-rest-params
-	const message = arguments[0];
-	if (message && typeof message === 'string') {
-		if (message.indexOf('is deprecated.') !== -1) {
-			return;
-		}
-	}
-	// eslint-disable-next-line prefer-rest-params
-	warn.apply(console, [...arguments]);
+  // eslint-disable-next-line prefer-rest-params
+  const message = arguments[0];
+  if (message && typeof message === 'string') {
+    if (message.indexOf('is deprecated.') !== -1) {
+      return;
+    }
+  }
+  // eslint-disable-next-line prefer-rest-params
+  warn.apply(console, [...arguments]);
 };

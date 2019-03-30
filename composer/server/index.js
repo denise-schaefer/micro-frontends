@@ -8,7 +8,7 @@ app.get('/', (_, res) => {
 });
 
 app.get('/composer.js', (req, res) => {
-	res.sendFile(path.resolve(__dirname, '../dist/composer.js'))
+  res.sendFile(path.resolve(__dirname, '../dist/composer.js'));
 });
 
 app.listen(8080, () => console.log('app listening on http://localhost:8080'));
