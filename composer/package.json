@@ -1,11 +1,21 @@
 {
     "name": "composer",
     "version": "1.0.0",
+    "scripts": {
+        "dev": "yarn build:watch & yarn serve",
+        "serve": "nodemon server/index.js",
+        "build": "cd client && NODE_ENV=production webpack",
+        "build:watch": "cd client && webpack -w"
+    },
     "dependencies": {
         "express": "4.16.4",
         "nodemon": "1.18.10"
     },
-    "scripts": {
-        "serve": "nodemon server/index.js"
+    "devDependencies": {
+        "@babel/core": "7.4.0",
+        "babel-loader": "8.0.5",
+        "uglifyjs-webpack-plugin": "2.1.2",
+        "webpack": "4.29.6",
+        "webpack-cli": "3.3.0"
     }
 }

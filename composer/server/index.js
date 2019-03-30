@@ -1,9 +1,14 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 
 app.get('/', (_, res) => {
   const html = render();
   res.send(html);
+});
+
+app.get('/composer.js', (req, res) => {
+	res.sendFile(path.resolve(__dirname, '../dist/composer.js'))
 });
 
 app.listen(8080, () => console.log('app listening on http://localhost:8080'));
