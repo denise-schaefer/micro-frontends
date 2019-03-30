@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-optional-chaining"
+  ],
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "browsers": ["last 2 versions", "ie >= 10", "iOS >= 7", "> 5% in DE"]
+      }
+    }],
+    "@babel/flow"
+  ]
+}
