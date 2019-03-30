@@ -3,9 +3,6 @@
 	"version": "1.0.0",
 	"scripts": {
 		"test": "jest",
-		"test-watch": "jest --watch",
-		"test-cover": "jest --coverage",
-		"test-cover-open": "jest --coverage && open ./coverage/lcov-report/index.html",
 		"build": "rm -rf lib && BABEL_ENV=commonjs babel src/api -d lib --ignore __tests__",
 		"build-production": "yarn build",
 		"watch": "yarn build --watch",
@@ -20,16 +17,10 @@
 	"main": "lib/index.js",
 	"devDependencies": {
 		"@babel/cli": "7.1.5",
-		"@babel/core": "7.1.6",
-		"@babel/plugin-proposal-export-default-from": "7.0.0",
-		"@babel/plugin-proposal-optional-chaining": "7.2.0",
-		"@babel/plugin-syntax-dynamic-import": "7.0.0",
-		"@babel/preset-env": "7.1.6",
+		"@babel/core": "7.4.0",
+		"@babel/preset-env": "7.4.2",
 		"@babel/preset-flow": "7.0.0",
-		"@dm/jest-utils": "6.1.4",
 		"expect": "23.6.0",
-		"flow-bin": "0.95.1",
-		"istanbul-api": "2.0.6",
-		"istanbul-reports": "2.0.1"
+		"flow-bin": "0.95.1"
 	}
 }
