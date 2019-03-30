@@ -13,6 +13,7 @@ import {
 	RESET_SEARCH_STATE
 } from './actions';
 import isEmpty from '../../../util/isEmpty';
+import {ReducerRegistry} from "@dm/redux-store-provider";
 
 export const reducerNameSearch = 'search/search';
 
@@ -250,6 +251,7 @@ export const structuredSelector = createStructuredSelector({
 	activeSearchProvider: selectActiveSearchProvider
 });
 
+global.reducerRegistry = new ReducerRegistry();
 global.reducerRegistry.register(reducerNameSearch, search);
 
 export default search;
