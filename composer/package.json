@@ -6,6 +6,6 @@
         "nodemon": "1.18.10"
     },
     "scripts": {
-        "dev": "nodemon server/index.js"
+        "serve": "nodemon server/index.js"
     }
 }
