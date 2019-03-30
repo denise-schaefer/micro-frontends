@@ -1,6 +1,7 @@
 {
     "env": {
         "browser": true,
+        "node": true,
         "es6": true
     },
     "extends": [
@@ -8,10 +9,6 @@
         "prettier",
         "prettier/react"
     ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
