@@ -1,8 +1,8 @@
-import dmMessagesDe from '../bundles/messages/de.json';
-import dmMessagesCs from '../bundles/messages/cs.json';
+import dmMessagesDe from '../messages/de.json';
+import dmMessagesCs from '../messages/cs.json';
 
 // eslint-disable-next-line import/prefer-default-export
-export const dmProductSearchInitI18next = () => {
+export const initI18next = () => {
 	if (!global.i18next) {
 		throw new Error('No global i18next found');
 	}
