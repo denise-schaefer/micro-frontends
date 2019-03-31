@@ -21,7 +21,7 @@ const SearchResultBody = props => {
 		const data = !isEmpty(searchProvider) ? searchState[searchProvider.ID] : undefined;
 
 		if (!data) {
-			return <Loading />;
+			return queryData.query ? <Loading /> : null;
 		}
 
 		return (

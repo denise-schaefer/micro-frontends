@@ -27,7 +27,7 @@ import SearchInput from './SearchInput';
 export class UnconnectedSearchContainer extends Component {
   componentDidMount() {
     // type is inconsistent with searchType, should be refactored, see MCR-7911
-    const searchType = this.props.queryData ? this.props.queryData.searchType : '';
+    const searchType = this.props.queryData ? this.props.queryData.searchType : 'product';
     const activeSearchProvider = this.getActiveSearchProvider(searchType);
     // update query data from store
     const queryData = this.getQueryData(activeSearchProvider);
@@ -186,8 +186,10 @@ export class UnconnectedSearchContainer extends Component {
     return (
       <div>
         <SearchInput
-          onSubmit={data => this.handleSearch(data)}
-          value={this.getQueryData(activeSearchProvider).query}
+          onSubmit={query => this.handleSearch(activeSearchProvider, query)}
+          value={
+            this.getQueryData(activeSearchProvider) && this.getQueryData(activeSearchProvider).query
+          }
         />
         <div data-dmid="search-container" className={styles.searchContainer}>
           {activeSearchProvider && activeSearchProvider.getNavComponent && (

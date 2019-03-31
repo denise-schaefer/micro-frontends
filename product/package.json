@@ -6,6 +6,7 @@
         "nodemon": "1.18.10",
         "react": "16.8.6",
         "react-dom": "16.8.6",
+        "react-i18next": "8.0.7",
         "search-api": "^1.0.0"
     },
     "devDependencies": {

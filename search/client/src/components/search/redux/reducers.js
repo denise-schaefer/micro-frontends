@@ -251,7 +251,6 @@ export const structuredSelector = createStructuredSelector({
   activeSearchProvider: selectActiveSearchProvider,
 });
 
-global.reducerRegistry = new ReducerRegistry();
 global.reducerRegistry.register(reducerNameSearch, search);
 
 export default search;

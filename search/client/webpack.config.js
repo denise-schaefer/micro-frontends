@@ -30,6 +30,6 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules', src],
-    extensions: ['.webpack.js', '.js', '.json', '.jsx']
+    extensions: ['.webpack.js', '.js', '.json', '.jsx'],
   },
 };

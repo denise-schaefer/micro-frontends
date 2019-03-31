@@ -1,14 +1,13 @@
 import React from 'react';
 import { registerSearchProvider, removeSearchProvider } from 'search-api';
 import {
-	executeMockProductCountZeroCounts,
-	executeMockProductSearchZeroCounts,
 	executeProductCount,
 	executeProductSearch
 } from './search';
 import ProductSearchTab from './ProductSearchTab';
 import ProductSearchNav from './ProductSearchNav';
 import ProductSearchResult from './ProductSearchResult';
+import { I18nextProvider } from 'react-i18next';
 
 export const SEARCH_PROVIDER_ID = 'PRODUCT';
 const ORDER = 1;
@@ -22,29 +21,18 @@ export const initialize = () => {
 		// eslint-disable-next-line no-unused-vars
 		handlePushHistory: queryData => {},
 		getNavComponent: (queryData, data, fetchData) => (
-			<ProductSearchNav queryData={queryData} data={data} fetchData={fetchData} />
+			<I18nextProvider i18n={global.i18next}>
+				<ProductSearchNav queryData={queryData} data={data} fetchData={fetchData} />
+			</I18nextProvider>
 		),
-		getTabComponent: data => <ProductSearchTab data={data} />,
+		getTabComponent: data =>
+			<I18nextProvider i18n={global.i18next}>
+				<ProductSearchTab data={data} />
+			</I18nextProvider>,
 		getResultComponent: (queryData, data, fetchData) => (
-			<ProductSearchResult queryData={queryData} data={data} fetchData={fetchData} />
-		)
-	});
-};
-
-export const initializeMockProductSearchWithZeroCounts = () => {
-	registerSearchProvider({
-		ID: SEARCH_PROVIDER_ID,
-		order: ORDER,
-		execute_search: queryData => executeMockProductSearchZeroCounts(queryData),
-		execute_count: queryData => executeMockProductCountZeroCounts(queryData),
-		// eslint-disable-next-line no-unused-vars
-		handlePushHistory: queryData => {},
-		getNavComponent: (queryData, data, fetchData) => (
-			<ProductSearchNav queryData={queryData} data={data} fetchData={fetchData} />
-		),
-		getTabComponent: data => <ProductSearchTab data={data} />,
-		getResultComponent: (queryData, data, fetchData) => (
-			<ProductSearchResult queryData={queryData} data={data} fetchData={fetchData} />
+			<I18nextProvider i18n={global.i18next}>
+				<ProductSearchResult queryData={queryData} data={data} fetchData={fetchData} />
+			</I18nextProvider>
 		)
 	});
 };
