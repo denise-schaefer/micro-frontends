@@ -19,7 +19,11 @@ export const initialize = () => {
     handlePushHistory: queryData => {},
     getNavComponent: (queryData, data, fetchData) => (
       <I18nextProvider i18n={global.i18next}>
-        <ProductSearchNav queryData={queryData} data={data} fetchData={fetchData} />
+        <ProductSearchNav
+          queryData={queryData}
+          data={data}
+          fetchData={queryData => fetchData(queryData, SEARCH_PROVIDER_ID)}
+        />
       </I18nextProvider>
     ),
     getTabComponent: data => (
@@ -29,7 +33,11 @@ export const initialize = () => {
     ),
     getResultComponent: (queryData, data, fetchData) => (
       <I18nextProvider i18n={global.i18next}>
-        <ProductSearchResult queryData={queryData} data={data} fetchData={fetchData} />
+        <ProductSearchResult
+          queryData={queryData}
+          data={data}
+          fetchData={queryData => fetchData(queryData, SEARCH_PROVIDER_ID)}
+        />
       </I18nextProvider>
     ),
   });

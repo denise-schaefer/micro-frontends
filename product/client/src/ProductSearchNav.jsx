@@ -7,7 +7,7 @@ const ProductSearchNav = props => {
 
   return (
     <div style={{ border: '2px solid #efefef', width: '13.75em' }}>
-      <button type="button" onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
+      <button type="button" onClick={() => fetchData({ query: 'tier' })}>
         {t('search.for', { query: decodeURIComponent('tier') })}
       </button>
     </div>

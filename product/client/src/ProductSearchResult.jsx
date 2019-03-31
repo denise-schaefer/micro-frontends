@@ -15,7 +15,7 @@ const ProductSearchResult = props => {
         ))}
       </div>
       <br />
-      <button type="button" onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
+      <button type="button" onClick={() => fetchData({ query: 'tier' })}>
         {t('search.for', { query: decodeURIComponent('tier') })}
       </button>
     </div>

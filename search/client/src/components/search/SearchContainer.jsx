@@ -62,14 +62,14 @@ export class UnconnectedSearchContainer extends Component {
     this.handleSearch(searchProvider, this.getQueryData(searchProvider));
   };
 
-  getActiveSearchProvider = searchType => {
+  getActiveSearchProvider = searchProviderID => {
     const searchProviders = getSearchProviders();
 
-    const activeSearchProviderFromSearchType = searchProviders.filter(
-      searchProvider => searchType && searchProvider.ID === searchType.toUpperCase()
+    const activeSearchProviderFromProviderID = searchProviders.filter(
+      searchProvider => searchProviderID && searchProvider.ID === searchProviderID.toUpperCase()
     )[0];
 
-    return activeSearchProviderFromSearchType || searchProviders[0];
+    return activeSearchProviderFromProviderID || searchProviders[0];
   };
 
   getQueryData = searchProvider => {
@@ -79,10 +79,8 @@ export class UnconnectedSearchContainer extends Component {
       : this.props.queryData;
   };
 
-  fetchData = queryData => {
-    // type is inconsistent with searchType, should be refactored, see MCR-7911
-    const searchType = queryData ? queryData.searchType : '';
-    const activeSearchProvider = this.getActiveSearchProvider(searchType);
+  fetchData = (queryData, searchProviderID) => {
+    const activeSearchProvider = this.getActiveSearchProvider(searchProviderID);
     this.handleSearch(activeSearchProvider, queryData);
   };
 
