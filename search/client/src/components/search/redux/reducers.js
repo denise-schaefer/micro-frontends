@@ -13,7 +13,6 @@ import {
   RESET_SEARCH_STATE,
 } from './actions';
 import isEmpty from '../../../util/isEmpty';
-import { ReducerRegistry } from '@dm/redux-store-provider';
 
 export const reducerNameSearch = 'search/search';
 

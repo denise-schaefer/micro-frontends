@@ -26,28 +26,7 @@ import SearchInput from './SearchInput';
 
 export class UnconnectedSearchContainer extends Component {
   componentDidMount() {
-    // type is inconsistent with searchType, should be refactored, see MCR-7911
-    const searchType = this.props.queryData ? this.props.queryData.searchType : 'product';
-    const activeSearchProvider = this.getActiveSearchProvider(searchType);
-    // update query data from store
-    const queryData = this.getQueryData(activeSearchProvider);
-    this.props.setActiveSearchProvider(activeSearchProvider);
-    const searchProviders = getSearchProviders();
-
-    searchProviders
-      .filter(provider => provider.ID !== activeSearchProvider.ID)
-      .forEach(provider =>
-        provider
-          .execute_count(queryData)
-          .then(data => this.props.updateCountData(provider.ID, data))
-          .catch(error => {
-            const errorMessage = error.message || error;
-            this.props.searchCountError(provider.ID, errorMessage);
-          })
-      );
-
-    this.handleSearch(activeSearchProvider, queryData);
-
+    this.props.setActiveSearchProvider(getSearchProviders()[0]);
     window.addEventListener('popstate', this.handleHistoryPopState);
 
     this.unsubscribeListeners = () => {
@@ -143,6 +122,19 @@ export class UnconnectedSearchContainer extends Component {
   handleSearch = (activeSearchProvider, queryData) => {
     this.props.setLoadingState(true);
     this.props.setDisplaySuggestions(false);
+
+    getSearchProviders()
+      .filter(provider => provider.ID !== activeSearchProvider.ID)
+      .forEach(provider =>
+        provider
+          .execute_count(queryData)
+          .then(data => this.props.updateCountData(provider.ID, data))
+          .catch(error => {
+            const errorMessage = error.message || error;
+            this.props.searchCountError(provider.ID, errorMessage);
+          })
+      );
+
     activeSearchProvider
       .execute_search(queryData)
       .then(data => {
@@ -191,36 +183,38 @@ export class UnconnectedSearchContainer extends Component {
             this.getQueryData(activeSearchProvider) && this.getQueryData(activeSearchProvider).query
           }
         />
-        <div data-dmid="search-container" className={styles.searchContainer}>
-          {activeSearchProvider && activeSearchProvider.getNavComponent && (
-            <SearchNavigation
-              activeSearchProvider={activeSearchProvider}
-              queryData={this.getQueryData(activeSearchProvider)}
-              searchState={searchState}
-              fetchData={this.fetchData}
-            />
-          )}
-          <div data-dmid="search-content-container" className={styles.searchContentContainer}>
-            {activeSearchProvider && (
-              <SearchResultHeader
-                query={this.getQueryData(activeSearchProvider).query}
+        {this.getQueryData(activeSearchProvider) && (
+          <div data-dmid="search-container" className={styles.searchContainer}>
+            {activeSearchProvider && activeSearchProvider.getNavComponent && (
+              <SearchNavigation
                 activeSearchProvider={activeSearchProvider}
+                queryData={this.getQueryData(activeSearchProvider)}
                 searchState={searchState}
-                onTabClick={searchProvider => this.onTabClick(searchProvider)}
+                fetchData={this.fetchData}
               />
             )}
-            <SearchResultBody
-              activeSearchProvider={activeSearchProvider}
-              fetchData={this.fetchData}
-              errorState={errorState}
-              queryData={this.getQueryData(activeSearchProvider)}
-              searchState={searchState}
-              searchFallback={searchFallback}
-              handleUpdateSuggestions={this.handleUpdateSuggestions}
-            />
+            <div data-dmid="search-content-container" className={styles.searchContentContainer}>
+              {activeSearchProvider && (
+                <SearchResultHeader
+                  query={this.getQueryData(activeSearchProvider).query}
+                  activeSearchProvider={activeSearchProvider}
+                  searchState={searchState}
+                  onTabClick={searchProvider => this.onTabClick(searchProvider)}
+                />
+              )}
+              <SearchResultBody
+                activeSearchProvider={activeSearchProvider}
+                fetchData={this.fetchData}
+                errorState={errorState}
+                queryData={this.getQueryData(activeSearchProvider)}
+                searchState={searchState}
+                searchFallback={searchFallback}
+                handleUpdateSuggestions={this.handleUpdateSuggestions}
+              />
+            </div>
+            {loadingState && <Loading />}
           </div>
-          {loadingState && <Loading />}
-        </div>
+        )}
       </div>
     );
   }
