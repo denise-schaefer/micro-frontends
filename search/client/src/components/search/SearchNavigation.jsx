@@ -6,19 +6,16 @@ import isEmpty from '../../util/isEmpty';
 const SearchNavigation = props => {
   const { activeSearchProvider, queryData, searchState, fetchData, styles } = props;
 
-  const getNavFor = searchProvider => {
-    const data = !isEmpty(searchProvider) ? searchState[searchProvider.ID] : undefined;
-
-    if (!isEmpty(activeSearchProvider)) {
-      return (
-        <div data-dmid="search-nav" className={styles.searchNav}>
-          {searchProvider.getNavComponent(queryData, data, fetchData)}
-        </div>
-      );
-    }
+  if (isEmpty(activeSearchProvider)) {
     return null;
-  };
-  return getNavFor(activeSearchProvider);
+  }
+
+  const data = searchState[activeSearchProvider.ID];
+  return (
+    <div data-dmid="search-nav" className={styles.searchNav}>
+      {data && activeSearchProvider.getNavComponent(queryData, data, fetchData)}
+    </div>
+  );
 };
 
 const searchNav = ({ theme }) => ({

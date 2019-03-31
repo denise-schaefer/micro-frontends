@@ -1,55 +1,163 @@
+import isEmpty from '../../../util/isEmpty';
+import {getSearchProviders} from "search-api";
+import {SET_ACTIVE_SEARCH_PROVIDER} from "./actions";
+
 const createActionName = name => `search/search/${name}`;
-export const UPDATE_SEARCH_DATA = createActionName('UPDATE_SEARCH_DATA');
-export const UPDATE_COUNT_DATA = createActionName('UPDATE_COUNT_DATA');
-export const UPDATE_SUGGESTIONS = createActionName('UPDATE_SUGGESTIONS');
-export const SEARCH_ERROR = createActionName('SEARCH_ERROR');
-export const SEARCH_COUNT_ERROR = createActionName('SEARCH_COUNT_ERROR');
-export const SET_LOADING_STATE = createActionName('SET_LOADING_STATE');
-export const SET_DISPLAY_SUGGESTIONS = createActionName('SET_DISPLAY_SUGGESTIONS');
-export const SET_ACTIVE_SEARCH_PROVIDER = createActionName('SET_ACTIVE_SEARCH_PROVIDER');
 export const RESET_SEARCH_STATE = createActionName('RESET_SEARCH_STATE');
 
-const updateSearchData = (ID, activeSearchProvider, queryData, data) => ({
-  type: UPDATE_SEARCH_DATA,
-  ID,
-  activeSearchProvider,
-  queryData,
-  data,
-});
+export const DO_LOAD_DATA_STARTED = createActionName('LOAD_DATA_STARTED');
+export const DO_LOAD_DATA_FINISHED = createActionName('LOAD_DATA_FINISHED');
+export const DO_LOAD_DATA_FAILED = createActionName('LOAD_DATA_FAILED');
 
-const updateCountData = (ID, data) => ({
-  type: UPDATE_COUNT_DATA,
-  ID,
-  data,
-});
+export const DO_LOAD_COUNT_STARTED = createActionName('LOAD_COUNT_STARTED');
+export const DO_LOAD_COUNT_FINISHED = createActionName('LOAD_COUNT_FINISHED');
+export const DO_LOAD_COUNT_FAILED = createActionName('LOAD_COUNT_FAILED');
 
-const updateSuggestions = (ID, data) => ({
-  type: UPDATE_SUGGESTIONS,
-  ID,
-  data,
-});
+export const DO_LOAD_SUGGESTIONS_STARTED = createActionName('LOAD_SUGGESTIONS_STARTED');
+export const DO_LOAD_SUGGESTIONS_FINISHED = createActionName('LOAD_SUGGESTIONS_FINISHED');
+export const DO_LOAD_SUGGESTIONS_FAILED = createActionName('LOAD_SUGGESTIONS_FAILED');
 
-const searchError = (ID, activeSearchProvider, message) => ({
-  type: SEARCH_ERROR,
-  ID,
-  activeSearchProvider,
-  message,
-});
+const hasNoValidResult = data => {
+  if (isEmpty(data)) {
+    return true;
+  }
 
-const searchCountError = (ID, message) => ({
-  type: SEARCH_COUNT_ERROR,
-  ID,
-  message,
-});
+  return !data.count || data.count === 0;
+};
 
-const setLoadingState = isLoading => ({
-  type: SET_LOADING_STATE,
-  isLoading,
-});
+function doLoadData({ searchProviderId, queryData, providers }) {
+  return dispatch => {
+    const idNormalized = searchProviderId.toUpperCase();
 
-const setDisplaySuggestions = displaySuggestions => ({
-  type: SET_DISPLAY_SUGGESTIONS,
-  displaySuggestions,
+    const searchProvider = providers.find(provider => provider.ID === idNormalized);
+    if (searchProvider) {
+      dispatch({
+        type: DO_LOAD_DATA_STARTED,
+        ID: idNormalized,
+        queryData,
+      });
+
+      return searchProvider
+        .execute_search(queryData)
+        .then(data => {
+          if (hasNoValidResult(data)) {
+            const nextProvider = findNextSearchProvider(providers, searchProviderId);
+            if (nextProvider) {
+              // start fetching for the next searchprovider
+              const loadDataThunk = doLoadData({
+                searchProviderId: nextProvider.ID,
+                queryData,
+                providers,
+              });
+              return loadDataThunk(dispatch);
+            }
+            const error = new Error('no searchprovider returned a resultset');
+            return Promise.reject(error);
+          }
+
+          dispatch({
+            type: DO_LOAD_DATA_FINISHED,
+            ID: idNormalized,
+            activeSearchProvider: searchProvider,
+            queryData,
+            data,
+          });
+          return data;
+        })
+        .catch(error => {
+          dispatch({
+            type: DO_LOAD_DATA_FAILED,
+            ID: idNormalized,
+            activeSearchProvider: searchProvider,
+            message: error.message || error,
+          });
+          return Promise.reject(error);
+        });
+    }
+
+    return Promise.resolve();
+  };
+}
+
+function doLoadCount({ searchProviderId, queryData, providers }) {
+  return dispatch => {
+    const idNormalized = searchProviderId.toUpperCase();
+
+    const searchProvider = providers.find(provider => provider.ID === idNormalized);
+
+    if (!searchProvider) {
+      // dispatch({
+      // 	type: DO_LOAD_COUNT_FAILED,
+      // 	ID: idNormalized,
+      // 	message: `could not find a searchProvider for id=${idNormalized}`
+      // });
+      return Promise.resolve();
+    }
+
+    dispatch({
+      type: DO_LOAD_COUNT_STARTED,
+      ID: idNormalized,
+    });
+
+    return searchProvider
+      .execute_count(queryData)
+      .then(data => {
+        dispatch({
+          type: DO_LOAD_COUNT_FINISHED,
+          ID: idNormalized,
+          data,
+        });
+        return data;
+      })
+      .catch(error => {
+        dispatch({
+          type: DO_LOAD_COUNT_FAILED,
+          ID: idNormalized,
+          message: error.message || error,
+        });
+        return Promise.reject(error);
+      });
+  };
+}
+
+function doLoadSuggestions({ searchProviderId, queryData, providers }) {
+  return dispatch => {
+    const idNormalized = searchProviderId.toUpperCase();
+
+    const searchProvider = providers.find(provider => provider.ID === idNormalized);
+    if (searchProvider) {
+      dispatch({
+        type: DO_LOAD_SUGGESTIONS_STARTED,
+        ID: idNormalized,
+      });
+
+      return searchProvider
+        .execute_search(queryData)
+        .then(data => {
+          dispatch({
+            type: DO_LOAD_SUGGESTIONS_FINISHED,
+            ID: idNormalized,
+            data,
+          });
+          return data;
+        })
+        .catch(error => {
+          dispatch({
+            type: DO_LOAD_SUGGESTIONS_FAILED,
+            ID: idNormalized,
+            activeSearchProvider: searchProvider,
+            message: error.message || error,
+          });
+          return Promise.reject(error);
+        });
+    }
+
+    return Promise.resolve();
+  };
+}
+
+const resetSearchState = () => ({
+  type: RESET_SEARCH_STATE,
 });
 
 const setActiveSearchProvider = activeSearchProvider => ({
@@ -57,18 +165,17 @@ const setActiveSearchProvider = activeSearchProvider => ({
   activeSearchProvider,
 });
 
-const resetSearchState = () => ({
-  type: RESET_SEARCH_STATE,
-});
+function findNextSearchProvider(providers, providerId) {
+  const providerIdNormalized = providerId.toUpperCase();
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < providers.length; i++) {
+    if (providers[i].ID === providerIdNormalized) {
+      if (providers[i + 1]) {
+        return providers[i + 1];
+      }
+    }
+  }
+  return null;
+}
 
-export {
-  updateSearchData,
-  updateCountData,
-  updateSuggestions,
-  searchError,
-  searchCountError,
-  setLoadingState,
-  setDisplaySuggestions,
-  setActiveSearchProvider,
-  resetSearchState,
-};
+export { doLoadData, doLoadCount, doLoadSuggestions, resetSearchState, setActiveSearchProvider };

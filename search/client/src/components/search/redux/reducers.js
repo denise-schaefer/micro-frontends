@@ -1,87 +1,45 @@
 import { createStructuredSelector } from 'reselect';
-import { getSearchProviders } from 'search-api';
-
+import { getSearchProviderById } from '@dm/search-api';
 import {
-  UPDATE_SEARCH_DATA,
-  UPDATE_COUNT_DATA,
-  SEARCH_ERROR,
-  SEARCH_COUNT_ERROR,
-  SET_LOADING_STATE,
-  UPDATE_SUGGESTIONS,
-  SET_DISPLAY_SUGGESTIONS,
-  SET_ACTIVE_SEARCH_PROVIDER,
+  DO_LOAD_DATA_STARTED,
+  DO_LOAD_DATA_FAILED,
+  DO_LOAD_DATA_FINISHED,
+  DO_LOAD_COUNT_STARTED,
+  DO_LOAD_COUNT_FINISHED,
+  DO_LOAD_COUNT_FAILED,
+  DO_LOAD_SUGGESTIONS_STARTED,
+  DO_LOAD_SUGGESTIONS_FAILED,
+  DO_LOAD_SUGGESTIONS_FINISHED,
   RESET_SEARCH_STATE,
 } from './actions';
-import isEmpty from '../../../util/isEmpty';
+import {SET_ACTIVE_SEARCH_PROVIDER} from "./actions";
 
-export const reducerNameSearch = 'search/search';
-
-const hasNoValidResult = current => {
-  if (isEmpty(current.data)) {
-    return true;
-  }
-
-  return !current.data.count || current.data.count === 0;
-};
-
-// export only for testing
-export const getValidActiveProvider = (current, searchProviders, searchState) => {
-  const isCurrentProviderActive = current && current.activeProvider.ID === current.ID;
-
-  if (isCurrentProviderActive && hasNoValidResult(current)) {
-    const newSearchProviders = searchProviders.filter(provider => provider.ID !== current.ID);
-    const newActive = { ...newSearchProviders[0] };
-    const newActiveData = searchState[newActive.ID];
-
-    if (!isEmpty(newSearchProviders)) {
-      return getValidActiveProvider(
-        {
-          ID: newActive.ID,
-          data: newActiveData,
-          activeProvider: newActive,
-        },
-        newSearchProviders,
-        searchState
-      );
-    }
-    // if there is no provider with any search results,
-    // we return null and show search suggestions
-    return null;
-  }
-  return current ? current.activeProvider : null;
-};
+const reducerNameSearch = 'search/search';
 
 const updateSearchData = (action, state) => {
   const { ID, activeSearchProvider, queryData, data } = action;
 
   const newSearchState = {
     ...state.searchState,
+    [ID]: data,
   };
-
-  newSearchState[ID] = data;
 
   const newQueryState = {
     ...state.queryState,
-  };
-
-  newQueryState[ID] = {
-    ...queryData,
-    searchType: ID.toLowerCase(),
+    [ID]: {
+      ...queryData,
+      searchType: ID.toLowerCase(),
+    },
   };
 
   const newErrorState = {
     ...state.errorState,
+    [ID]: { error: false, message: '' },
   };
-
-  newErrorState[ID] = { error: false, message: '' };
 
   return {
     ...state,
-    activeSearchProvider: getValidActiveProvider(
-      { ID, data, activeProvider: { ...activeSearchProvider } },
-      getSearchProviders(),
-      newSearchState
-    ),
+    activeSearchProvider,
     searchState: newSearchState,
     errorState: newErrorState,
     queryState: newQueryState,
@@ -104,31 +62,6 @@ const updateSuggestions = (action, state) => {
   };
 };
 
-const updateCountData = (action, state) => {
-  const { ID, data } = action;
-
-  const newSearchState = {
-    ...state.searchState,
-  };
-
-  newSearchState[ID] = {
-    ...state.searchState[ID],
-    count: data.count,
-  };
-
-  const newErrorState = {
-    ...state.errorState,
-  };
-
-  newErrorState[ID] = { error: false, message: '' };
-
-  return {
-    ...state,
-    searchState: newSearchState,
-    errorState: newErrorState,
-  };
-};
-
 const searchError = (action, state) => {
   const { ID, activeSearchProvider } = action;
 
@@ -146,11 +79,7 @@ const searchError = (action, state) => {
 
   return {
     ...state,
-    activeSearchProvider: getValidActiveProvider(
-      { ID, data: {}, activeProvider: { ...activeSearchProvider } },
-      getSearchProviders(),
-      newSearchState
-    ),
+    activeSearchProvider,
     searchState: newSearchState,
     errorState: newErrorState,
     loadingState: false,
@@ -181,8 +110,10 @@ const searchCountError = (action, state) => {
 
 const initialState = {
   searchState: {},
+  countState: {},
   errorState: {},
   queryState: {},
+  activeSearchProviderId: null,
   activeSearchProvider: {},
   loadingState: false,
   displaySuggestions: false,
@@ -190,32 +121,87 @@ const initialState = {
 
 const search = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_SEARCH_DATA:
-      return updateSearchData(action, state);
-
-    case UPDATE_COUNT_DATA:
-      return updateCountData(action, state);
-
-    case UPDATE_SUGGESTIONS:
-      return updateSuggestions(action, state);
-
-    case SEARCH_ERROR:
-      return searchError(action, state);
-
-    case SEARCH_COUNT_ERROR:
-      return searchCountError(action, state);
-
-    case SET_LOADING_STATE:
+    case DO_LOAD_DATA_STARTED:
       return {
         ...state,
-        loadingState: action.isLoading,
+        activeSearchProviderId: action.ID,
+        activeSearchProvider: action.activeSearchProvider,
+        loadingState: true,
       };
 
-    case SET_DISPLAY_SUGGESTIONS:
+    case DO_LOAD_DATA_FINISHED: {
+      const newState = updateSearchData(action, state);
+      return {
+        ...newState,
+        activeSearchProviderId: action.ID,
+        activeSearchProvider: action.activeSearchProvider,
+        loadingState: false,
+      };
+    }
+
+    case DO_LOAD_DATA_FAILED: {
+      const newState = searchError(action, state);
+      return {
+        ...newState,
+        activeSearchProviderId: action.ID,
+        activeSearchProvider: action.activeSearchProvider,
+        loadingState: false,
+      };
+    }
+
+    case DO_LOAD_COUNT_STARTED: {
+      return {
+        ...state,
+        countState: {
+          ...state.countState,
+          [action.ID]: {
+            count: null,
+            loadingState: 'loading',
+          },
+        },
+      };
+    }
+
+    case DO_LOAD_COUNT_FINISHED: {
+      return {
+        ...state,
+        countState: {
+          ...state.countState,
+          [action.ID]: {
+            count: action.data.count,
+            loadingState: 'finished',
+          },
+        },
+      };
+    }
+
+    case DO_LOAD_COUNT_FAILED: {
+      const nextState = searchCountError(action, state);
+      return {
+        ...nextState,
+        countState: {
+          ...nextState.countState,
+          [action.ID]: {
+            count: null,
+            loadingState: 'failed',
+          },
+        },
+      };
+    }
+
+    case DO_LOAD_SUGGESTIONS_STARTED:
       return {
         ...state,
         displaySuggestions: action.displaySuggestions,
       };
+
+    case DO_LOAD_SUGGESTIONS_FINISHED: {
+      return updateSuggestions(action, state);
+    }
+
+    case DO_LOAD_SUGGESTIONS_FAILED: {
+      return searchError(action, state);
+    }
 
     case SET_ACTIVE_SEARCH_PROVIDER:
       return {
@@ -232,6 +218,7 @@ const search = (state = initialState, action) => {
 };
 
 const selectSearchState = state => state[reducerNameSearch] && state[reducerNameSearch].searchState;
+const selectCountState = state => state[reducerNameSearch] && state[reducerNameSearch].countState;
 const selectErrorState = state => state[reducerNameSearch] && state[reducerNameSearch].errorState;
 const selectQueryState = state => state[reducerNameSearch] && state[reducerNameSearch].queryState;
 const selectLoadingState = state =>
@@ -239,10 +226,12 @@ const selectLoadingState = state =>
 const selectDisplaySuggestions = state =>
   state[reducerNameSearch] && state[reducerNameSearch].displaySuggestions;
 const selectActiveSearchProvider = state =>
-  state[reducerNameSearch] && state[reducerNameSearch].activeSearchProvider;
+  state[reducerNameSearch] &&
+  getSearchProviderById(state[reducerNameSearch].activeSearchProviderId);
 
 export const structuredSelector = createStructuredSelector({
   searchState: selectSearchState,
+  countState: selectCountState,
   errorState: selectErrorState,
   queryState: selectQueryState,
   loadingState: selectLoadingState,

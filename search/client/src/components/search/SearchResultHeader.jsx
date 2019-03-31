@@ -8,10 +8,10 @@ import SearchTab from './SearchTab';
 import isEmpty from '../../util/isEmpty';
 
 const SearchResultHeader = props => {
-  const { query, styles, activeSearchProvider, searchState, onTabClick, t } = props;
+  const { query, styles, activeSearchProvider, countState, onTabClick, t } = props;
 
   const getTabFor = searchProvider => {
-    const data = searchState[searchProvider.ID];
+    const data = countState[searchProvider.ID];
     if (!isEmpty(activeSearchProvider)) {
       return (
         <SearchTab
@@ -67,7 +67,7 @@ SearchResultHeader.propTypes = {
   query: PropTypes.string,
   onTabClick: PropTypes.func,
   activeSearchProvider: PropTypes.object,
-  searchState: PropTypes.object,
+  countState: PropTypes.object,
   styles: PropTypes.object,
   t: PropTypes.func,
 };
