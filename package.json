@@ -15,7 +15,8 @@
     "composer"
   ],
   "scripts": {
-    "lint": "eslint --fix ./"
+    "lint": "eslint --fix ./",
+    "format": "prettier --write \"**/*.js\" \"**/*.jsx\""
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
