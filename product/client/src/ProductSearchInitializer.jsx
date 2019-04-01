@@ -6,7 +6,7 @@ import ProductSearchNav from './ProductSearchNav';
 import ProductSearchResult from './ProductSearchResult';
 import { I18nextProvider } from 'react-i18next';
 
-export const SEARCH_PROVIDER_ID = 'PRODUCT';
+export const SEARCH_PROVIDER_ID = 'product';
 const ORDER = 1;
 
 export const initialize = () => {
@@ -15,8 +15,6 @@ export const initialize = () => {
     order: ORDER,
     execute_search: queryData => executeProductSearch(queryData),
     execute_count: queryData => executeProductCount(queryData),
-    // eslint-disable-next-line no-unused-vars
-    handlePushHistory: queryData => {},
     getNavComponent: (queryData, data, fetchData) => (
       <I18nextProvider i18n={global.i18next}>
         <ProductSearchNav queryData={queryData} data={data} fetchData={fetchData} />

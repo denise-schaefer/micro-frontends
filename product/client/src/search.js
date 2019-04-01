@@ -4,9 +4,9 @@ const executeProductSearch = queryData => {
       count: 371,
       suggestions: ['suggestion 1', 'suggestion 2'],
       results: [
-        { id: '1', name: 'item 1 ' + queryData },
-        { id: '2', name: 'item 2 ' + queryData },
-        { id: '3', name: 'item 3 ' + queryData },
+        { id: '1', name: 'item 1 ' + queryData.query },
+        { id: '2', name: 'item 2 ' + queryData.query },
+        { id: '3', name: 'item 3 ' + queryData.query },
       ],
     });
   });

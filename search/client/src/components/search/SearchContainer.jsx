@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import qs from 'qs';
 import Loading from '@dm/loading';
 import { compose } from 'recompose';
 import { connect as connectFela } from '@dm/style-provider';
@@ -20,9 +21,33 @@ import { structuredSelector as mapStateToProps } from './redux/reducers';
 import isEmpty from '../../util/isEmpty';
 import SearchInput from './SearchInput';
 
+const readQueryDataFromUrl = () => {
+  const queryString = window.location.search;
+  let queryData;
+  if (queryString) {
+    queryData = qs.parse(queryString.substring(1, queryString.length));
+  }
+  return queryData;
+};
+
+const handlePushHistory = queryData => {
+  const queryString = `?${qs.stringify(queryData, {
+    encode: false,
+    indices: false,
+  })}`;
+
+  window.history.pushState({ ...queryData }, null, queryString);
+};
+
 export class UnconnectedSearchContainer extends Component {
   componentDidMount() {
-    this.props.setActiveSearchProvider(getSearchProviders()[0]);
+    const queryData = readQueryDataFromUrl();
+    const searchProviders = getSearchProviders();
+    if (queryData) {
+      this.handleSearch(queryData.searchType || searchProviders[0].ID, queryData);
+    } else {
+      this.props.setActiveSearchProvider(searchProviders[0]);
+    }
     window.addEventListener('popstate', this.handleHistoryPopState);
 
     this.unsubscribeListeners = () => {
@@ -35,9 +60,7 @@ export class UnconnectedSearchContainer extends Component {
   }
 
   onTabClick = searchProvider => {
-    if (searchProvider.handlePushHistory) {
-      searchProvider.handlePushHistory(this.getQueryData(searchProvider));
-    }
+    handlePushHistory(this.getQueryData(searchProvider));
     this.handleSearch(searchProvider.ID, this.getQueryData(searchProvider));
   };
 
@@ -45,7 +68,7 @@ export class UnconnectedSearchContainer extends Component {
     const searchProviders = getSearchProviders();
 
     const activeSearchProviderFromSearchType = searchProviders.filter(
-      searchProvider => searchType && searchProvider.ID === searchType.toUpperCase()
+      searchProvider => searchType && searchProvider.ID === searchType.toLowerCase()
     )[0];
 
     return activeSearchProviderFromSearchType || searchProviders[0];
@@ -61,6 +84,7 @@ export class UnconnectedSearchContainer extends Component {
   fetchData = queryData => {
     const searchType = queryData ? queryData.searchType : '';
     const activeSearchProvider = this.getActiveSearchProvider(searchType);
+    handlePushHistory(queryData);
     this.handleSearch(activeSearchProvider.ID, queryData);
   };
 
@@ -95,18 +119,25 @@ export class UnconnectedSearchContainer extends Component {
     });
   };
 
+  submitSearch = (activeSearchProviderID, queryData) => {
+    handlePushHistory({ ...queryData, searchType: activeSearchProviderID });
+    this.handleSearch(activeSearchProviderID, queryData);
+  };
+
   handleHistoryPopState = event => {
     const newState = event.state;
 
     if (newState) {
       const searchType = newState.searchType;
-      if (searchType && searchType.toUpperCase() !== this.props.activeSearchProvider.ID) {
-        const activeSearchProvider = this.getActiveSearchProvider(searchType);
-        this.props.setActiveSearchProvider(activeSearchProvider);
-      }
+      const query = newState.query;
+      const activeSearchProvider = this.getActiveSearchProvider(searchType);
+      this.handleSearch(activeSearchProvider.ID, {
+        ...this.getQueryData(activeSearchProvider),
+        query,
+      });
     } else {
-      const searchProviders = getSearchProviders();
-      this.props.setActiveSearchProvider(searchProviders[0]);
+      const activeSearchProvider = getSearchProviders()[0];
+      this.handleSearch(activeSearchProvider[0].ID, this.getQueryData(activeSearchProvider));
     }
   };
 
@@ -121,13 +152,13 @@ export class UnconnectedSearchContainer extends Component {
       styles,
     } = this.props;
 
+    const queryData = readQueryDataFromUrl();
+
     return (
       <div>
         <SearchInput
-          onSubmit={query => this.handleSearch(activeSearchProvider.ID, query)}
-          value={
-            this.getQueryData(activeSearchProvider) && this.getQueryData(activeSearchProvider).query
-          }
+          onSubmit={query => this.submitSearch(activeSearchProvider.ID, query)}
+          value={queryData && queryData.query}
         />
         {activeSearchProvider && this.getQueryData(activeSearchProvider) && (
           <div data-dmid="search-container" className={styles.searchContainer}>
@@ -193,7 +224,11 @@ UnconnectedSearchContainer.propTypes = {
   styles: PropTypes.object,
   // own props
   searchFallback: PropTypes.object,
-  queryData: PropTypes.object.isRequired,
+  queryData: PropTypes.shape({
+    query: PropTypes.string,
+    searchType: PropTypes.string,
+    ...PropTypes.object,
+  }).isRequired,
   // props from store
   searchState: PropTypes.object,
   countState: PropTypes.object,

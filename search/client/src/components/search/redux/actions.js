@@ -27,7 +27,7 @@ const hasNoValidResult = data => {
 
 function doLoadData({ searchProviderId, queryData, providers }) {
   return dispatch => {
-    const idNormalized = searchProviderId.toUpperCase();
+    const idNormalized = searchProviderId.toLowerCase();
 
     const searchProvider = providers.find(provider => provider.ID === idNormalized);
     if (searchProvider) {
@@ -81,7 +81,7 @@ function doLoadData({ searchProviderId, queryData, providers }) {
 
 function doLoadCount({ searchProviderId, queryData, providers }) {
   return dispatch => {
-    const idNormalized = searchProviderId.toUpperCase();
+    const idNormalized = searchProviderId.toLowerCase();
 
     const searchProvider = providers.find(provider => provider.ID === idNormalized);
 
@@ -122,7 +122,7 @@ function doLoadCount({ searchProviderId, queryData, providers }) {
 
 function doLoadSuggestions({ searchProviderId, queryData, providers }) {
   return dispatch => {
-    const idNormalized = searchProviderId.toUpperCase();
+    const idNormalized = searchProviderId.toLowerCase();
 
     const searchProvider = providers.find(provider => provider.ID === idNormalized);
     if (searchProvider) {
@@ -166,7 +166,7 @@ const setActiveSearchProvider = activeSearchProvider => ({
 });
 
 function findNextSearchProvider(providers, providerId) {
-  const providerIdNormalized = providerId.toUpperCase();
+  const providerIdNormalized = providerId.toLowerCase();
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < providers.length; i++) {
     if (providers[i].ID === providerIdNormalized) {

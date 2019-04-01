@@ -7,7 +7,6 @@ type SearchProvider = {
   order: number,
   execute_search: (queryData: Object) => Function, // should return a function returning a Promise,
   execute_count: (queryData: Object) => Function, // should return a function returning a Promise
-  handlePushHistory: (queryData: Object) => void,
   getNavComponent: (queryData: Object, data: Object, fetchData: Function) => Object,
   getTabComponent: (data: Object) => Object,
   getResultComponent: (queryData: Object, data: Object, fetchData: Function) => Object,

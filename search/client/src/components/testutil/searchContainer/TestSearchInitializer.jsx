@@ -8,8 +8,6 @@ export const testProvider = (SEARCH_PROVIDER_ID, ORDER) => ({
   execute_search: queryData => executeProductSearch(queryData),
   execute_count: queryData => executeProductCount(queryData),
   // eslint-disable-next-line no-unused-vars
-  handlePushHistory: queryData => {},
-  // eslint-disable-next-line no-unused-vars
   getNavComponent: (queryData, data, fetchData) => <div>Filter-Nav</div>,
   getTabComponent: data => (
     <div>
