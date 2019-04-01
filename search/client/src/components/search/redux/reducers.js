@@ -1,5 +1,4 @@
 import { createStructuredSelector } from 'reselect';
-import { getSearchProviderById } from '@dm/search-api';
 import {
   DO_LOAD_DATA_STARTED,
   DO_LOAD_DATA_FAILED,
@@ -11,8 +10,8 @@ import {
   DO_LOAD_SUGGESTIONS_FAILED,
   DO_LOAD_SUGGESTIONS_FINISHED,
   RESET_SEARCH_STATE,
+  SET_ACTIVE_SEARCH_PROVIDER,
 } from './actions';
-import {SET_ACTIVE_SEARCH_PROVIDER} from "./actions";
 
 const reducerNameSearch = 'search/search';
 
@@ -226,8 +225,7 @@ const selectLoadingState = state =>
 const selectDisplaySuggestions = state =>
   state[reducerNameSearch] && state[reducerNameSearch].displaySuggestions;
 const selectActiveSearchProvider = state =>
-  state[reducerNameSearch] &&
-  getSearchProviderById(state[reducerNameSearch].activeSearchProviderId);
+  state[reducerNameSearch] && state[reducerNameSearch].activeSearchProvider;
 
 export const structuredSelector = createStructuredSelector({
   searchState: selectSearchState,

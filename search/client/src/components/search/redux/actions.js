@@ -1,6 +1,4 @@
 import isEmpty from '../../../util/isEmpty';
-import {getSearchProviders} from "search-api";
-import {SET_ACTIVE_SEARCH_PROVIDER} from "./actions";
 
 const createActionName = name => `search/search/${name}`;
 export const RESET_SEARCH_STATE = createActionName('RESET_SEARCH_STATE');
@@ -16,6 +14,8 @@ export const DO_LOAD_COUNT_FAILED = createActionName('LOAD_COUNT_FAILED');
 export const DO_LOAD_SUGGESTIONS_STARTED = createActionName('LOAD_SUGGESTIONS_STARTED');
 export const DO_LOAD_SUGGESTIONS_FINISHED = createActionName('LOAD_SUGGESTIONS_FINISHED');
 export const DO_LOAD_SUGGESTIONS_FAILED = createActionName('LOAD_SUGGESTIONS_FAILED');
+
+export const SET_ACTIVE_SEARCH_PROVIDER = createActionName('LOAD_SUGGESTIONS_FAILED');
 
 const hasNoValidResult = data => {
   if (isEmpty(data)) {

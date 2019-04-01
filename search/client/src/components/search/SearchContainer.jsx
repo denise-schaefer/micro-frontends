@@ -61,7 +61,6 @@ export class UnconnectedSearchContainer extends Component {
   fetchData = queryData => {
     const searchType = queryData ? queryData.searchType : '';
     const activeSearchProvider = this.getActiveSearchProvider(searchType);
-
     this.handleSearch(activeSearchProvider.ID, queryData);
   };
 
@@ -100,7 +99,7 @@ export class UnconnectedSearchContainer extends Component {
     const newState = event.state;
 
     if (newState) {
-      const searchType = newState.type;
+      const searchType = newState.searchType;
       if (searchType && searchType.toUpperCase() !== this.props.activeSearchProvider.ID) {
         const activeSearchProvider = this.getActiveSearchProvider(searchType);
         this.props.setActiveSearchProvider(activeSearchProvider);
@@ -122,10 +121,6 @@ export class UnconnectedSearchContainer extends Component {
       styles,
     } = this.props;
 
-    if (!activeSearchProvider) {
-      return null;
-    }
-
     return (
       <div>
         <SearchInput
@@ -134,7 +129,7 @@ export class UnconnectedSearchContainer extends Component {
             this.getQueryData(activeSearchProvider) && this.getQueryData(activeSearchProvider).query
           }
         />
-        {this.getQueryData(activeSearchProvider) && (
+        {activeSearchProvider && this.getQueryData(activeSearchProvider) && (
           <div data-dmid="search-container" className={styles.searchContainer}>
             {activeSearchProvider.getNavComponent && (
               <SearchNavigation
@@ -174,7 +169,7 @@ const mapDispatchToProps = dispatch => ({
   loadData: (...args) => doLoadData(...args)(dispatch),
   loadCount: (...args) => doLoadCount(...args)(dispatch),
   loadSuggestions: (...args) => doLoadSuggestions(...args)(dispatch),
-  setActiveSearchProvider: (...args) => setActiveSearchProvider(...args)(dispatch),
+  setActiveSearchProvider: (...args) => dispatch(setActiveSearchProvider(...args)),
 });
 
 const searchContainer = ({ theme }) => ({
