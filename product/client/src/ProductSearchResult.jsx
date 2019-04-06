@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withI18n } from 'react-i18next';
 
 const ProductSearchResult = props => {
-  const { queryData, data, fetchData, t } = props;
+  const { queryData, data, t } = props;
   const { count, results } = data;
 
   return (
@@ -14,10 +14,6 @@ const ProductSearchResult = props => {
           <div key={result.gtin}>{result.name}</div>
         ))}
       </div>
-      <br />
-      <button type="button" onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
-        {t('search.for', { query: decodeURIComponent('tier') })}
-      </button>
     </div>
   );
 };

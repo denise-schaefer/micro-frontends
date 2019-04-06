@@ -15,6 +15,10 @@ import {
 import { structuredSelector as mapStateToProps } from './redux/reducers';
 import isEmpty from '../../util/isEmpty';
 import SearchInput from './SearchInput';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Navbar from 'react-bootstrap/Navbar';
 
 const readQueryDataFromUrl = () => {
   const queryString = window.location.search;
@@ -149,29 +153,33 @@ export class UnconnectedSearchContainer extends Component {
     const queryData = readQueryDataFromUrl();
 
     return (
-      <div>
-        <SearchInput
-          onSubmit={query => this.submitSearch(activeSearchProvider.ID, query)}
-          value={queryData && queryData.query}
-        />
+      <Container>
+        <Navbar className="bg-light justify-content-between" style={{ marginBottom: '20px' }}>
+          <Navbar.Brand>micro-frontends</Navbar.Brand>
+          <SearchInput
+            onSubmit={query => this.submitSearch(activeSearchProvider.ID, query)}
+            value={queryData && queryData.query}
+          />
+        </Navbar>
         {activeSearchProvider && this.getQueryData(activeSearchProvider) && (
-          <div data-dmid="search-container">
-            {activeSearchProvider.getNavComponent && (
-              <SearchNavigation
-                activeSearchProvider={activeSearchProvider}
-                queryData={this.getQueryData(activeSearchProvider)}
-                searchState={searchState}
-                fetchData={this.fetchData}
-              />
-            )}
-            <div data-dmid="search-content-container">
+          <Row>
+            <Col xs={6} md={4}>
+              {activeSearchProvider.getNavComponent && (
+                <SearchNavigation
+                  activeSearchProvider={activeSearchProvider}
+                  queryData={this.getQueryData(activeSearchProvider)}
+                  searchState={searchState}
+                  fetchData={this.fetchData}
+                />
+              )}
+            </Col>
+            <Col xs={12} md={8}>
               <SearchResultHeader
                 query={this.getQueryData(activeSearchProvider).query}
                 activeSearchProvider={activeSearchProvider}
                 countState={countState}
                 onTabClick={searchProvider => this.onTabClick(searchProvider)}
               />
-
               <SearchResultBody
                 activeSearchProvider={activeSearchProvider}
                 fetchData={this.fetchData}
@@ -181,11 +189,11 @@ export class UnconnectedSearchContainer extends Component {
                 searchFallback={searchFallback}
                 handleUpdateSuggestions={this.handleUpdateSuggestions}
               />
-            </div>
+            </Col>
             {loadingState && <div>Loading...</div>}
-          </div>
+          </Row>
         )}
-      </div>
+      </Container>
     );
   }
 }

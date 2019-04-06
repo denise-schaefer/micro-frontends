@@ -1,4 +1,7 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/es/FormControl';
+import Button from 'react-bootstrap/Button';
 
 export default class SearchInput extends React.Component {
   constructor(props) {
@@ -25,15 +28,19 @@ export default class SearchInput extends React.Component {
 
   render() {
     return (
-      <form onSubmit={event => this.handleSubmit(event)}>
-        <input
+      <Form inline onSubmit={event => this.handleSubmit(event)}>
+        <FormControl
           type="search"
           name="query"
+          placeholder="Search"
           value={this.state.value}
           onChange={event => this.handleChange(event)}
+          className="mr-sm-2"
         />
-        <button type="submit">find</button>
-      </form>
+        <Button variant="outline-success" type="submit">
+          Search
+        </Button>
+      </Form>
     );
   }
 }

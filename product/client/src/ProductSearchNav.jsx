@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withI18n } from 'react-i18next';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const ProductSearchNav = props => {
   const { fetchData, t } = props;
 
   return (
-    <div style={{ border: '2px solid #efefef', width: '13.75em' }}>
-      <button type="button" onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
+    <DropdownButton id="dropdown-basic-button" title="Filter">
+      <Dropdown.Item onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
         {t('search.for', { query: decodeURIComponent('tier') })}
-      </button>
-    </div>
+      </Dropdown.Item>
+    </DropdownButton>
   );
 };
 
