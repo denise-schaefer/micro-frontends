@@ -7,9 +7,9 @@ const SearchTab = props => {
   return (
     <Button
       style={{ margin: '5px' }}
-      type="submit"
+      type="button"
       key={searchProviderId}
-      data-dmattributes={isActive ? 'active' : ''}
+      active={isActive ? 'active' : ''}
       onClick={event => onClick(event)}>
       {children}
     </Button>
