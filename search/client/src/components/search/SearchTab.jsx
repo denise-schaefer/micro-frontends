@@ -10,7 +10,6 @@ const SearchTab = props => {
       type="submit"
       key={searchProviderId}
       data-dmattributes={isActive ? 'active' : ''}
-      data-dmid={`search-tab-${searchProviderId}`}
       onClick={event => onClick(event)}>
       {children}
     </Button>

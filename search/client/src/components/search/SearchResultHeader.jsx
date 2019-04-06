@@ -27,13 +27,9 @@ const SearchResultHeader = props => {
   };
 
   return (
-    <div data-dmid="search-header">
-      <h1 data-dmid="search-header-headline">
-        {t('search.for', { query: decodeURIComponent(query) })}
-      </h1>
-      <p data-dmid="search-tab-container">
-        {getSearchProviders().map(provider => getTabFor(provider))}
-      </p>
+    <div>
+      <h1>{t('search.for', { query: decodeURIComponent(query) })}</h1>
+      <p>{getSearchProviders().map(provider => getTabFor(provider))}</p>
     </div>
   );
 };

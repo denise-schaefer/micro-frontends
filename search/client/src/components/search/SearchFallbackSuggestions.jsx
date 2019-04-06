@@ -17,11 +17,7 @@ const getSuggestionLinks = suggestions =>
       const queryParams = qs.parse(window.location.search);
       queryParams.q = suggestion;
       return (
-        <a
-          title={suggestion}
-          key={suggestion}
-          data-dmid="suggestion-link"
-          href={decodeURIComponent(qs.stringify(queryParams))}>
+        <a title={suggestion} key={suggestion} href={decodeURIComponent(qs.stringify(queryParams))}>
           {suggestion}
         </a>
       );
@@ -29,11 +25,11 @@ const getSuggestionLinks = suggestions =>
     .reduce((prev, curr) => [prev, ', ', curr]);
 
 const SearchFallbackSuggestions = props => {
-  const { suggestions, styles, t } = props;
+  const { suggestions, t } = props;
 
   return (
     !(suggestions.length <= 0) && (
-      <div data-dmid="search-fallback-suggestions" className={styles.suggestions}>
+      <div>
         {t('suggestions.label')} {getSuggestionLinks(suggestions)}?
       </div>
     )

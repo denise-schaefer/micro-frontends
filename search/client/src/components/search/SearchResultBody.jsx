@@ -23,11 +23,7 @@ const SearchResultBody = props => {
       return queryData && queryData.query ? <div>Loading...</div> : null;
     }
 
-    return (
-      <div data-dmid="search-results">
-        {searchProvider.getResultComponent(queryData, data, fetchData)}
-      </div>
-    );
+    return <div>{searchProvider.getResultComponent(queryData, data, fetchData)}</div>;
   };
 
   const renderSearchResultBody = () => {
@@ -55,7 +51,7 @@ const SearchResultBody = props => {
     );
   };
 
-  return <div data-dmid="search-body">{renderSearchResultBody()}</div>;
+  return <div>{renderSearchResultBody()}</div>;
 };
 
 SearchResultBody.propTypes = {

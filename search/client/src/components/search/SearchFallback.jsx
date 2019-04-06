@@ -26,7 +26,7 @@ class SearchFallback extends Component {
   renderSearchFallback = () => {
     // TODO: i18next
     return (
-      <div data-dmid="search-fallback-info-container-content">
+      <div>
         <h2>Suchtipps</h2>
         <div>
           Versuchen Sie, allgemeiner zu suchen - Sie können anschließend die Suchergebnisse filtern.
@@ -42,12 +42,12 @@ class SearchFallback extends Component {
     const query = decodeURIComponent(this.props.query);
 
     return (
-      <div data-dmid="search-fallback-container">
-        <h1 data-dmid="search-fallback-headline">{t('search.fallback.headline', { query })}</h1>
+      <div>
+        <h1>{t('search.fallback.headline', { query })}</h1>
         {suggestions && suggestions.length > 0 && (
           <SearchFallbackSuggestions suggestions={suggestions} />
         )}
-        <div data-dmid="search-fallback-info-container">{this.renderSearchFallback()}</div>
+        <div>{this.renderSearchFallback()}</div>
       </div>
     );
   }

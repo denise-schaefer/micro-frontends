@@ -18,8 +18,8 @@ const setMMBehaviourVariables = () => {
 const SearchError = props => {
   setMMBehaviourVariables();
   return (
-    <div data-dmid="search-error-wrapper">
-      <h1 data-dmid="search-error">{props.t('search.error.headline')}</h1>
+    <div>
+      <h1>{props.t('search.error.headline')}</h1>
     </div>
   );
 };

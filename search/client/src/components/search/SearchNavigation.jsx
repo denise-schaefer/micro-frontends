@@ -10,11 +10,7 @@ const SearchNavigation = props => {
   }
 
   const data = searchState[activeSearchProvider.ID];
-  return (
-    <div data-dmid="search-nav">
-      {data && activeSearchProvider.getNavComponent(queryData, data, fetchData)}
-    </div>
-  );
+  return <div>{data && activeSearchProvider.getNavComponent(queryData, data, fetchData)}</div>;
 };
 
 SearchNavigation.propTypes = {
