@@ -79,24 +79,16 @@ function doLoadData({ searchProviderId, queryData, providers }) {
   };
 }
 
-function doLoadCount({ searchProviderId, queryData, providers }) {
+function doLoadCount({ searchProviderId, providers, queryData }) {
   return dispatch => {
     const idNormalized = searchProviderId.toLowerCase();
 
     const searchProvider = providers.find(provider => provider.ID === idNormalized);
 
-    if (!searchProvider) {
-      // dispatch({
-      // 	type: DO_LOAD_COUNT_FAILED,
-      // 	ID: idNormalized,
-      // 	message: `could not find a searchProvider for id=${idNormalized}`
-      // });
-      return Promise.resolve();
-    }
-
     dispatch({
       type: DO_LOAD_COUNT_STARTED,
       ID: idNormalized,
+      queryData,
     });
 
     return searchProvider

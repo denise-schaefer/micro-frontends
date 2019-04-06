@@ -1,14 +1,14 @@
 import { createStructuredSelector } from 'reselect';
 import {
-  DO_LOAD_DATA_STARTED,
+  DO_LOAD_COUNT_FAILED,
+  DO_LOAD_COUNT_FINISHED,
+  DO_LOAD_COUNT_STARTED,
   DO_LOAD_DATA_FAILED,
   DO_LOAD_DATA_FINISHED,
-  DO_LOAD_COUNT_STARTED,
-  DO_LOAD_COUNT_FINISHED,
-  DO_LOAD_COUNT_FAILED,
-  DO_LOAD_SUGGESTIONS_STARTED,
+  DO_LOAD_DATA_STARTED,
   DO_LOAD_SUGGESTIONS_FAILED,
   DO_LOAD_SUGGESTIONS_FINISHED,
+  DO_LOAD_SUGGESTIONS_STARTED,
   RESET_SEARCH_STATE,
   SET_ACTIVE_SEARCH_PROVIDER,
 } from './actions';
@@ -42,6 +42,33 @@ const updateSearchData = (action, state) => {
     searchState: newSearchState,
     errorState: newErrorState,
     queryState: newQueryState,
+  };
+};
+
+const updateCountData = (action, state) => {
+  const shouldUpdateQueryState = () => {
+    // eslint-disable-next-line prettier/prettier
+    return action.queryData.query !== state.queryState[action.ID] || !state.queryState[action.ID];
+  };
+
+  const newQueryState = {
+    ...state.queryState,
+    [action.ID]: {
+      ...action.queryData,
+      searchType: action.ID.toLowerCase(),
+    },
+  };
+
+  return {
+    ...state,
+    queryState: shouldUpdateQueryState() ? newQueryState : { ...state.queryState },
+    countState: {
+      ...state.countState,
+      [action.ID]: {
+        count: null,
+        loadingState: 'loading',
+      },
+    },
   };
 };
 
@@ -145,16 +172,7 @@ const search = (state = initialState, action) => {
     }
 
     case DO_LOAD_COUNT_STARTED: {
-      return {
-        ...state,
-        countState: {
-          ...state.countState,
-          [action.ID]: {
-            count: null,
-            loadingState: 'loading',
-          },
-        },
-      };
+      return updateCountData(action, state);
     }
 
     case DO_LOAD_COUNT_FINISHED: {

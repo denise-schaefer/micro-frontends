@@ -113,14 +113,14 @@ export class UnconnectedSearchContainer extends Component {
 
     this.props.loadData({
       searchProviderId: activeSearchProviderID,
-      queryData,
       providers: searchProviders,
+      queryData,
     });
   };
 
   submitSearch = (activeSearchProviderID, queryData) => {
-    handlePushHistory({ ...queryData, searchType: activeSearchProviderID });
     this.handleSearch(activeSearchProviderID, queryData);
+    handlePushHistory({ ...queryData, searchType: activeSearchProviderID });
   };
 
   handleHistoryPopState = event => {
