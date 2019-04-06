@@ -112,7 +112,6 @@ const initialState = {
   countState: {},
   errorState: {},
   queryState: {},
-  activeSearchProviderId: null,
   activeSearchProvider: {},
   loadingState: false,
   displaySuggestions: false,
@@ -123,7 +122,6 @@ const search = (state = initialState, action) => {
     case DO_LOAD_DATA_STARTED:
       return {
         ...state,
-        activeSearchProviderId: action.ID,
         activeSearchProvider: action.activeSearchProvider,
         loadingState: true,
       };
@@ -132,7 +130,6 @@ const search = (state = initialState, action) => {
       const newState = updateSearchData(action, state);
       return {
         ...newState,
-        activeSearchProviderId: action.ID,
         activeSearchProvider: action.activeSearchProvider,
         loadingState: false,
       };
@@ -142,7 +139,6 @@ const search = (state = initialState, action) => {
       const newState = searchError(action, state);
       return {
         ...newState,
-        activeSearchProviderId: action.ID,
         activeSearchProvider: action.activeSearchProvider,
         loadingState: false,
       };

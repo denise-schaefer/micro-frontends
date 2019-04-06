@@ -39,6 +39,7 @@ function render() {
 <script src="http://localhost:8080/composer.js"></script>
 <script src="http://localhost:3010/search.js"></script>
 <script src="http://localhost:3011/product.js"></script>
+<script src="http://localhost:3012/content.js"></script>
 
 <script>
     window.myNamespace.search.default.render('#root', {});

@@ -2,6 +2,24 @@
   "name": "content",
   "version": "1.0.0",
   "dependencies": {
+    "@babel/core": "7.4.0",
+    "babel-loader": "8.0.5",
+    "express": "4.16.4",
+    "nodemon": "1.18.10",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-i18next": "8.0.7",
     "search-api": "^1.0.0"
+  },
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "2.1.2",
+    "webpack": "4.29.6",
+    "webpack-cli": "3.3.0"
+  },
+  "scripts": {
+    "dev": "npm run build:watch & npm run serve",
+    "serve": "nodemon server/index.js",
+    "build": "cd client && NODE_ENV=production webpack",
+    "build:watch": "cd client && webpack -w"
   }
 }

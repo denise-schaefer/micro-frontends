@@ -1,0 +1,13 @@
+{
+	"presets": [
+		[
+			"@babel/env",
+			{
+				"targets": {
+					"browsers": ["last 2 versions", "ie >= 10", "iOS >= 7", "> 5% in DE"]
+				}
+			}
+		],
+		"@babel/react"
+	]
+}
