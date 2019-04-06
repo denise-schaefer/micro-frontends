@@ -22,11 +22,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const readQueryDataFromUrl = () => {
   const queryString = window.location.search;
-  let queryData;
-  if (queryString) {
-    queryData = qs.parse(queryString.substring(1, queryString.length));
-  }
-  return queryData;
+  return queryString ? qs.parse(queryString.substring(1, queryString.length)) : null;
 };
 
 const handlePushHistory = queryData => {
