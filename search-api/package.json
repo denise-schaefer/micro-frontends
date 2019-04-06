@@ -1,26 +1,26 @@
 {
-	"name": "search-api",
-	"version": "1.0.0",
-	"scripts": {
-		"test": "jest",
-		"build": "rm -rf lib && BABEL_ENV=commonjs babel src/api -d lib --ignore __tests__",
-		"build-production": "yarn build",
-		"watch": "yarn build --watch",
-		"lint": "eslint --fix --ext .jsx,.js src"
-	},
-	"jest": {
-		"displayName": "search-api",
-		"transform": {
-			".*": "../node_modules/babel-jest"
-		}
-	},
-	"main": "lib/index.js",
-	"devDependencies": {
-		"@babel/cli": "7.4.3",
-		"@babel/core": "7.4.3",
-		"@babel/preset-env": "7.4.3",
-		"@babel/preset-flow": "7.0.0",
-		"expect": "24.7.1",
-		"flow-bin": "0.95.1"
-	}
+  "name": "search-api",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf lib && BABEL_ENV=commonjs babel src/api -d lib --ignore __tests__",
+    "build-production": "yarn build",
+    "watch": "yarn build --watch",
+    "lint": "eslint --fix --ext .jsx,.js src"
+  },
+  "jest": {
+    "displayName": "search-api",
+    "transform": {
+      ".*": "../node_modules/babel-jest"
+    }
+  },
+  "main": "lib/index.js",
+  "devDependencies": {
+    "@babel/cli": "7.4.3",
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3",
+    "@babel/preset-flow": "7.0.0",
+    "expect": "24.7.1",
+    "flow-bin": "0.95.1"
+  }
 }

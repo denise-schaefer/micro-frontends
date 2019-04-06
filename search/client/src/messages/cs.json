@@ -1,14 +1,14 @@
 {
-	"search": {
-		"error": {
-			"headline": "Bohužel se vyskytla technická chyba."
-		},
-		"fallback": {
-			"headline": "Pro hledaný výraz „{{query}}” nebyly bohužel nalezeny žádné výsledky."
-		},
-		"for": "vyhledat „{{query}}”"
-	},
-	"suggestions": {
-		"label": "Měli jste na mysli:"
-	}
+  "search": {
+    "error": {
+      "headline": "Bohužel se vyskytla technická chyba."
+    },
+    "fallback": {
+      "headline": "Pro hledaný výraz „{{query}}” nebyly bohužel nalezeny žádné výsledky."
+    },
+    "for": "vyhledat „{{query}}”"
+  },
+  "suggestions": {
+    "label": "Měli jste na mysli:"
+  }
 }

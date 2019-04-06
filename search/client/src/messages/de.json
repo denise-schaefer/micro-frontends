@@ -1,14 +1,14 @@
 {
-	"search": {
-		"error": {
-			"headline": "Leider ist ein technischer Fehler aufgetreten."
-		},
-		"fallback": {
-			"headline": "Ihre Suche nach „{{query}}” ergab leider keine Treffer"
-		},
-		"for": "Suche nach „{{query}}”"
-	},
-	"suggestions": {
-		"label": "Meinten Sie:"
-	}
+  "search": {
+    "error": {
+      "headline": "Leider ist ein technischer Fehler aufgetreten."
+    },
+    "fallback": {
+      "headline": "Ihre Suche nach „{{query}}” ergab leider keine Treffer"
+    },
+    "for": "Suche nach „{{query}}”"
+  },
+  "suggestions": {
+    "label": "Meinten Sie:"
+  }
 }

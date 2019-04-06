@@ -1,8 +1,8 @@
 {
-	"search": {
-		"for": "Suche nach „{{query}}”",
-		"tab":  {
-			"products": "Produkte"
-		}
-	}
+  "search": {
+    "for": "Suche nach „{{query}}”",
+    "tab": {
+      "products": "Produkte"
+    }
+  }
 }

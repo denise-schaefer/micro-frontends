@@ -1,7 +1,7 @@
 {
-    "name": "content",
-    "version": "1.0.0",
-    "dependencies": {
-        "search-api": "^1.0.0"
-    }
+  "name": "content",
+  "version": "1.0.0",
+  "dependencies": {
+    "search-api": "^1.0.0"
+  }
 }
