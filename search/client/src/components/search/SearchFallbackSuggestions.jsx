@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from '@dm/style-provider';
 import qs from 'qs';
 import { withI18n } from 'react-i18next';
-import { compose } from 'recompose';
 
 const removeDuplicatesFromArray = suggestions =>
   suggestions.reduce((prev, curr) => {
@@ -44,18 +42,7 @@ const SearchFallbackSuggestions = props => {
 
 SearchFallbackSuggestions.propTypes = {
   suggestions: PropTypes.array,
-  styles: PropTypes.object,
   t: PropTypes.func,
 };
 
-const suggestions = ({ theme }) => ({
-  fontSize: theme.typography.fontSize.l.rem,
-  fontFamily: theme.typography.fontFamily.primary.medium,
-  marginBottom: theme.dimension.spacing.xl.rem,
-  textAlign: 'center',
-});
-
-export default compose(
-  connect({ suggestions }),
-  withI18n()
-)(SearchFallbackSuggestions);
+export default withI18n()(SearchFallbackSuggestions);

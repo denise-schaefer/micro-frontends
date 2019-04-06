@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Loading from '@dm/loading';
 import SearchError from './SearchError';
 import SearchFallback from './SearchFallback';
 import isEmpty from '../../util/isEmpty';
@@ -21,7 +20,7 @@ const SearchResultBody = props => {
     const data = !isEmpty(searchProvider) ? searchState[searchProvider.ID] : undefined;
 
     if (!data) {
-      return queryData && queryData.query ? <Loading /> : null;
+      return queryData && queryData.query ? <div>Loading...</div> : null;
     }
 
     return (
@@ -51,10 +50,6 @@ const SearchResultBody = props => {
         query={queryData.query}
         searchFallback={searchFallback}
         searchState={searchState}
-        basicConfig={{
-          targetSystem: queryData.targetSystem,
-          stagingSystem: queryData.stagingSystem,
-        }}
         handleUpdateSuggestions={handleUpdateSuggestions}
       />
     );

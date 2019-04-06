@@ -1,12 +1,7 @@
-/* eslint import/prefer-default-export: 0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import qs from 'qs';
-import Loading from '@dm/loading';
-import { compose } from 'recompose';
-import { connect as connectFela } from '@dm/style-provider';
-import { withGlobalConfig } from '@dm/global-config-provider';
 import { getSearchProviders } from 'search-api';
 import SearchResultHeader from './SearchResultHeader';
 import SearchResultBody from './SearchResultBody';
@@ -149,7 +144,6 @@ export class UnconnectedSearchContainer extends Component {
       countState,
       errorState,
       loadingState,
-      styles,
     } = this.props;
 
     const queryData = readQueryDataFromUrl();
@@ -161,7 +155,7 @@ export class UnconnectedSearchContainer extends Component {
           value={queryData && queryData.query}
         />
         {activeSearchProvider && this.getQueryData(activeSearchProvider) && (
-          <div data-dmid="search-container" className={styles.searchContainer}>
+          <div data-dmid="search-container">
             {activeSearchProvider.getNavComponent && (
               <SearchNavigation
                 activeSearchProvider={activeSearchProvider}
@@ -170,7 +164,7 @@ export class UnconnectedSearchContainer extends Component {
                 fetchData={this.fetchData}
               />
             )}
-            <div data-dmid="search-content-container" className={styles.searchContentContainer}>
+            <div data-dmid="search-content-container">
               <SearchResultHeader
                 query={this.getQueryData(activeSearchProvider).query}
                 activeSearchProvider={activeSearchProvider}
@@ -188,7 +182,7 @@ export class UnconnectedSearchContainer extends Component {
                 handleUpdateSuggestions={this.handleUpdateSuggestions}
               />
             </div>
-            {loadingState && <Loading />}
+            {loadingState && <div>Loading...</div>}
           </div>
         )}
       </div>
@@ -203,25 +197,7 @@ const mapDispatchToProps = dispatch => ({
   setActiveSearchProvider: (...args) => dispatch(setActiveSearchProvider(...args)),
 });
 
-const searchContainer = ({ theme }) => ({
-  position: 'relative',
-  display: 'flex',
-  maxWidth: theme.dimension.contentSize.l.px,
-  margin: `${theme.dimension.spacing.xl.rem} auto 0`,
-  padding: `0 ${theme.dimension.spacing.xs.rem}`,
-  column2to6: {
-    margin: `${theme.dimension.spacing.xs.rem} auto 0`,
-    padding: '0',
-  },
-});
-
-const searchContentContainer = () => ({
-  flex: '1 0 0px',
-});
-
 UnconnectedSearchContainer.propTypes = {
-  // fela props
-  styles: PropTypes.object,
   // own props
   searchFallback: PropTypes.object,
   queryData: PropTypes.shape({
@@ -241,15 +217,9 @@ UnconnectedSearchContainer.propTypes = {
   loadCount: PropTypes.func.isRequired,
   loadSuggestions: PropTypes.func.isRequired,
   setActiveSearchProvider: PropTypes.func.isRequired,
-  // ConfigProvider
-  getConfig: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
 };
 
-export default compose(
-  withGlobalConfig,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  connectFela({ searchContainer, searchContentContainer })
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(UnconnectedSearchContainer);
