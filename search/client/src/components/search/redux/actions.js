@@ -1,4 +1,5 @@
 import isEmpty from '../../../util/isEmpty';
+import { getSearchProviders } from 'search-api';
 
 const createActionName = name => `search/search/${name}`;
 export const RESET_SEARCH_STATE = createActionName('RESET_SEARCH_STATE');
@@ -51,10 +52,10 @@ function doLoadData({ searchProviderId, queryData, providers }) {
               });
               return loadDataThunk(dispatch);
             }
-            const error = new Error('no searchprovider returned a resultset');
-            return Promise.reject(error);
+            // no searchprovider returned a resultset -> load suggestions
+            const loadSuggestions = doLoadSuggestions({ queryData });
+            return loadSuggestions(dispatch);
           }
-
           dispatch({
             type: DO_LOAD_DATA_FINISHED,
             ID: idNormalized,
@@ -112,18 +113,16 @@ function doLoadCount({ searchProviderId, providers, queryData }) {
   };
 }
 
-function doLoadSuggestions({ searchProviderId, queryData, providers }) {
+function doLoadSuggestions({ queryData }) {
   return dispatch => {
-    const idNormalized = searchProviderId.toLowerCase();
+    dispatch({
+      type: DO_LOAD_SUGGESTIONS_STARTED,
+    });
 
-    const searchProvider = providers.find(provider => provider.ID === idNormalized);
-    if (searchProvider) {
-      dispatch({
-        type: DO_LOAD_SUGGESTIONS_STARTED,
-        ID: idNormalized,
-      });
-
-      return searchProvider
+    const searchProviders = getSearchProviders();
+    searchProviders.forEach(searchProvider => {
+      const idNormalized = searchProvider.ID.toLowerCase();
+      searchProvider
         .execute_search(queryData)
         .then(data => {
           dispatch({
@@ -131,7 +130,6 @@ function doLoadSuggestions({ searchProviderId, queryData, providers }) {
             ID: idNormalized,
             data,
           });
-          return data;
         })
         .catch(error => {
           dispatch({
@@ -142,8 +140,7 @@ function doLoadSuggestions({ searchProviderId, queryData, providers }) {
           });
           return Promise.reject(error);
         });
-    }
-
+    });
     return Promise.resolve();
   };
 }

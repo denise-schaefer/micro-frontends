@@ -1,20 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchError from './SearchError';
-import SearchFallback from './SearchFallback';
 import isEmpty from '../../util/isEmpty';
 import getObjectValues from '../../util/getObjectValues';
 
 const SearchResultBody = props => {
-  const {
-    activeSearchProvider,
-    fetchData,
-    errorState,
-    queryData,
-    searchFallback,
-    searchState,
-    handleUpdateSuggestions,
-  } = props;
+  const { activeSearchProvider, fetchData, errorState, queryData, searchState } = props;
 
   const getResultFor = searchProvider => {
     const data = !isEmpty(searchProvider) ? searchState[searchProvider.ID] : undefined;
@@ -35,20 +26,7 @@ const SearchResultBody = props => {
       }
     }
 
-    // activeSearchProvider is null in case of search fallback,
-    // otherwise undefined or empty object
-    if (activeSearchProvider !== null) {
-      return getResultFor(activeSearchProvider);
-    }
-
-    return (
-      <SearchFallback
-        query={queryData.query}
-        searchFallback={searchFallback}
-        searchState={searchState}
-        handleUpdateSuggestions={handleUpdateSuggestions}
-      />
-    );
+    return getResultFor(activeSearchProvider);
   };
 
   return <div>{renderSearchResultBody()}</div>;
@@ -57,11 +35,9 @@ const SearchResultBody = props => {
 SearchResultBody.propTypes = {
   queryData: PropTypes.object,
   fetchData: PropTypes.func.isRequired,
-  searchFallback: PropTypes.object,
   searchState: PropTypes.object,
   errorState: PropTypes.object,
   activeSearchProvider: PropTypes.object,
-  handleUpdateSuggestions: PropTypes.func.isRequired,
 };
 
 export default SearchResultBody;

@@ -6,10 +6,6 @@ import isEmpty from '../../util/isEmpty';
 import getObjectValues from '../../util/getObjectValues';
 
 class SearchFallback extends Component {
-  componentDidUpdate() {
-    this.props.handleUpdateSuggestions();
-  }
-
   getSuggestions = () => {
     const { searchState } = this.props;
     const suggestions = [];
@@ -21,18 +17,6 @@ class SearchFallback extends Component {
       });
     }
     return suggestions;
-  };
-
-  renderSearchFallback = () => {
-    // TODO: i18next
-    return (
-      <div>
-        <h2>Suchtipps</h2>
-        <div>
-          Versuchen Sie, allgemeiner zu suchen - Sie können anschließend die Suchergebnisse filtern.
-        </div>
-      </div>
-    );
   };
 
   render() {
@@ -47,7 +31,13 @@ class SearchFallback extends Component {
         {suggestions && suggestions.length > 0 && (
           <SearchFallbackSuggestions suggestions={suggestions} />
         )}
-        <div>{this.renderSearchFallback()}</div>
+        <p>
+          <h2>Suchtipps</h2>
+          <div>
+            Versuchen Sie, allgemeiner zu suchen - Sie können anschließend die Suchergebnisse
+            filtern.
+          </div>
+        </p>
       </div>
     );
   }
@@ -56,7 +46,6 @@ class SearchFallback extends Component {
 SearchFallback.propTypes = {
   query: PropTypes.string,
   searchState: PropTypes.object,
-  handleUpdateSuggestions: PropTypes.func.isRequired,
   t: PropTypes.func,
 };
 

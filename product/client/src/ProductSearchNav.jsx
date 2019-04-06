@@ -12,6 +12,12 @@ const ProductSearchNav = props => {
       <Dropdown.Item onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
         {t('search.for', { query: decodeURIComponent('tier') })}
       </Dropdown.Item>
+      <Dropdown.Item onClick={() => fetchData({ query: 'zero', searchType: 'product' })}>
+        {t('search.for', { query: decodeURIComponent('zero') })}
+      </Dropdown.Item>
+      <Dropdown.Item onClick={() => fetchData({ query: 'content', searchType: 'product' })}>
+        {t('search.for', { query: decodeURIComponent('content') })}
+      </Dropdown.Item>
     </DropdownButton>
   );
 };

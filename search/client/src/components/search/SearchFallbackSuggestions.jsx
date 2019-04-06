@@ -14,10 +14,14 @@ const removeDuplicatesFromArray = suggestions =>
 const getSuggestionLinks = suggestions =>
   removeDuplicatesFromArray(suggestions)
     .map(suggestion => {
-      const queryParams = qs.parse(window.location.search);
-      queryParams.q = suggestion;
+      const queryParams = {
+        query: suggestion,
+      };
       return (
-        <a title={suggestion} key={suggestion} href={decodeURIComponent(qs.stringify(queryParams))}>
+        <a
+          title={suggestion}
+          key={suggestion}
+          href={decodeURIComponent(`?${qs.stringify(queryParams)}`)}>
           {suggestion}
         </a>
       );

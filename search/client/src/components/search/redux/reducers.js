@@ -12,6 +12,7 @@ import {
   RESET_SEARCH_STATE,
   SET_ACTIVE_SEARCH_PROVIDER,
 } from './actions';
+import { getSearchProviders } from 'search-api';
 
 const reducerNameSearch = 'search/search';
 
@@ -83,7 +84,7 @@ const updateSuggestions = (action, state) => {
 
   return {
     ...state,
-    activeSearchProvider: null,
+    activeSearchProvider: getSearchProviders()[0],
     searchState: newSearchState,
   };
 };
@@ -109,6 +110,7 @@ const searchError = (action, state) => {
     searchState: newSearchState,
     errorState: newErrorState,
     loadingState: false,
+    displaySuggestions: false,
   };
 };
 
@@ -151,6 +153,7 @@ const search = (state = initialState, action) => {
         ...state,
         activeSearchProvider: action.activeSearchProvider,
         loadingState: true,
+        displaySuggestions: false,
       };
 
     case DO_LOAD_DATA_FINISHED: {
@@ -205,7 +208,7 @@ const search = (state = initialState, action) => {
     case DO_LOAD_SUGGESTIONS_STARTED:
       return {
         ...state,
-        displaySuggestions: action.displaySuggestions,
+        displaySuggestions: true,
       };
 
     case DO_LOAD_SUGGESTIONS_FINISHED: {

@@ -6,12 +6,7 @@ import { getSearchProviders } from 'search-api';
 import SearchResultHeader from './SearchResultHeader';
 import SearchResultBody from './SearchResultBody';
 import SearchNavigation from './SearchNavigation';
-import {
-  doLoadData,
-  doLoadCount,
-  doLoadSuggestions,
-  setActiveSearchProvider,
-} from './redux/actions';
+import { doLoadData, doLoadCount, setActiveSearchProvider } from './redux/actions';
 import { structuredSelector as mapStateToProps } from './redux/reducers';
 import isEmpty from '../../util/isEmpty';
 import SearchInput from './SearchInput';
@@ -19,6 +14,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
+import SearchFallback from './SearchFallback';
 
 const readQueryDataFromUrl = () => {
   const queryString = window.location.search;
@@ -83,19 +79,6 @@ export class UnconnectedSearchContainer extends Component {
     this.handleSearch(activeSearchProvider.ID, queryData);
   };
 
-  handleUpdateSuggestions = () => {
-    if (!this.props.displaySuggestions) {
-      const searchProviders = getSearchProviders();
-
-      searchProviders.forEach(searchProvider =>
-        this.props.loadSuggestions({
-          searchProviderId: searchProvider.ID,
-          queryData: this.props.queryData,
-        })
-      );
-    }
-  };
-
   handleSearch = (activeSearchProviderID, queryData) => {
     const searchProviders = getSearchProviders();
 
@@ -138,12 +121,12 @@ export class UnconnectedSearchContainer extends Component {
 
   render() {
     const {
-      searchFallback,
       activeSearchProvider,
       searchState,
       countState,
       errorState,
       loadingState,
+      displaySuggestions,
     } = this.props;
 
     const queryData = readQueryDataFromUrl();
@@ -157,7 +140,7 @@ export class UnconnectedSearchContainer extends Component {
             value={queryData && queryData.query}
           />
         </Navbar>
-        {activeSearchProvider && this.getQueryData(activeSearchProvider) && (
+        {!displaySuggestions && activeSearchProvider && this.getQueryData(activeSearchProvider) && (
           <Row>
             <Col xs={6} md={4}>
               {activeSearchProvider.getNavComponent && (
@@ -176,19 +159,19 @@ export class UnconnectedSearchContainer extends Component {
                 countState={countState}
                 onTabClick={searchProvider => this.onTabClick(searchProvider)}
               />
+
               <SearchResultBody
                 activeSearchProvider={activeSearchProvider}
                 fetchData={this.fetchData}
                 errorState={errorState}
                 queryData={this.getQueryData(activeSearchProvider)}
                 searchState={searchState}
-                searchFallback={searchFallback}
-                handleUpdateSuggestions={this.handleUpdateSuggestions}
               />
             </Col>
             {loadingState && <div>Loading...</div>}
           </Row>
         )}
+        {displaySuggestions && <SearchFallback query={queryData.query} searchState={searchState} />}
       </Container>
     );
   }
@@ -197,13 +180,11 @@ export class UnconnectedSearchContainer extends Component {
 const mapDispatchToProps = dispatch => ({
   loadData: (...args) => doLoadData(...args)(dispatch),
   loadCount: (...args) => doLoadCount(...args)(dispatch),
-  loadSuggestions: (...args) => doLoadSuggestions(...args)(dispatch),
   setActiveSearchProvider: (...args) => dispatch(setActiveSearchProvider(...args)),
 });
 
 UnconnectedSearchContainer.propTypes = {
   // own props
-  searchFallback: PropTypes.object,
   queryData: PropTypes.shape({
     query: PropTypes.string,
     searchType: PropTypes.string,
@@ -219,7 +200,6 @@ UnconnectedSearchContainer.propTypes = {
   activeSearchProvider: PropTypes.object,
   loadData: PropTypes.func.isRequired,
   loadCount: PropTypes.func.isRequired,
-  loadSuggestions: PropTypes.func.isRequired,
   setActiveSearchProvider: PropTypes.func.isRequired,
 };
 
