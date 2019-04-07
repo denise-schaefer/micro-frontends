@@ -1,6 +1,8 @@
 # WIP: micro-frontends
 example repo for micro frontends with react and dependency inversion as integration pattern
 
+!!! This repo is still work in progress, do not use it yet
+
 ## Slides
 Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 
@@ -13,6 +15,7 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 1. Update
 2. use scoped packages
 3. remove additional provider in initializers
+4. remove @dm/i18next
 ### Store/Hooks
 1. remove @dm/store libs
 2. use scoped packages and updates libs or introduce react hooks
