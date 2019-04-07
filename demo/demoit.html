@@ -1,0 +1,81 @@
+<h1>Micro-Frontends</h1>
+
+<h2>by Denise and Benny</h2>
+
+---
+
+<h1>Snapshot</h1>
+
+<img src="/images/bazel.png" />
+
+---
+
+<h1>Terminal</h1>
+
+<div class="split">
+    <web-term path="folder"></web-term>
+</div>
+
+---
+
+<h1>Demo Suche</h1>
+
+<div class="split">
+    <web-term path="folder"></web-term>
+    <web-browser src="http://localhost:8080/"></web-browser>
+</div>
+
+<style>
+    p {
+        font-style: italic;
+        font-size: .5em;
+    }
+
+    .split {
+        height: calc(100% - 9em);
+    }
+</style>
+
+---
+
+<h1>Demo Suche</h1>
+
+<div class="split">
+    <web-browser src="http://localhost:8080/"></web-browser>
+</div>
+
+<style>
+    .split {
+        height: calc(100% - 9em);
+    }
+</style>
+
+---
+
+<h1>Dependency Inversion Search</h1>
+
+<div class="split">
+    <source-code folder="sources"
+        files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx search/client/src/components/search/SearchContainer.jsx"
+        start-lines="20;13,28;82"
+        end-lines="31;16,31;98">
+    </source-code>
+</div>
+
+<style>
+    h1 {
+        font-size: 1em;
+    }
+    .split {
+        height: calc(100% - 4em);
+    }
+</style>
+
+---
+
+<h1>Draw on slides</h1>
+
+<p>On the left border of the page there's a pen that can be used to draw on the slides. Type <em>&lt;ESC&gt;</em> to exit draw mode.</p>
+
+<img src="/images/bazel.png" />
+<script src="/js/draw.js"></script>
