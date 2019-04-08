@@ -9,6 +9,13 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 1. Install [Go](https://golang.org/ "Go")
 2. Start with ./demoit demo
 
+Instead of installing Go, you can also build the docker image and run the slides within a container.
+
+```bash
+docker build -t micro-frontends:latest .
+./run-demo.sh
+```
+
 ## ToDos
 ### Tests and Test-Setup
 ### I18next
