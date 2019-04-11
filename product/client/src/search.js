@@ -1,5 +1,5 @@
 const executeProductSearch = queryData => {
-  if (queryData.query === 'zero' || queryData.query === 'content') {
+  if (['', 'zero', 'content'].some(value => value === queryData.query)) {
     return new Promise(resolve => {
       resolve({
         count: 0,

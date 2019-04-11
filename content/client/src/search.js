@@ -1,5 +1,5 @@
 const executeContentSearch = queryData => {
-  if (queryData.query === 'zero') {
+  if (['', 'zero'].some(value => value === queryData.query)) {
     return new Promise(resolve => {
       resolve({
         count: 0,
