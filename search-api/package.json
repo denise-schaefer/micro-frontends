@@ -2,8 +2,7 @@
   "name": "search-api",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest",
-    "build": "rm -rf lib && BABEL_ENV=commonjs babel src/api -d lib --ignore __tests__",
+    "build": "rm -rf lib && BABEL_ENV=commonjs babel src/api -d lib",
     "build-production": "yarn build",
     "watch": "yarn build --watch",
     "lint": "eslint --fix --ext .jsx,.js src"
@@ -14,7 +13,6 @@
     "@babel/core": "7.4.3",
     "@babel/preset-env": "7.4.3",
     "@babel/preset-flow": "7.0.0",
-    "babel-jest": "24.7.1",
     "expect": "24.7.1",
     "flow-bin": "0.95.1"
   }

@@ -10,8 +10,9 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
-### Tests and Test-Setup
+### Nav raus und Suche nach Leerstrings
 ### I18next
+raus?
 1. Update
 2. use scoped packages
 3. remove additional provider in initializers
@@ -20,8 +21,10 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 1. remove @dm/store libs
 2. use scoped packages and updates libs or introduce react hooks
 ### search-api
+Typisierung raus
 search-api without globals and replace flow with typescript
 ### README.md
+workflow durch den Code
 write README.md
 ### scripts
 write start and build scripts in root package.json 
