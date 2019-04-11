@@ -1272,7 +1272,7 @@ babel-eslint@10.0.1:
     eslint-scope "3.7.1"
     eslint-visitor-keys "^1.0.0"
 
-babel-jest@24.7.1, babel-jest@^24.7.1:
+babel-jest@^24.7.1:
   version "24.7.1"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/babel-jest/-/babel-jest-24.7.1.tgz#73902c9ff15a7dfbdc9994b0b17fcefd96042178"
   dependencies:
@@ -2615,10 +2615,6 @@ flat-cache@^2.0.1:
 flatted@^2.0.0:
   version "2.0.0"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
-
-flow-bin@0.95.1:
-  version "0.95.1"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/flow-bin/-/flow-bin-0.95.1.tgz#633113831ccff4b7ee70a2730f63fc43b69ba85f"
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
