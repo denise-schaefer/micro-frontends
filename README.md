@@ -10,13 +10,7 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
-### Suche nach Leerstrings
-### I18next
-raus?
-1. Update
-2. use scoped packages
-3. remove additional provider in initializers
-4. remove @dm/i18next
+### Bugs: Suche nach Leerstrings, Loading State bei Suggestions nicht false
 ### Store/Hooks
 1. remove @dm/store libs
 2. use scoped packages and updates libs or introduce react hooks

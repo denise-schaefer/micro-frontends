@@ -1,7 +1,4 @@
-import { createI18next } from '@dm/i18n';
 import { ReducerRegistry, createStoreWithReducerRegistry, combine } from '@dm/redux-store-provider';
-
-global.i18next = global.i18next || createI18next();
 
 global.reducerRegistry = global.reducerRegistry || new ReducerRegistry();
 

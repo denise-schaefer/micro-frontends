@@ -3,7 +3,6 @@ import { registerSearchProvider, removeSearchProvider } from 'search-api';
 import { executeContentCount, executeContentSearch } from './search';
 import ContentSearchTab from './ContentSearchTab';
 import ContentSearchResult from './ContentSearchResult';
-import { I18nextProvider } from 'react-i18next';
 
 export const SEARCH_PROVIDER_ID = 'content';
 const ORDER = 2;
@@ -14,15 +13,9 @@ export const initialize = () => {
     order: ORDER,
     execute_search: queryData => executeContentSearch(queryData),
     execute_count: queryData => executeContentCount(queryData),
-    getTabComponent: data => (
-      <I18nextProvider i18n={global.i18next}>
-        <ContentSearchTab data={data} />
-      </I18nextProvider>
-    ),
+    getTabComponent: data => <ContentSearchTab data={data} />,
     getResultComponent: (queryData, data, fetchData) => (
-      <I18nextProvider i18n={global.i18next}>
-        <ContentSearchResult queryData={queryData} data={data} fetchData={fetchData} />
-      </I18nextProvider>
+      <ContentSearchResult queryData={queryData} data={data} fetchData={fetchData} />
     ),
   });
 };

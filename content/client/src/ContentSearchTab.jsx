@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withI18n } from 'react-i18next';
 import isEmpty from './util/isEmpty';
 
 const ContentSearchTab = props => {
@@ -13,12 +12,11 @@ const ContentSearchTab = props => {
     count = '?';
   }
 
-  return <span>{`${props.t('search.tab.content')} (${count})`}</span>;
+  return <span>{`Beratung (${count})`}</span>;
 };
 
 ContentSearchTab.propTypes = {
   data: PropTypes.object,
-  t: PropTypes.func,
 };
 
-export default withI18n()(ContentSearchTab);
+export default ContentSearchTab;

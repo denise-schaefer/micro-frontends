@@ -2,7 +2,6 @@
   "name": "search",
   "version": "1.0.0",
   "dependencies": {
-    "@dm/i18n": "2.6.0",
     "@dm/redux-store-provider": "5.2.0",
     "express": "4.16.4",
     "nodemon": "1.18.10",
@@ -10,7 +9,6 @@
     "qs": "6.7.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-i18next": "8.0.7",
     "react-redux": "5.0.7",
     "recompose": "0.30.0",
     "redux": "4.0.1",

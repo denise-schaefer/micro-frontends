@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
-import { withI18n } from 'react-i18next';
 
 const removeDuplicatesFromArray = suggestions =>
   suggestions.reduce((prev, curr) => {
@@ -29,12 +28,14 @@ const getSuggestionLinks = suggestions =>
     .reduce((prev, curr) => [prev, ', ', curr]);
 
 const SearchFallbackSuggestions = props => {
-  const { suggestions, t } = props;
+  const { suggestions } = props;
 
   return (
     !(suggestions.length <= 0) && (
       <div>
-        {t('suggestions.label')} {getSuggestionLinks(suggestions)}?
+        {'Meinten Sie '}
+        <span>{getSuggestionLinks(suggestions)}</span>
+        {'?'}
       </div>
     )
   );
@@ -42,7 +43,6 @@ const SearchFallbackSuggestions = props => {
 
 SearchFallbackSuggestions.propTypes = {
   suggestions: PropTypes.array,
-  t: PropTypes.func,
 };
 
-export default withI18n()(SearchFallbackSuggestions);
+export default SearchFallbackSuggestions;

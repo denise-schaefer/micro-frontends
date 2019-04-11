@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withI18n } from 'react-i18next';
 import SearchFallbackSuggestions from './SearchFallbackSuggestions';
 import isEmpty from '../../util/isEmpty';
 import getObjectValues from '../../util/getObjectValues';
@@ -20,14 +19,13 @@ class SearchFallback extends Component {
   };
 
   render() {
-    const { t } = this.props;
     const suggestions = this.getSuggestions();
 
     const query = decodeURIComponent(this.props.query);
 
     return (
       <div>
-        <h1>{t('search.fallback.headline', { query })}</h1>
+        <h1>{`Keine Treffer für "${query}"`}</h1>
         {suggestions && suggestions.length > 0 && (
           <SearchFallbackSuggestions suggestions={suggestions} />
         )}
@@ -46,7 +44,6 @@ class SearchFallback extends Component {
 SearchFallback.propTypes = {
   query: PropTypes.string,
   searchState: PropTypes.object,
-  t: PropTypes.func,
 };
 
-export default withI18n()(SearchFallback);
+export default SearchFallback;

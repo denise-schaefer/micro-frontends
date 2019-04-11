@@ -15,53 +15,57 @@ limitations under the License.
 */
 
 // Capture keydown events, and change slides accordingly
-document.addEventListener("keydown", event => {
-    switch (event.key) {
-        case "ArrowRight":
-        case " ":
-            window.location.href = NextURL;
-            break;
-        case "ArrowLeft":
-            window.location.href = PrevURL;
-            break;
-        default:
-            return;
-    }
+document.addEventListener('keydown', event => {
+  switch (event.key) {
+    case 'ArrowRight':
+    case ' ':
+      window.location.href = NextURL;
+      break;
+    case 'ArrowLeft':
+      window.location.href = PrevURL;
+      break;
+    default:
+      return;
+  }
 });
 
 // Maximize a "window".
 function maximize(w) {
-    if (w.savedStyle != undefined) {
-        w.style = w.savedStyle
-        w.savedStyle = undefined;
-        return;
-    }
+  if (w.savedStyle != undefined) {
+    w.style = w.savedStyle;
+    w.savedStyle = undefined;
+    return;
+  }
 
-    w.savedStyle = Object.assign({}, w.style);
+  w.savedStyle = Object.assign({}, w.style);
 
-    w.style['position'] = 'absolute';
-    w.style['top'] = '20px';
-    w.style['left'] = '20px';
-    w.style['width'] = 'calc(100% - 40px)';
-    w.style['height'] = 'calc(100% - 40px)';
-    w.style['margin'] = '0';
-    w.style['box-sizing'] = 'border-box';
-    w.style['z-index'] = '20';
+  w.style['position'] = 'absolute';
+  w.style['top'] = '20px';
+  w.style['left'] = '20px';
+  w.style['width'] = 'calc(100% - 40px)';
+  w.style['height'] = 'calc(100% - 40px)';
+  w.style['margin'] = '0';
+  w.style['box-sizing'] = 'border-box';
+  w.style['z-index'] = '20';
 }
 
-customElements.define('source-code', class extends HTMLElement {
+customElements.define(
+  'source-code',
+  class extends HTMLElement {
     constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
+      super();
+      this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
-        const files = this.getAttribute('files').split(' ').filter(n => n.trim() !== "");
-        if (files.length === 0) {
-            return;
-        }
+      const files = this.getAttribute('files')
+        .split(' ')
+        .filter(n => n.trim() !== '');
+      if (files.length === 0) {
+        return;
+      }
 
-        let style = `<style>
+      let style = `<style>
 .browser {
     font-size: 18px;
     padding: 2.1em 0 0 0;
@@ -184,15 +188,19 @@ customElements.define('source-code', class extends HTMLElement {
     background-color: rgb(191, 214, 255) !important;
 }
 
-</style>`
+</style>`;
 
-        let tabs = `<div class="files">`;
-        for (var i = 0; i < files.length; i++) {
-            tabs += `<a class="${(i == 0) ? "selected" : ""}" href="#">${files[i]}<span class="close">x</span></a>`
-        }
-        tabs += `</div>`;
+      let tabs = `<div class="files">`;
+      for (var i = 0; i < files.length; i++) {
+        tabs += `<a class="${i == 0 ? 'selected' : ''}" href="#">${
+          files[i]
+        }<span class="close">x</span></a>`;
+      }
+      tabs += `</div>`;
 
-        this.shadowRoot.innerHTML = style + `
+      this.shadowRoot.innerHTML =
+        style +
+        `
 <div class="browser" id="browser">
     <div class="browser-navigation-bar">
         <i></i><i></i><i id="green"></i>
@@ -200,50 +208,63 @@ customElements.define('source-code', class extends HTMLElement {
     </div>
 
     <div class="browser-container">` +
-        tabs + `<div class="source-code"><div id="source"></div></div>
+        tabs +
+        `<div class="source-code"><div id="source"></div></div>
     </div>
 </div>`;
-        this.showFile(0);
+      this.showFile(0);
 
-        const links = Array.from(this.shadowRoot.querySelectorAll("a"));
-        for (var i = 0; i < links.length; i++) {
-            const index = i;
-            links[index].onclick = () => { this.showFile(index); }
-        }
+      const links = Array.from(this.shadowRoot.querySelectorAll('a'));
+      for (var i = 0; i < links.length; i++) {
+        const index = i;
+        links[index].onclick = () => {
+          this.showFile(index);
+        };
+      }
 
-        const browser = this.shadowRoot.getElementById("browser");
-        this.shadowRoot.getElementById("green").onclick = () => maximize(browser);
+      const browser = this.shadowRoot.getElementById('browser');
+      this.shadowRoot.getElementById('green').onclick = () => maximize(browser);
     }
 
     showFile(index) {
-        const folder = this.getAttribute('folder');
-        const files = this.getAttribute('files').split(' ');
-        const startLines = this.getAttribute('start-lines').split(';');
-        const endLines = this.getAttribute('end-lines').split(';');
+      const folder = this.getAttribute('folder');
+      const files = this.getAttribute('files').split(' ');
+      const startLines = this.getAttribute('start-lines').split(';');
+      const endLines = this.getAttribute('end-lines').split(';');
 
-        const xhr = new XMLHttpRequest();
-        xhr.addEventListener('load', () => {
-            this.shadowRoot.getElementById("source").innerHTML = xhr.response;
+      const xhr = new XMLHttpRequest();
+      xhr.addEventListener('load', () => {
+        this.shadowRoot.getElementById('source').innerHTML = xhr.response;
 
-            const links = Array.from(this.shadowRoot.querySelectorAll("a"));
-            links.forEach(el => { el.classList.remove('selected') });
-            links[index].classList.add('selected');
+        const links = Array.from(this.shadowRoot.querySelectorAll('a'));
+        links.forEach(el => {
+          el.classList.remove('selected');
         });
-        xhr.open('GET', `/sourceCode/${folder}/${files[index]}?style=vs&startLine=${startLines[index]}&endLine=${endLines[index]}`);
-        xhr.send();
+        links[index].classList.add('selected');
+      });
+      xhr.open(
+        'GET',
+        `/sourceCode/${folder}/${files[index]}?style=vs&startLine=${startLines[index]}&endLine=${
+          endLines[index]
+        }`
+      );
+      xhr.send();
     }
-});
+  }
+);
 
-customElements.define('web-browser', class extends HTMLElement {
+customElements.define(
+  'web-browser',
+  class extends HTMLElement {
     constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
+      super();
+      this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
-        const src = this.getAttribute('src')
+      const src = this.getAttribute('src');
 
-        this.shadowRoot.innerHTML = `
+      this.shadowRoot.innerHTML = `
 <style>
 iframe {
     width: 100%;
@@ -352,50 +373,53 @@ iframe {
 </div>
 `;
 
-        const browser = this.shadowRoot.getElementById("browser");
-        this.previousStatus = 200;
-        this.shadowRoot.getElementById("refresh").onclick = () => this.refresh();
-        this.shadowRoot.getElementById("green").onclick = () => maximize(browser);
-        this.fetchUntilSuccess(src, () => this.refresh());
+      const browser = this.shadowRoot.getElementById('browser');
+      this.previousStatus = 200;
+      this.shadowRoot.getElementById('refresh').onclick = () => this.refresh();
+      this.shadowRoot.getElementById('green').onclick = () => maximize(browser);
+      this.fetchUntilSuccess(src, () => this.refresh());
     }
 
     refresh() {
-        console.log("refresh");
-        this.shadowRoot.getElementById("site").src = this.shadowRoot.getElementById("site").src;
+      console.log('refresh');
+      this.shadowRoot.getElementById('site').src = this.shadowRoot.getElementById('site').src;
     }
 
     fetchUntilSuccess(url, callback) {
-        const xhr = new XMLHttpRequest();
-        xhr.addEventListener('load', (r) => {
-            status = r.target.status;
-            if (status < 400) {
-                this.previousStatus = status;
-                callback();
-                return;
-            }
+      const xhr = new XMLHttpRequest();
+      xhr.addEventListener('load', r => {
+        status = r.target.status;
+        if (status < 400) {
+          this.previousStatus = status;
+          callback();
+          return;
+        }
 
-            if (status !== this.previousStatus) {
-                this.previousStatus = status;
-                callback();
-            }
-            window.setTimeout(() => this.fetchUntilSuccess(url, callback), 1000);
-        });
-        xhr.open('HEAD', `/ping?url=${url}`);
-        xhr.send();
+        if (status !== this.previousStatus) {
+          this.previousStatus = status;
+          callback();
+        }
+        window.setTimeout(() => this.fetchUntilSuccess(url, callback), 1000);
+      });
+      xhr.open('HEAD', `/ping?url=${url}`);
+      xhr.send();
     }
-});
+  }
+);
 
-customElements.define('web-term', class extends HTMLElement {
+customElements.define(
+  'web-term',
+  class extends HTMLElement {
     constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
+      super();
+      this.attachShadow({ mode: 'open' });
     }
 
     addTab() {
-        const path = this.getAttribute('path')
+      const path = this.getAttribute('path');
 
-        const div = document.createElement('div');
-        div.innerHTML = `
+      const div = document.createElement('div');
+      div.innerHTML = `
 <div class="browser">
 <div class="browser-navigation-bar">
     <i></i><i></i><i class="green"></i>
@@ -407,13 +431,13 @@ customElements.define('web-term', class extends HTMLElement {
     <iframe class="shell" scrolling="no" src="/shell/${path}"></iframe>
 </div>
 </div>`;
-        const browser = this.shadowRoot.appendChild(div.lastChild);
-        browser.getElementsByClassName('addtab')[0].onclick = () => this.addTab();
-        browser.getElementsByClassName('green')[0].onclick = () => maximize(browser);
+      const browser = this.shadowRoot.appendChild(div.lastChild);
+      browser.getElementsByClassName('addtab')[0].onclick = () => this.addTab();
+      browser.getElementsByClassName('green')[0].onclick = () => maximize(browser);
     }
 
     connectedCallback() {
-        this.shadowRoot.innerHTML = `
+      this.shadowRoot.innerHTML = `
 <style>
 :host {
     display: flex;
@@ -508,7 +532,7 @@ iframe {
 }
 </style>`;
 
-        this.addTab();
+      this.addTab();
     }
-})
-
+  }
+);
