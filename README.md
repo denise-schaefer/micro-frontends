@@ -10,7 +10,7 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
-### Nav raus und Suche nach Leerstrings
+### Suche nach Leerstrings
 ### I18next
 raus?
 1. Update
@@ -20,9 +20,6 @@ raus?
 ### Store/Hooks
 1. remove @dm/store libs
 2. use scoped packages and updates libs or introduce react hooks
-### search-api
-Typisierung raus
-search-api without globals and replace flow with typescript
 ### README.md
 workflow durch den Code
 write README.md

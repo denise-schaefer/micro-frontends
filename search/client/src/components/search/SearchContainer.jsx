@@ -5,7 +5,6 @@ import qs from 'qs';
 import { getSearchProviders } from 'search-api';
 import SearchResultHeader from './SearchResultHeader';
 import SearchResultBody from './SearchResultBody';
-import SearchNavigation from './SearchNavigation';
 import { doLoadData, doLoadCount, setActiveSearchProvider } from './redux/actions';
 import { structuredSelector as mapStateToProps } from './redux/reducers';
 import isEmpty from '../../util/isEmpty';
@@ -141,25 +140,16 @@ export class UnconnectedSearchContainer extends Component {
           />
         </Navbar>
         {!displaySuggestions && activeSearchProvider && this.getQueryData(activeSearchProvider) && (
-          <Row>
-            <Col xs={6} md={4}>
-              {activeSearchProvider.getNavComponent && (
-                <SearchNavigation
-                  activeSearchProvider={activeSearchProvider}
-                  queryData={this.getQueryData(activeSearchProvider)}
-                  searchState={searchState}
-                  fetchData={this.fetchData}
-                />
-              )}
-            </Col>
-            <Col xs={12} md={8}>
+          <Col style={{ justifyContent: 'center' }}>
+            <Row className="justify-content-center">
               <SearchResultHeader
                 query={this.getQueryData(activeSearchProvider).query}
                 activeSearchProvider={activeSearchProvider}
                 countState={countState}
                 onTabClick={searchProvider => this.onTabClick(searchProvider)}
               />
-
+            </Row>
+            <Row className="justify-content-center">
               <SearchResultBody
                 activeSearchProvider={activeSearchProvider}
                 fetchData={this.fetchData}
@@ -167,11 +157,11 @@ export class UnconnectedSearchContainer extends Component {
                 queryData={this.getQueryData(activeSearchProvider)}
                 searchState={searchState}
               />
-            </Col>
-            {loadingState && <div>Loading...</div>}
-          </Row>
+            </Row>
+          </Col>
         )}
         {displaySuggestions && <SearchFallback query={queryData.query} searchState={searchState} />}
+        {loadingState && <div>Loading...</div>}
       </Container>
     );
   }

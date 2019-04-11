@@ -14,8 +14,6 @@ export const initialize = () => {
     order: ORDER,
     execute_search: queryData => executeContentSearch(queryData),
     execute_count: queryData => executeContentCount(queryData),
-    // eslint-disable-next-line no-unused-vars
-    getNavComponent: (queryData, data, fetchData) => <div style={{ width: '13.75em' }} />,
     getTabComponent: data => (
       <I18nextProvider i18n={global.i18next}>
         <ContentSearchTab data={data} />
