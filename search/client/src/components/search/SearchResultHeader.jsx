@@ -30,7 +30,7 @@ const SearchResultHeader = props => {
   return (
     <Col>
       <Row className="justify-content-center">
-        <h1>{`Suche nach ${decodeURIComponent(query)}`}</h1>
+        <h1>{`Suche nach "${decodeURIComponent(query)}"`}</h1>
       </Row>
       <Row className="justify-content-center">
         {getSearchProviders().map(provider => getTabFor(provider))}

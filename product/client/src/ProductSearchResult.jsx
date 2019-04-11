@@ -9,7 +9,7 @@ const ProductSearchResult = props => {
 
   return (
     <div>
-      <p>{`Suche nach ${decodeURIComponent(queryData.query)}: ${count} counts`}</p>
+      <p>{`Suche nach "${decodeURIComponent(queryData.query)}": ${count} counts`}</p>
       <div style={{ margin: '20px' }}>
         {results.map(result => (
           <div key={result.gtin}>{result.name}</div>
@@ -17,13 +17,13 @@ const ProductSearchResult = props => {
       </div>
       <DropdownButton id="dropdown-basic-button" title="Filter">
         <Dropdown.Item onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
-          {'Suche nach ' + decodeURIComponent('tier')}
+          {`Suche nach "${decodeURIComponent('tier')}"`}
         </Dropdown.Item>
         <Dropdown.Item onClick={() => fetchData({ query: 'zero', searchType: 'product' })}>
-          {'Suche nach ' + decodeURIComponent('zero')}
+          {`Suche nach "${decodeURIComponent('zero')}"`}
         </Dropdown.Item>
         <Dropdown.Item onClick={() => fetchData({ query: 'content', searchType: 'product' })}>
-          {'Suche nach ' + decodeURIComponent('content')}
+          {`Suche nach "${decodeURIComponent('content')}"`}
         </Dropdown.Item>
       </DropdownButton>
     </div>

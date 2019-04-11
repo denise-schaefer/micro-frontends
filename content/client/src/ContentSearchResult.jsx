@@ -7,7 +7,7 @@ const ContentSearchResult = props => {
 
   return (
     <div>
-      <p>{`Suche nach ${decodeURIComponent(queryData.query)}: ${count} counts`}</p>
+      <p>{`Suche nach "${decodeURIComponent(queryData.query)}": ${count} counts`}</p>
       <p>{results}</p>
     </div>
   );
