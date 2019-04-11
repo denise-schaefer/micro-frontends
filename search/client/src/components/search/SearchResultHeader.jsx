@@ -4,6 +4,8 @@ import { withI18n } from 'react-i18next';
 import PropTypes from 'prop-types';
 import SearchTab from './SearchTab';
 import isEmpty from '../../util/isEmpty';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const SearchResultHeader = props => {
   const { query, activeSearchProvider, countState, onTabClick, t } = props;
@@ -27,10 +29,14 @@ const SearchResultHeader = props => {
   };
 
   return (
-    <div>
-      <h1>{t('search.for', { query: decodeURIComponent(query) })}</h1>
-      <p>{getSearchProviders().map(provider => getTabFor(provider))}</p>
-    </div>
+    <Col>
+      <Row className="justify-content-center">
+        <h1>{t('search.for', { query: decodeURIComponent(query) })}</h1>
+      </Row>
+      <Row className="justify-content-center">
+        {getSearchProviders().map(provider => getTabFor(provider))}
+      </Row>
+    </Col>
   );
 };
 

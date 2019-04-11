@@ -2,7 +2,6 @@ import React from 'react';
 import { registerSearchProvider, removeSearchProvider } from 'search-api';
 import { executeProductCount, executeProductSearch } from './search';
 import ProductSearchTab from './ProductSearchTab';
-import ProductSearchNav from './ProductSearchNav';
 import ProductSearchResult from './ProductSearchResult';
 import { I18nextProvider } from 'react-i18next';
 
@@ -15,11 +14,6 @@ export const initialize = () => {
     order: ORDER,
     execute_search: queryData => executeProductSearch(queryData),
     execute_count: queryData => executeProductCount(queryData),
-    getNavComponent: (queryData, data, fetchData) => (
-      <I18nextProvider i18n={global.i18next}>
-        <ProductSearchNav queryData={queryData} data={data} fetchData={fetchData} />
-      </I18nextProvider>
-    ),
     getTabComponent: data => (
       <I18nextProvider i18n={global.i18next}>
         <ProductSearchTab data={data} />
