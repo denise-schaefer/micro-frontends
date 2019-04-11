@@ -686,23 +686,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@dm/global-config-provider@^1.4.0":
-  version "1.4.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/@dm/global-config-provider/-/@dm/global-config-provider-1.4.0.tgz#fb4de78cedf616e15bd7848c44dcd4c56c601bc3"
-  dependencies:
-    hoist-non-react-statics "3.0.1"
-    prop-types "15.6.2"
-
-"@dm/i18n@2.6.0":
-  version "2.6.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/@dm/i18n/-/@dm/i18n-2.6.0.tgz#74611dfab2aa9e5e3d5b6dd25fcd49b18034a171"
-  dependencies:
-    "@dm/global-config-provider" "^1.4.0"
-    i18next "11.9.0"
-    prop-types "15.6.2"
-    react-i18next "8.0.7"
-    react-intl "2.4.0"
-
 "@dm/redux-store-provider@5.2.0":
   version "5.2.0"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/@dm/redux-store-provider/-/@dm/redux-store-provider-5.2.0.tgz#0393f221fd8b0557a324cbb877a068fc95b6b906"
@@ -1867,16 +1850,16 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-context@0.2.3, create-react-context@^0.2.1:
-  version "0.2.3"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/create-react-context/-/create-react-context-0.2.3.tgz#9ec140a6914a22ef04b8b09b7771de89567cb6f3"
+create-react-context@<=0.2.2:
+  version "0.2.2"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/create-react-context/-/create-react-context-0.2.2.tgz#9836542f9aaa22868cd7d4a6f82667df38019dca"
   dependencies:
     fbjs "^0.8.0"
     gud "^1.0.0"
 
-create-react-context@<=0.2.2:
-  version "0.2.2"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/create-react-context/-/create-react-context-0.2.2.tgz#9836542f9aaa22868cd7d4a6f82667df38019dca"
+create-react-context@^0.2.1:
+  version "0.2.3"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/create-react-context/-/create-react-context-0.2.3.tgz#9ec140a6914a22ef04b8b09b7771de89567cb6f3"
   dependencies:
     fbjs "^0.8.0"
     gud "^1.0.0"
@@ -2901,12 +2884,6 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@3.0.1:
-  version "3.0.1"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/hoist-non-react-statics/-/hoist-non-react-statics-3.0.1.tgz#fba3e7df0210eb9447757ca1a7cb607162f0a364"
-  dependencies:
-    react-is "^16.3.2"
-
 hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
@@ -2926,12 +2903,6 @@ html-encoding-sniffer@^1.0.2:
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/html-encoding-sniffer/-/html-encoding-sniffer-1.0.2.tgz#e70d84b94da53aa375e11fe3a351be6642ca46f8"
   dependencies:
     whatwg-encoding "^1.0.1"
-
-html-parse-stringify2@2.0.1:
-  version "2.0.1"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/html-parse-stringify2/-/html-parse-stringify2-2.0.1.tgz#dc5670b7292ca158b7bc916c9a6735ac8872834a"
-  dependencies:
-    void-elements "^2.0.1"
 
 http-errors@1.6.3, http-errors@~1.6.2, http-errors@~1.6.3:
   version "1.6.3"
@@ -2953,10 +2924,6 @@ http-signature@~1.2.0:
 https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
-
-i18next@11.9.0:
-  version "11.9.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/i18next/-/i18next-11.9.0.tgz#c30c0a5e0a857124923a8dd1ce8f1df603e30c70"
 
 iconv-lite@0.4.23:
   version "0.4.23"
@@ -3059,27 +3026,7 @@ interpret@^1.1.0:
   version "1.2.0"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
 
-intl-format-cache@^2.0.5:
-  version "2.1.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/intl-format-cache/-/intl-format-cache-2.1.0.tgz#04a369fecbfad6da6005bae1f14333332dcf9316"
-
-intl-messageformat-parser@1.4.0:
-  version "1.4.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz#b43d45a97468cadbe44331d74bb1e8dea44fc075"
-
-intl-messageformat@^2.0.0, intl-messageformat@^2.1.0:
-  version "2.2.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/intl-messageformat/-/intl-messageformat-2.2.0.tgz#345bcd46de630b7683330c2e52177ff5eab484fc"
-  dependencies:
-    intl-messageformat-parser "1.4.0"
-
-intl-relativeformat@^2.0.0:
-  version "2.1.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/intl-relativeformat/-/intl-relativeformat-2.1.0.tgz#010f1105802251f40ac47d0e3e1a201348a255df"
-  dependencies:
-    intl-messageformat "^2.0.0"
-
-invariant@^2.0.0, invariant@^2.1.1, invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
+invariant@^2.0.0, invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
@@ -4876,24 +4823,6 @@ react-dom@16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-i18next@8.0.7:
-  version "8.0.7"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/react-i18next/-/react-i18next-8.0.7.tgz#9e6ffdaa01f4454ba216fa50377a7c2ba6f1e662"
-  dependencies:
-    "@babel/runtime" "^7.1.2"
-    create-react-context "0.2.3"
-    hoist-non-react-statics "3.0.1"
-    html-parse-stringify2 "2.0.1"
-
-react-intl@2.4.0:
-  version "2.4.0"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/react-intl/-/react-intl-2.4.0.tgz#66c14dc9df9a73b2fbbfbd6021726e80a613eb15"
-  dependencies:
-    intl-format-cache "^2.0.5"
-    intl-messageformat "^2.1.0"
-    intl-relativeformat "^2.0.0"
-    invariant "^2.1.1"
-
 react-is@^16.3.2, react-is@^16.8.1, react-is@^16.8.4:
   version "16.8.6"
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
@@ -6069,10 +5998,6 @@ vm-browserify@0.0.4:
   resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
-
-void-elements@^2.0.1:
-  version "2.0.1"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
