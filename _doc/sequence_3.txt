@@ -1,0 +1,45 @@
+@startuml
+
+skinparam BoxPadding 10
+skinparam ParticipantPadding 20
+
+skinparam sequence {
+	ArrowColor black
+	ActorBorderColor black
+	LifeLineBorderColor black
+	LifeLineBackgroundColor black
+
+	ParticipantBorderColor black
+    ParticipantBackgroundColor #5DBDAF
+
+	ActorBackgroundColor #5DBDAF
+}
+
+box "Browser" #F5F5F5
+	participant SearchUI
+	participant ProductUI
+	participant ContentUI
+end box
+
+== Initialization ==
+
+SearchUI <- ProductUI: registerSearchProvider
+SearchUI <- ContentUI: registerSearchProvider
+
+== on load and on every user interaction (filter, tab change) ==
+
+SearchUI --> ProductUI: execute_search callback
+ProductUI -> ProductDataService
+ProductUI <-- ProductDataService: JSON response
+SearchUI <-- ProductUI
+SearchUI --> ContentUI: execute_search callback
+ContentUI -> ContentDataService
+ContentUI <-- ContentDataService: JSON response
+SearchUI <-- ContentUI
+SearchUI -> SearchUI: render SearchContainer
+SearchUI -> ProductUI: render TabComponent
+SearchUI -> ProductUI: render ResultComponent
+SearchUI -> ContentUI: render TabComponent
+SearchUI -> ContentUI: render ResultComponent
+
+@enduml

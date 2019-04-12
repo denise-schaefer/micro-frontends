@@ -1,0 +1,26 @@
+@startuml
+
+skinparam BoxPadding 10
+skinparam ParticipantPadding 20
+
+skinparam sequence {
+	ArrowColor black
+	ActorBorderColor black
+	LifeLineBorderColor black
+	LifeLineBackgroundColor black
+
+	ParticipantBorderColor black
+    ParticipantBackgroundColor #5DBDAF
+
+	ActorBackgroundColor #5DBDAF
+}
+
+actor User
+User -> Browser : Search (query)
+Browser -> Composer: GET
+Browser <-- Composer: HTML
+Browser -> ProductService: GET product JS
+Browser <-- ProductService: JS
+User <-- Browser
+
+@enduml
