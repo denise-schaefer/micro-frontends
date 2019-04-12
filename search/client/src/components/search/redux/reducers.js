@@ -86,6 +86,7 @@ const updateSuggestions = (action, state) => {
     ...state,
     activeSearchProvider: getSearchProviders()[0],
     searchState: newSearchState,
+    loadingState: false,
   };
 };
 
