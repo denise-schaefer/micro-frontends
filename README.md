@@ -10,10 +10,10 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
-### Bugs: Loading State bei Suggestions nicht false
 ### Store/Hooks
 1. remove @dm/store libs
 2. use scoped packages and updates libs or introduce react hooks
+### Start all Server
 ### README.md
 workflow durch den Code
 write README.md
