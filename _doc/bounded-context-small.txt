@@ -1,0 +1,38 @@
+@startuml
+skinparam componentStyle uml2
+
+skinparam component {
+  BorderColor black
+  BackgroundColor #5DBDAF
+  ArrowColor black
+}
+
+package "Search" {
+  [SearchUI]
+  [Search-API]
+}
+
+package "Product" {
+  [ProductUI]
+  [ProductDataService]
+  [DataStorage]
+}
+
+package "Content" {
+  [ContentUI]
+  [ContentDataService]
+  [DataStorage (CMS)]
+}
+
+[ContentUI] --> [ContentDataService]
+[ContentDataService] -->  [DataStorage (CMS)]
+
+[ProductUI] -->  [ProductDataService]
+[ProductDataService] --> [DataStorage]
+
+[SearchUI] --> [Search-API]
+[Search-API] <-- [ContentUI]
+[Search-API] <-- [ProductUI]
+
+
+@enduml

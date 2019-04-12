@@ -15,8 +15,8 @@ have to integrate them in frontend like the following:
 To scale with multiple teams in a micro services environment
 
 * Keep coupling low
-* One-Way dependency graph
-* Specialised assets know general assets, but not vice versa
+* One-way dependency graph
+* Specialized assets know general assets, but not vice versa
 
 ## Set up
 ````
@@ -38,9 +38,10 @@ yarn serve
 Open http://localhost:8080 in web browser
 
 ## Architecture
-### Components (dependency graph)
-TODO
+### Components
+Dependency graph without cycles
 
+![alt components dependency](_doc/architecture.png)
 
 ### Sequence
 #### Load HTML and JS
@@ -87,28 +88,32 @@ interface to register different search providers with
 ### search
 
 * client
-** provides container stuff, like rendering search tabs or search results
-** calls search callback on active search provider
-** handles search errors, search fallback and merges suggestions from all search providers
+    * provides container stuff, like rendering search tabs or search results
+    * calls search callback on active search provider
+    * handles search errors, search fallback and merges suggestions from all search providers
 
 * server
-** delivers client js, could be a CDN as well
+    * delivers client js, could be a CDN as well
 
-### product, content
+### product
 
 * client
-** provides components to render search results and search tabs
-** could implement filter and use fetchData callback to re-execute search
+    * provides components to render search results and search tabs
+    * could implement filter and use fetchData callback to re-execute search
 
 * server
-** delivers client js, could be a CDN as well
+    * delivers client js, could be a CDN as well
+    * could provide REST-API in real world use case
+    
+### content
+same as product
 
 ### composer
 
 * server
-** central unit that receives browser request and return html document
-** includes all scripts
-** may or may not fetch initial data and could be used for server side rendering
+    * central unit that receives browser request and return html document
+    * includes all scripts
+    * may or may not fetch initial data and could be used for server side rendering
 
 
 ## Slides
@@ -121,11 +126,9 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 ### Store/Hooks
 1. remove @dm/store libs
 2. use scoped packages and updates libs or introduce react hooks
-### Start all Server
-### README.md
-workflow durch den Code
-write README.md
+
 ### error handling
 add example and test it
+
 ### layout
 optimization, evt. remove react-bootstrap
