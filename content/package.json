@@ -16,7 +16,7 @@
     "webpack-cli": "3.3.0"
   },
   "scripts": {
-    "dev": "npm run build:watch & npm run serve",
+    "dev": "yarn build:watch & yarn serve",
     "serve": "nodemon server/index.js",
     "build": "cd client && NODE_ENV=production webpack",
     "build:watch": "cd client && webpack -w"

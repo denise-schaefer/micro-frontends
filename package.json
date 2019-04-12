@@ -15,6 +15,9 @@
     "composer"
   ],
   "scripts": {
+    "dev": "yarn build && yarn serve",
+    "build": "yarn --cwd search-api build && yarn --cwd search build && yarn --cwd product build && yarn --cwd content build",
+    "serve": "yarn wsrun --stages serve",
     "lint": "eslint --fix ./",
     "format": "prettier --write \"**/*.js\" \"**/*.jsx\""
   },
@@ -26,6 +29,7 @@
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.4",
     "jest": "24.7.1",
-    "prettier": "1.16.4"
+    "prettier": "1.16.4",
+    "wsrun": "3.6.4"
   }
 }
