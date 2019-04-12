@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "yarn build:watch & yarn serve",
     "serve": "nodemon server/index.js",
-    "build": "cd client && NODE_ENV=development webpack",
+    "build": "cd client && NODE_ENV=production webpack",
     "build:watch": "cd client && webpack -w"
   }
 }

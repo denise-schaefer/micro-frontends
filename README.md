@@ -17,8 +17,6 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 ### README.md
 workflow durch den Code
 write README.md
-### scripts
-write start and build scripts in root package.json 
 ### error handling
 add example and test it
 ### layout
