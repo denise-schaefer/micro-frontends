@@ -1,5 +1,5 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 const isProd = mode === 'production';
@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: [
     !isProd &&
-      new UglifyJsPlugin({
+      new TerserPlugin({
         cache: true,
       }),
   ].filter(Boolean),
