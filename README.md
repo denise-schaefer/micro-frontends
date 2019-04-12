@@ -37,14 +37,19 @@ yarn serve
 
 Open http://localhost:8080 in web browser
 
-## Model
-### Load HTML and JS
+## Architecture
+### Components (dependency graph)
+TODO
+
+
+### Sequence
+#### Load HTML and JS
 ![alt load html and js](_doc/sequence_1.png)
 
-### Execute search with one product search provider
+#### Execute search with one product search provider
 ![alt execute search with one product search provider](_doc/sequence_2.png)
 
-### ... and add additional content search provider
+#### ... and add additional content search provider
 ![alt execute search with product and content search provider](_doc/sequence_3.png)
 
 ## Project structure
