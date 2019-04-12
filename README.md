@@ -9,7 +9,7 @@ Assume you have two ore more different search providers as e.g. product and cont
 developed in different teams which want to develop and release their features independently. But you
 have to integrate them in frontend like the following:
 
-![alt search-example](search-example.png)
+![alt search-example](_doc/search-example.png)
 
 ## Why?
 To scale with multiple teams in a micro services environment
@@ -38,6 +38,14 @@ yarn serve
 Open http://localhost:8080 in web browser
 
 ## Model
+### Load HTML and JS
+![alt load html and js](_doc/sequence_1.png)
+
+### Execute search with one product search provider
+![alt execute search with one product search provider](_doc/sequence_2.png)
+
+### ... and add additional content search provider
+![alt execute search with product and content search provider](_doc/sequence_3.png)
 
 ## Project structure
 
