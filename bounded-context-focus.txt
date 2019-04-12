@@ -1,0 +1,63 @@
+@startuml
+skinparam componentStyle uml2
+
+[Produkt] #5DBDAF
+[(redaktioneller) Content] #5DBDAF
+[Suche] #5DBDAF
+
+skinparam component {
+  BorderColor black
+  BackgroundColor white
+  ArrowColor black
+}
+
+title Bounded Context und Abhängigkeiten bei dm.de
+
+[Checkout] --> [Kundenkonto]
+[Checkout] --> [Kundenauthentifizierung]
+[Checkout] --> [Warenkorb]
+[Checkout] --> [Filialen]
+[Checkout] --> [(redaktioneller) Content]
+[Checkout] --> [Tracking]
+[Checkout] --> [Composing]
+
+[Warenkorb] --> [(redaktioneller) Content]
+[Warenkorb] --> [Produkt]
+[Warenkorb] --> [Kundenauthentifizierung]
+[Warenkorb] --> [Tracking]
+[Warenkorb] --> [Composing]
+
+[(redaktioneller) Content] --> [Tracking]
+[(redaktioneller) Content] -[#5DBDAF]-> [Suche]
+
+[Produkt] -[#5DBDAF]-> [Suche]
+[Produkt] --> [(redaktioneller) Content]
+[Produkt] --> [Tracking]
+[Produkt] --> [Composing]
+
+[Filialverfügbarkeit] --> [Produkt]
+[Filialverfügbarkeit] --> [Filialen]
+
+[Produktbewertungen] --> [Produkt]
+[Produktbewertungen] --> [Tracking]
+
+[Produktempfehlungen] --> [Produkt]
+[Produktempfehlungen] --> [Kundenauthentifizierung]
+[Produktempfehlungen] --> [Tracking]
+[Produktempfehlungen] --> [Topseller]
+
+[Topseller] --> [Produkt]
+
+[Kundenkonto] --> [(redaktioneller) Content]
+[Kundenkonto] -> [Kundenauthentifizierung]
+[Kundenkonto] --> [Tracking]
+[Kundenkonto] --> [Composing]
+
+[Gewinnspiele] --> [Kundenauthentifizierung]
+[Gewinnspiele] --> [Form Data Service]
+
+[Suche] --> [Tracking]
+
+[Tracking] --> [Composing]
+
+@enduml
