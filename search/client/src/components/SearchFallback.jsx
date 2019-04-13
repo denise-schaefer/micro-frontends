@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchFallbackSuggestions from './SearchFallbackSuggestions';
-import isEmpty from '../../util/isEmpty';
-import getObjectValues from '../../util/getObjectValues';
+import isEmpty from '../util/isEmpty';
+import getObjectValues from '../util/getObjectValues';
 
 class SearchFallback extends Component {
   getSuggestions = () => {

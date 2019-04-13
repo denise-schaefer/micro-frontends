@@ -1,8 +1,8 @@
 import React from 'react';
-import { getSearchProviders } from 'search-api';
+import { getSearchProviders } from 'search-api/lib';
 import PropTypes from 'prop-types';
 import SearchTab from './SearchTab';
-import isEmpty from '../../util/isEmpty';
+import isEmpty from '../util/isEmpty';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 

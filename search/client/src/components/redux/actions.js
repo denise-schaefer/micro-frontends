@@ -1,5 +1,5 @@
-import isEmpty from '../../../util/isEmpty';
-import { getSearchProviders } from 'search-api';
+import isEmpty from '../../util/isEmpty';
+import { getSearchProviders } from 'search-api/lib';
 
 const createActionName = name => `search/search/${name}`;
 export const RESET_SEARCH_STATE = createActionName('RESET_SEARCH_STATE');

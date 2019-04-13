@@ -12,7 +12,7 @@ import {
   RESET_SEARCH_STATE,
   SET_ACTIVE_SEARCH_PROVIDER,
 } from './actions';
-import { getSearchProviders } from 'search-api';
+import { getSearchProviders } from 'search-api/lib';
 
 const reducerNameSearch = 'search/search';
 
