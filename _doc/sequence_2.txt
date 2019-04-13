@@ -26,6 +26,7 @@ SearchUI <- ProductUI: registerSearchProvider
 
 == on load and on every user interaction (filter, tab change) ==
 
+SearchUI -> SearchUI: getSearchProviders
 SearchUI --> ProductUI: execute_search callback
 ProductUI -> ProductDataService: HTTP GET
 ProductUI <-- ProductDataService: JSON response

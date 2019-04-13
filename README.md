@@ -47,11 +47,17 @@ Dependency graph without cycles
 #### Load HTML and JS
 ![alt load html and js](_doc/sequence_1.png)
 
+
 #### Execute search with one product search provider
 ![alt execute search with one product search provider](_doc/sequence_2.png)
 
+
 #### ... and add additional content search provider
 ![alt execute search with product and content search provider](_doc/sequence_3.png)
+
+
+#### ... and if no results from any search provider, provide fallback with suggestions
+![alt fallback with suggestions](_doc/sequence_4.png)
 
 ## Project structure
 

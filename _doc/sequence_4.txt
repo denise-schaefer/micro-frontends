@@ -31,16 +31,13 @@ SearchUI <- ContentUI: registerSearchProvider
 SearchUI -> SearchUI: getSearchProviders
 SearchUI --> ProductUI: execute_search callback
 ProductUI -> ProductDataService: HTTP GET
-ProductUI <-- ProductDataService: JSON response
+ProductUI <-- ProductDataService: JSON response (0 hits, but suggestions)
 SearchUI <-- ProductUI
 SearchUI --> ContentUI: execute_search callback
 ContentUI -> ContentDataService: HTTP GET
-ContentUI <-- ContentDataService: JSON response
+ContentUI <-- ContentDataService: JSON response (0 hits, but suggestions)
 SearchUI <-- ContentUI
-SearchUI -> SearchUI: render SearchContainer
-SearchUI -> ProductUI: render TabComponent
-SearchUI -> ProductUI: render ResultComponent
-SearchUI -> ContentUI: render TabComponent
-SearchUI -> ContentUI: render ResultComponent
+SearchUI -> SearchUI: render fallback with suggestions
+
 
 @enduml
