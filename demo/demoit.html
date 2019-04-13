@@ -1,8 +1,33 @@
+<img src="/images/Slide2.jpg"/>
+
+<style>
+    #top {
+        padding-top: 0;
+        width: 100%;
+    }
+    img {
+        width: 100%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+    .split {
+        height: calc(100% - 4em);
+    }
+</style>
+
+---
+
+<h1>Dependency Inversion - nur eine Abhängigkeitsrichtung</h1>
+
+<img src="/images/architecture.png"/>
+
+---
+
 <h1>Demo Suche</h1>
 
 <div class="split">
     <web-browser src="https://www.dm.de/search/468652.html?type=product&q=balea"></web-browser>
-    <web-browser src="http://localhost:8080/"></web-browser>
+    <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
 </div>
 
 <style>
@@ -13,13 +38,12 @@
 
 ---
 
-<h1>Composition</h1>
+<h1>Composition vs. Dependency Inversion</h1>
 
 <div class="split">
-    <source-code folder="sources"
-                 files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx search/client/src/components/search/SearchContainer.jsx"
-                 start-lines="9;11,28;82"
-                 end-lines="20;19,31;98">
+    <source-code folder="comparison" files="composition.js" start-lines="" end-lines="">
+    </source-code>
+    <source-code folder="comparison" files="dependencyInversion.js" start-lines="" end-lines="">
     </source-code>
 </div>
 
@@ -31,10 +55,21 @@
 
 ---
 
-<h1>Composition</h1>
+<h1>Composition vs. Dependency Inversion</h1>
 
-<p>Kein unabhängiges Deployment</p>
-<p>kein Merge der Suchvorschläge, ... </p>
+<div class="split" style="justify-content: space-around">
+    <div>
+        <h2>Composition</h2>
+        Kein unabhängiges Deployment
+    </div>
+
+    <div>
+        <h2>Dependency Inversion</h2>
+        Unabhängiges Deployment möglich<br/>
+        Runtime Composition
+    </div>
+
+</div>
 
 ---
 
@@ -60,9 +95,9 @@
 
 <div class="split">
     <source-code folder="sources"
-                 files="search-api/src/api/registry.js search/client/src/components/search/SearchContainer.jsx search/client/src/components/search/redux/actions.js"
-                 start-lines="9;5,82,92;29,41"
-                 end-lines="16;5,82,96;29,42">
+                 files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/redux/actions.js search/client/src/components/SearchResultBody.jsx"
+                 start-lines="9;5,82,92,134,153;29,41;24"
+                 end-lines="16;5,82,96,134,153;29,42;24">
     </source-code>
 </div>
 
@@ -71,13 +106,6 @@
         height: calc(100% - 4em);
     }
 </style>
-
----
-
-<h1>Dependency Inversion</h1>
-
-<p>Unabhängiges Deployment möglich</p>
-<p>Runtime Composition</p>
 
 ---
 
