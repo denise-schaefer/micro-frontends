@@ -10,7 +10,8 @@
   "dependencies": {
     "@dm/redux-store-provider": "5.2.0",
     "express": "4.16.4",
-    "nodemon": "1.18.10"
+    "nodemon": "1.18.10",
+    "serve-favicon": "2.5.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",

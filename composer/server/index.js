@@ -1,5 +1,7 @@
 const path = require('path');
+const favicon = require('serve-favicon');
 const express = require('express');
+
 const app = express();
 
 app.get('/', (_, res) => {
@@ -10,7 +12,8 @@ app.get('/', (_, res) => {
 app.get('/composer.js', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../dist/composer.js'));
 });
-
+console.log(path.join(__dirname, 'favicon.ico'));
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.listen(8080, () => console.log('app listening on http://localhost:8080'));
 
 function render() {
@@ -20,6 +23,7 @@ function render() {
 <head>
     <meta charset="UTF-8">
     <title>ui composing</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
