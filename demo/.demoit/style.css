@@ -24,12 +24,13 @@ body {
 }
 
 h1 {
+    font-size: 1em;
     margin-top: 0;
     position: absolute;
     top: 10px;
     left: 0px;
     text-align: left;
-    background: rgb(50, 109, 230);
+    background: #5DBDAF;
     width: calc(100% - 70px);
     padding: 20px;
     overflow: hidden;
@@ -109,13 +110,13 @@ web-term:only-child, web-browser:only-child, source-code:only-child {
     cursor: pointer;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(0,122,204);
+    background-color: #5DBDAF;
     color: white !important;
     font-weight: bold;
 }
 
 #nav a:hover {
-    background-color: rgb(50, 109, 230);
+    background-color: #5DBDAF;
 }
 
 #nav a.disabled {
@@ -126,7 +127,7 @@ web-term:only-child, web-browser:only-child, source-code:only-child {
 
 #progression {
     height: 5px;
-    background-color: rgb(50, 109, 230);
+    background-color: #5DBDAF;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -137,5 +138,5 @@ web-term:only-child, web-browser:only-child, source-code:only-child {
 
 em {
     font-style: normal;
-    color: rgb(0,122,204);
+    color: #5DBDAF;
 }

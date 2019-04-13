@@ -1,71 +1,11 @@
-<h1>Micro-Frontends</h1>
-
-<h2>by Denise and Benny</h2>
-
----
-
-<h1>Snapshot</h1>
-
-<img src="/images/bazel.png" />
-
----
-
-<h1>Terminal</h1>
-
-<div class="split">
-    <web-term path="folder"></web-term>
-</div>
-
----
-
 <h1>Demo Suche</h1>
 
 <div class="split">
-    <web-term path="folder"></web-term>
+    <web-browser src="https://www.dm.de/search/468652.html?type=product&q=balea"></web-browser>
     <web-browser src="http://localhost:8080/"></web-browser>
 </div>
 
 <style>
-    p {
-        font-style: italic;
-        font-size: .5em;
-    }
-
-    .split {
-        height: calc(100% - 9em);
-    }
-</style>
-
----
-
-<h1>Demo Suche</h1>
-
-<div class="split">
-    <web-browser src="http://localhost:8080/"></web-browser>
-</div>
-
-<style>
-    .split {
-        height: calc(100% - 9em);
-    }
-</style>
-
----
-
-<h1>Dependency Inversion Search</h1>
-
-<div class="split">
-    <source-code folder="sources"
-        files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx search/client/src/components/search/SearchContainer.jsx"
-        start-lines="20;13,28;82"
-        end-lines="31;16,31;98">
-    </source-code>
-</div>
-
-<style>
-    h1 {
-        font-size: 1em;
-    }
     .split {
         height: calc(100% - 4em);
     }
@@ -73,9 +13,93 @@
 
 ---
 
-<h1>Draw on slides</h1>
+<h1>Composition</h1>
 
-<p>On the left border of the page there's a pen that can be used to draw on the slides. Type <em>&lt;ESC&gt;</em> to exit draw mode.</p>
+<div class="split">
+    <source-code folder="sources"
+                 files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx search/client/src/components/search/SearchContainer.jsx"
+                 start-lines="9;11,28;82"
+                 end-lines="20;19,31;98">
+    </source-code>
+</div>
 
-<img src="/images/bazel.png" />
-<script src="/js/draw.js"></script>
+<style>
+    .split {
+        height: calc(100% - 4em);
+    }
+</style>
+
+---
+
+<h1>Composition</h1>
+
+<p>Kein unabhängiges Deployment</p>
+<p>kein Merge der Suchvorschläge, ... </p>
+
+---
+
+<h1>Dependency Inversion - Produkt</h1>
+
+<div class="split">
+    <source-code folder="sources"
+                 files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
+                 start-lines="18;11"
+                 end-lines="20;19">
+    </source-code>
+</div>
+
+<style>
+    .split {
+        height: calc(100% - 4em);
+    }
+</style>
+
+---
+
+<h1>Dependency Inversion - Suche</h1>
+
+<div class="split">
+    <source-code folder="sources"
+                 files="search-api/src/api/registry.js search/client/src/components/search/SearchContainer.jsx search/client/src/components/search/redux/actions.js"
+                 start-lines="9;5,82,92;29,41"
+                 end-lines="16;5,82,96;29,42">
+    </source-code>
+</div>
+
+<style>
+    .split {
+        height: calc(100% - 4em);
+    }
+</style>
+
+---
+
+<h1>Dependency Inversion</h1>
+
+<p>Unabhängiges Deployment möglich</p>
+<p>Runtime Composition</p>
+
+---
+
+<h1>HTML und JS laden</h1>
+
+<img src="/images/sequence_1.png" />
+
+---
+
+<h1>Suche mit einem Provider für Produktsuche</h1>
+
+<img src="/images/sequence_2.png" />
+
+---
+
+<h1>... und jetzt noch mit Provider für Contentsuche</h1>
+
+<img src="/images/sequence_3.png" />
+
+---
+
+<h1>... 0-Treffer -> Fallback und Suchvorschläge</h1>
+
+<img src="/images/sequence_4.png" />
+

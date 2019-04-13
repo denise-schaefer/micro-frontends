@@ -4,7 +4,7 @@ skinparam componentStyle uml2
 skinparam component {
   BorderColor black
   BackgroundColor #5DBDAF
-  ArrowColor #black
+  ArrowColor black
 }
 
 title Bounded Context und Abhängigkeiten bei dm.de
