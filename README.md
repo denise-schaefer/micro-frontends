@@ -129,6 +129,7 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
+### Scoped Packages
 ### Store/Hooks
 1. remove @dm/store libs
 2. use scoped packages and updates libs or introduce react hooks
