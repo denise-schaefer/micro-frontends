@@ -8,7 +8,7 @@ import SearchResultBody from './SearchResultBody';
 import { doLoadData, doLoadCount, setActiveSearchProvider } from './redux/actions';
 import { structuredSelector as mapStateToProps } from './redux/reducers';
 import isEmpty from '../util/isEmpty';
-import SearchInput from './SearchInput';
+import { SearchInput } from './SearchInput';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -136,7 +136,7 @@ export class UnconnectedSearchContainer extends Component {
           <Navbar.Brand>micro-frontends</Navbar.Brand>
           <SearchInput
             onSubmit={query => this.submitSearch(activeSearchProvider.ID, query)}
-            value={queryData && queryData.query}
+            query={queryData && queryData.query}
           />
         </Navbar>
         {!displaySuggestions && activeSearchProvider && this.getQueryData(activeSearchProvider) && (
