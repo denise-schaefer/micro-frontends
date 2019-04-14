@@ -1,46 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/es/FormControl';
 import Button from 'react-bootstrap/Button';
 
-export default class SearchInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: props.value,
-    };
-  }
+export function SearchInput({ onSubmit, query = '' }) {
+  const [value, setValue] = useState(query);
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
-      this.setState({ value: this.props.value });
-    }
-  }
+  useEffect(() => {
+    setValue(query);
+  }, [query]);
 
-  handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    this.props.onSubmit({ query: event.target.elements.query.value });
+    onSubmit({ query: event.target.elements.query.value });
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  function handleChange(event) {
+    setValue(event.target.value);
   }
 
-  render() {
-    return (
-      <Form inline onSubmit={event => this.handleSubmit(event)}>
-        <FormControl
-          type="search"
-          name="query"
-          placeholder="Search"
-          value={this.state.value}
-          onChange={event => this.handleChange(event)}
-          className="mr-sm-2"
-        />
-        <Button variant="outline-success" type="submit">
-          Search
-        </Button>
-      </Form>
-    );
-  }
+  return (
+    <Form inline onSubmit={event => handleSubmit(event)}>
+      <FormControl
+        type="search"
+        name="query"
+        placeholder="Search"
+        value={value}
+        onChange={event => handleChange(event)}
+        className="mr-sm-2"
+      />
+      <Button variant="outline-success" type="submit">
+        Search
+      </Button>
+    </Form>
+  );
 }
+
+SearchInput.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  query: PropTypes.string,
+};
