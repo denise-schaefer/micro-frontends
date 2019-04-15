@@ -4,9 +4,13 @@ import SearchError from './SearchError';
 import isEmpty from '../util/isEmpty';
 import getObjectValues from '../util/getObjectValues';
 
-const SearchResultBody = props => {
-  const { activeSearchProvider, fetchData, errorState, queryData, searchState } = props;
-
+export default function SearchResultBody({
+  activeSearchProvider,
+  fetchData,
+  errorState,
+  queryData,
+  searchState,
+}) {
   if (!isEmpty(errorState)) {
     const error = getObjectValues(errorState).reduce((acc, curr) => curr.error && acc, true);
 
@@ -22,7 +26,7 @@ const SearchResultBody = props => {
   }
 
   return <div>{activeSearchProvider.getResultComponent(queryData, data, fetchData)}</div>;
-};
+}
 
 SearchResultBody.propTypes = {
   queryData: PropTypes.object,
@@ -31,5 +35,3 @@ SearchResultBody.propTypes = {
   errorState: PropTypes.object,
   activeSearchProvider: PropTypes.object,
 };
-
-export default SearchResultBody;

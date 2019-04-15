@@ -6,9 +6,12 @@ import isEmpty from '../util/isEmpty';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const SearchResultHeader = props => {
-  const { query, activeSearchProvider, countState, onTabClick } = props;
-
+export default function SearchResultHeader({
+  query,
+  activeSearchProvider,
+  countState,
+  onTabClick,
+}) {
   const getTabFor = searchProvider => {
     const data = countState[searchProvider.ID];
     if (!isEmpty(activeSearchProvider)) {
@@ -37,7 +40,7 @@ const SearchResultHeader = props => {
       </Row>
     </Col>
   );
-};
+}
 
 SearchResultHeader.propTypes = {
   query: PropTypes.string,
@@ -45,5 +48,3 @@ SearchResultHeader.propTypes = {
   activeSearchProvider: PropTypes.object,
   countState: PropTypes.object,
 };
-
-export default SearchResultHeader;

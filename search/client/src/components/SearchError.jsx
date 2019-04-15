@@ -1,7 +1,5 @@
 import React from 'react';
 
-function SearchError() {
+export default function SearchError() {
   return <p>{'Ups, leider ist ein Fehler aufgetreten'}</p>;
 }
-
-export default SearchError;
