@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 
-const SearchTab = props => {
-  const { searchProviderId, children, onClick, isActive } = props;
+export default function SearchTab({ searchProviderId, children, onClick, isActive }) {
   return (
     <Button
       style={{ margin: '5px' }}
@@ -14,7 +13,7 @@ const SearchTab = props => {
       {children}
     </Button>
   );
-};
+}
 
 SearchTab.propTypes = {
   searchProviderId: PropTypes.string,
@@ -22,5 +21,3 @@ SearchTab.propTypes = {
   onClick: PropTypes.func,
   isActive: PropTypes.bool,
 };
-
-export default SearchTab;

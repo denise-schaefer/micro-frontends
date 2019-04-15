@@ -27,9 +27,7 @@ const getSuggestionLinks = suggestions =>
     })
     .reduce((prev, curr) => [prev, ', ', curr]);
 
-const SearchFallbackSuggestions = props => {
-  const { suggestions } = props;
-
+export default function SearchFallbackSuggestions({ suggestions }) {
   return (
     !(suggestions.length <= 0) && (
       <div>
@@ -39,10 +37,8 @@ const SearchFallbackSuggestions = props => {
       </div>
     )
   );
-};
+}
 
 SearchFallbackSuggestions.propTypes = {
   suggestions: PropTypes.array,
 };
-
-export default SearchFallbackSuggestions;
