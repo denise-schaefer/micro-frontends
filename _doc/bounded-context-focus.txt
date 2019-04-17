@@ -1,17 +1,19 @@
 @startuml
 skinparam componentStyle uml2
 
-[Produkt] #5DBDAF
-[(redaktioneller) Content] #5DBDAF
-[Suche] #5DBDAF
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+[Produkt] #FFFFFF
+[(redaktioneller) Content] #FFFFFF
+[Suche] #FFFFFF
 
 skinparam component {
   BorderColor black
-  BackgroundColor white
+  BackgroundColor #dc738b
   ArrowColor black
+  FontSize 20
 }
-
-title Bounded Context und Abhängigkeiten bei dm.de
 
 [Checkout] --> [Kundenkonto]
 [Checkout] --> [Kundenauthentifizierung]
@@ -28,9 +30,9 @@ title Bounded Context und Abhängigkeiten bei dm.de
 [Warenkorb] --> [Composing]
 
 [(redaktioneller) Content] --> [Tracking]
-[(redaktioneller) Content] -[#5DBDAF]-> [Suche]
+[(redaktioneller) Content] --> [Suche]
 
-[Produkt] -[#5DBDAF]-> [Suche]
+[Produkt] --> [Suche]
 [Produkt] --> [(redaktioneller) Content]
 [Produkt] --> [Tracking]
 [Produkt] --> [Composing]

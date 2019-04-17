@@ -1,13 +1,14 @@
 @startuml
 skinparam componentStyle uml2
 
+skinparam backgroundColor transparent
+
 skinparam component {
   BorderColor black
-  BackgroundColor #5DBDAF
+  BackgroundColor white
   ArrowColor black
+  FontSize 20
 }
-
-title Bounded Context und Abhängigkeiten bei dm.de
 
 [Checkout] --> [Kundenkonto]
 [Checkout] --> [Kundenauthentifizierung]
