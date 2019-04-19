@@ -86,7 +86,7 @@ export default function SearchContainer() {
     if (queryData) {
       handleSearch(queryData.searchType || searchProviders[0].ID, queryData);
     }
-  });
+  }, []);
 
   const getQueryStateFor = searchProvider => {
     return !isEmpty(queryState) && searchProvider && !isEmpty(queryState[searchProvider.ID])
