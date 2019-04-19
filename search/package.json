@@ -11,9 +11,6 @@
     "react-dom": "16.8.6",
     "react-redux": "5.0.7",
     "recompose": "0.30.0",
-    "redux": "4.0.1",
-    "redux-thunk": "2.3.0",
-    "reselect": "4.0.0",
     "search-api": "^1.0.0"
   },
   "devDependencies": {
