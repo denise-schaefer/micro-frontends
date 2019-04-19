@@ -2,15 +2,12 @@
   "name": "search",
   "version": "1.0.0",
   "dependencies": {
-    "@dm/redux-store-provider": "5.2.0",
     "express": "4.16.4",
     "nodemon": "1.18.10",
     "prop-types": "15.7.2",
     "qs": "6.7.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-redux": "5.0.7",
-    "recompose": "0.30.0",
     "search-api": "^1.0.0"
   },
   "devDependencies": {
