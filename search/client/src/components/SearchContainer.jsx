@@ -61,15 +61,7 @@ export default function SearchContainer() {
     displaySuggestions,
   } = state;
 
-  const getQueryData = searchProvider => {
-    return !isEmpty(queryState) && searchProvider && !isEmpty(queryState[searchProvider.ID])
-      ? queryState[searchProvider.ID]
-      : null;
-  };
-
   const handleSearch = (activeSearchProviderID, queryData) => {
-    const searchProviders = getSearchProviders();
-
     searchProviders.forEach(provider => {
       dispatch(
         doLoadCount({
@@ -89,9 +81,22 @@ export default function SearchContainer() {
     );
   };
 
+  useEffect(() => {
+    const queryData = readQueryDataFromUrl();
+    if (queryData) {
+      handleSearch(queryData.searchType || searchProviders[0].ID, queryData);
+    }
+  });
+
+  const getQueryStateFor = searchProvider => {
+    return !isEmpty(queryState) && searchProvider && !isEmpty(queryState[searchProvider.ID])
+      ? queryState[searchProvider.ID]
+      : null;
+  };
+
   const onTabClick = searchProvider => {
-    handlePushHistory(getQueryData(searchProvider));
-    handleSearch(searchProvider.ID, getQueryData(searchProvider));
+    handlePushHistory(getQueryStateFor(searchProvider));
+    handleSearch(searchProvider.ID, getQueryStateFor(searchProvider));
   };
 
   const fetchData = queryData => {
@@ -115,20 +120,15 @@ export default function SearchContainer() {
         const query = newState.query;
         const activeSearchProvider = getActiveSearchProvider(searchType);
         handleSearch(activeSearchProvider.ID, {
-          ...getQueryData(activeSearchProvider),
+          ...getQueryStateFor(activeSearchProvider),
           query,
         });
       } else {
         const activeSearchProvider = getSearchProviders()[0];
-        handleSearch(activeSearchProvider[0].ID, getQueryData(activeSearchProvider));
+        handleSearch(activeSearchProvider[0].ID, getQueryStateFor(activeSearchProvider));
       }
     };
 
-    const queryData = readQueryDataFromUrl();
-    const searchProviders = getSearchProviders();
-    if (queryData) {
-      handleSearch(queryData.searchType || searchProviders[0].ID, queryData);
-    }
     window.addEventListener('popstate', handleHistoryPopState);
 
     return () => {
@@ -147,11 +147,11 @@ export default function SearchContainer() {
           query={queryDataFromUrl && queryDataFromUrl.query}
         />
       </Navbar>
-      {!displaySuggestions && activeSearchProvider && getQueryData(activeSearchProvider) && (
+      {!displaySuggestions && activeSearchProvider && getQueryStateFor(activeSearchProvider) && (
         <Col style={{ justifyContent: 'center' }}>
           <Row className="justify-content-center">
             <SearchResultHeader
-              query={getQueryData(activeSearchProvider).query}
+              query={getQueryStateFor(activeSearchProvider).query}
               activeSearchProvider={activeSearchProvider}
               countState={countState}
               onTabClick={searchProvider => onTabClick(searchProvider)}
@@ -162,7 +162,7 @@ export default function SearchContainer() {
               activeSearchProvider={activeSearchProvider}
               fetchData={fetchData}
               errorState={errorState}
-              queryData={getQueryData(activeSearchProvider)}
+              queryData={getQueryStateFor(activeSearchProvider)}
               searchState={searchState}
             />
           </Row>
