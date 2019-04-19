@@ -8,11 +8,14 @@ skinparam sequence {
 	ActorBorderColor black
 	LifeLineBorderColor black
 	LifeLineBackgroundColor black
+	ArrowFontSize 20
 
 	ParticipantBorderColor black
-    ParticipantBackgroundColor #5DBDAF
+    ParticipantBackgroundColor #FFC6DB
+    ParticipantFontSize 24
 
-	ActorBackgroundColor #5DBDAF
+	ActorBackgroundColor #FFC6DB
+	ActorFontSize 20
 }
 
 actor User

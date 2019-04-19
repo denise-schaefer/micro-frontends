@@ -2,17 +2,28 @@
 
 skinparam BoxPadding 10
 skinparam ParticipantPadding 20
+participant ProductUI #F5F5F5
+participant ProductDataService #F5F5F5
+
+participant ContentDataService order 50
+participant ProductDataService order 30
+participant ContentUI order 40
+participant ProductUI order 20
+participant SearchUI order 10
 
 skinparam sequence {
 	ArrowColor black
 	ActorBorderColor black
 	LifeLineBorderColor black
 	LifeLineBackgroundColor black
+	ArrowFontSize 20
 
 	ParticipantBorderColor black
-    ParticipantBackgroundColor #5DBDAF
+    ParticipantBackgroundColor #FFC6DB
+    ParticipantFontSize 24
 
-	ActorBackgroundColor #5DBDAF
+	ActorBackgroundColor #FFC6DB
+	ActorFontSize 20
 }
 
 box "Browser" #F5F5F5
@@ -23,23 +34,23 @@ end box
 
 == Initialization ==
 
-SearchUI <- ProductUI: registerSearchProvider
+SearchUI <-[#BDBDBD] ProductUI: <font color="grey">registerSearchProvider
 SearchUI <- ContentUI: registerSearchProvider
-
-== on load and on every user interaction (filter, tab change) ==
+||45||
+== user interaction ==
 
 SearchUI -> SearchUI: getSearchProviders
-SearchUI --> ProductUI: execute_search callback
-ProductUI -> ProductDataService: HTTP GET
-ProductUI <-- ProductDataService: JSON response
-SearchUI <-- ProductUI
+SearchUI -[#BDBDBD]-> ProductUI: <font color="grey">execute_search callback
+ProductUI [#BDBDBD]-> ProductDataService: <font color="grey">HTTP GET
+ProductUI <-[#BDBDBD]- ProductDataService: <font color="grey">JSON response
+SearchUI <-[#BDBDBD]- ProductUI
 SearchUI --> ContentUI: execute_search callback
 ContentUI -> ContentDataService: HTTP GET
 ContentUI <-- ContentDataService: JSON response
 SearchUI <-- ContentUI
 SearchUI -> SearchUI: render SearchContainer
-SearchUI -> ProductUI: render TabComponent
-SearchUI -> ProductUI: render ResultComponent
+SearchUI [#BDBDBD]-> ProductUI: <font color="grey">render TabComponent
+SearchUI [#BDBDBD]-> ProductUI: <font color="grey">render ResultComponent
 SearchUI -> ContentUI: render TabComponent
 SearchUI -> ContentUI: render ResultComponent
 

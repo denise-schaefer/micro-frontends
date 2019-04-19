@@ -8,11 +8,14 @@ skinparam sequence {
 	ActorBorderColor black
 	LifeLineBorderColor black
 	LifeLineBackgroundColor black
+	ArrowFontSize 20
 
 	ParticipantBorderColor black
-    ParticipantBackgroundColor #5DBDAF
+    ParticipantBackgroundColor #FFC6DB
+    ParticipantFontSize 24
 
-	ActorBackgroundColor #5DBDAF
+	ActorBackgroundColor #FFC6DB
+	ActorFontSize 20
 }
 
 box "Browser" #F5F5F5
@@ -24,7 +27,7 @@ end box
 
 SearchUI <- ProductUI: registerSearchProvider
 
-== on load and on every user interaction (filter, tab change) ==
+== user interaction ==
 
 SearchUI -> SearchUI: getSearchProviders
 SearchUI --> ProductUI: execute_search callback
