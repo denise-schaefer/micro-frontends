@@ -16,8 +16,6 @@ export const DO_LOAD_SUGGESTIONS_STARTED = createActionName('LOAD_SUGGESTIONS_ST
 export const DO_LOAD_SUGGESTIONS_FINISHED = createActionName('LOAD_SUGGESTIONS_FINISHED');
 export const DO_LOAD_SUGGESTIONS_FAILED = createActionName('LOAD_SUGGESTIONS_FAILED');
 
-export const SET_ACTIVE_SEARCH_PROVIDER = createActionName('LOAD_SUGGESTIONS_FAILED');
-
 const hasNoValidResult = data => {
   if (isEmpty(data)) {
     return true;
@@ -149,11 +147,6 @@ const resetSearchState = () => ({
   type: RESET_SEARCH_STATE,
 });
 
-const setActiveSearchProvider = activeSearchProvider => ({
-  type: SET_ACTIVE_SEARCH_PROVIDER,
-  activeSearchProvider,
-});
-
 function findNextSearchProvider(providers, providerId) {
   const providerIdNormalized = providerId.toLowerCase();
   // eslint-disable-next-line no-plusplus
@@ -167,4 +160,4 @@ function findNextSearchProvider(providers, providerId) {
   return null;
 }
 
-export { doLoadData, doLoadCount, doLoadSuggestions, resetSearchState, setActiveSearchProvider };
+export { doLoadData, doLoadCount, doLoadSuggestions, resetSearchState };
