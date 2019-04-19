@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import qs from 'qs';
-import { getSearchProviders } from 'search-api/lib';
+import { getSearchProviders } from 'search-api';
 import SearchResultHeader from './SearchResultHeader';
 import SearchResultBody from './SearchResultBody';
 import { doLoadCount, doLoadData } from './state/actions';
