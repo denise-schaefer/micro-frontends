@@ -9,10 +9,6 @@ app.get('/', (_, res) => {
   res.send(html);
 });
 
-app.get('/composer.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../dist/composer.js'));
-});
-console.log(path.join(__dirname, 'favicon.ico'));
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.listen(8080, () => console.log('app listening on http://localhost:8080'));
 
@@ -40,7 +36,6 @@ function render() {
   crossorigin
 ></script>
 
-<script src="http://localhost:8080/composer.js"></script>
 <script src="http://localhost:3010/search.js"></script>
 <script src="http://localhost:3011/product.js"></script>
 <script src="http://localhost:3012/content.js"></script>
