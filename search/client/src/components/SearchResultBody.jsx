@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import SearchError from './SearchError';
 import isEmpty from '../util/isEmpty';
@@ -25,7 +25,7 @@ export default function SearchResultBody({
     return queryData && queryData.query ? <div>Loading...</div> : null;
   }
 
-  return <div>{activeSearchProvider.getResultComponent(queryData, data, fetchData)}</div>;
+  return <Fragment>{activeSearchProvider.getResultComponent(queryData, data, fetchData)}</Fragment>;
 }
 
 SearchResultBody.propTypes = {

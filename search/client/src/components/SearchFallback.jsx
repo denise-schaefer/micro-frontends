@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import SearchFallbackSuggestions from './SearchFallbackSuggestions';
 import isEmpty from '../util/isEmpty';
 import getObjectValues from '../util/getObjectValues';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 export default function SearchFallback({ query, searchState }) {
   function getSuggestions() {
@@ -21,18 +23,22 @@ export default function SearchFallback({ query, searchState }) {
   const decodedQuery = decodeURIComponent(query);
 
   return (
-    <div>
-      <h1>{`Keine Treffer für "${decodedQuery}"`}</h1>
-      {suggestions && suggestions.length > 0 && (
-        <SearchFallbackSuggestions suggestions={suggestions} />
-      )}
-      <p>
+    <Col>
+      <Row className="justify-content-center">
+        <h1>{`Keine Treffer für "${decodedQuery}"`}</h1>
+      </Row>
+      <Row className="justify-content-center">
+        {suggestions && suggestions.length > 0 && (
+          <SearchFallbackSuggestions suggestions={suggestions} />
+        )}
+      </Row>
+      <Row className="justify-content-center">
         <h2>Suchtipps</h2>
-        <div>
-          Versuchen Sie, allgemeiner zu suchen - Sie können anschließend die Suchergebnisse filtern.
-        </div>
-      </p>
-    </div>
+      </Row>
+      <Row className="justify-content-center">
+        Versuchen Sie, allgemeiner zu suchen - Sie können anschließend die Suchergebnisse filtern.
+      </Row>
+    </Col>
   );
 }
 
