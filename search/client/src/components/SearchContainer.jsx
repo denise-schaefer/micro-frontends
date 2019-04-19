@@ -3,7 +3,7 @@ import qs from 'qs';
 import { getSearchProviders } from 'search-api/lib';
 import SearchResultHeader from './SearchResultHeader';
 import SearchResultBody from './SearchResultBody';
-import { doLoadData, doLoadCount, setActiveSearchProvider } from './state/actions';
+import { doLoadCount, doLoadData } from './state/actions';
 import isEmpty from '../util/isEmpty';
 import { SearchInput } from './SearchInput';
 import Container from 'react-bootstrap/Container';
@@ -28,16 +28,29 @@ const handlePushHistory = queryData => {
   window.history.pushState({ ...queryData }, null, queryString);
 };
 
+const getActiveSearchProvider = searchType => {
+  const searchProviders = getSearchProviders();
+
+  const activeSearchProviderFromSearchType = searchProviders.filter(
+    searchProvider => searchType && searchProvider.ID === searchType.toLowerCase()
+  )[0];
+
+  return activeSearchProviderFromSearchType || searchProviders[0];
+};
+
 export default function SearchContainer() {
+  const searchProviders = getSearchProviders();
+
   const [state, dispatch] = useThunkReducer(search, {
     searchState: {},
     countState: {},
     errorState: {},
     queryState: {},
-    activeSearchProvider: {},
+    activeSearchProvider: searchProviders[0],
     loadingState: false,
     displaySuggestions: false,
   });
+
   const {
     activeSearchProvider,
     searchState,
@@ -47,16 +60,6 @@ export default function SearchContainer() {
     loadingState,
     displaySuggestions,
   } = state;
-
-  const getActiveSearchProvider = searchType => {
-    const searchProviders = getSearchProviders();
-
-    const activeSearchProviderFromSearchType = searchProviders.filter(
-      searchProvider => searchType && searchProvider.ID === searchType.toLowerCase()
-    )[0];
-
-    return activeSearchProviderFromSearchType || searchProviders[0];
-  };
 
   const getQueryData = searchProvider => {
     return !isEmpty(queryState) && searchProvider && !isEmpty(queryState[searchProvider.ID])
@@ -86,23 +89,6 @@ export default function SearchContainer() {
     );
   };
 
-  const handleHistoryPopState = event => {
-    const newState = event.state;
-
-    if (newState) {
-      const searchType = newState.searchType;
-      const query = newState.query;
-      const activeSearchProvider = getActiveSearchProvider(searchType);
-      handleSearch(activeSearchProvider.ID, {
-        ...getQueryData(activeSearchProvider),
-        query,
-      });
-    } else {
-      const activeSearchProvider = getSearchProviders()[0];
-      handleSearch(activeSearchProvider[0].ID, getQueryData(activeSearchProvider));
-    }
-  };
-
   const onTabClick = searchProvider => {
     handlePushHistory(getQueryData(searchProvider));
     handleSearch(searchProvider.ID, getQueryData(searchProvider));
@@ -121,12 +107,27 @@ export default function SearchContainer() {
   };
 
   useEffect(() => {
+    const handleHistoryPopState = event => {
+      const newState = event.state;
+
+      if (newState) {
+        const searchType = newState.searchType;
+        const query = newState.query;
+        const activeSearchProvider = getActiveSearchProvider(searchType);
+        handleSearch(activeSearchProvider.ID, {
+          ...getQueryData(activeSearchProvider),
+          query,
+        });
+      } else {
+        const activeSearchProvider = getSearchProviders()[0];
+        handleSearch(activeSearchProvider[0].ID, getQueryData(activeSearchProvider));
+      }
+    };
+
     const queryData = readQueryDataFromUrl();
     const searchProviders = getSearchProviders();
     if (queryData) {
       handleSearch(queryData.searchType || searchProviders[0].ID, queryData);
-    } else {
-      dispatch(setActiveSearchProvider(searchProviders[0]));
     }
     window.addEventListener('popstate', handleHistoryPopState);
 

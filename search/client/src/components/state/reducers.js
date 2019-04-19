@@ -9,7 +9,6 @@ import {
   DO_LOAD_SUGGESTIONS_FINISHED,
   DO_LOAD_SUGGESTIONS_STARTED,
   RESET_SEARCH_STATE,
-  SET_ACTIVE_SEARCH_PROVIDER,
 } from './actions';
 import { getSearchProviders } from 'search-api';
 
@@ -216,12 +215,6 @@ const search = (state, action) => {
     case DO_LOAD_SUGGESTIONS_FAILED: {
       return searchError(action, state);
     }
-
-    case SET_ACTIVE_SEARCH_PROVIDER:
-      return {
-        ...state,
-        activeSearchProvider: action.activeSearchProvider,
-      };
 
     case RESET_SEARCH_STATE:
       return initialState;
