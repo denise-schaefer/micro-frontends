@@ -1,4 +1,3 @@
-import { createStructuredSelector } from 'reselect';
 import {
   DO_LOAD_COUNT_FAILED,
   DO_LOAD_COUNT_FINISHED,
@@ -12,9 +11,7 @@ import {
   RESET_SEARCH_STATE,
   SET_ACTIVE_SEARCH_PROVIDER,
 } from './actions';
-import { getSearchProviders } from 'search-api/lib';
-
-const reducerNameSearch = 'search/search';
+import { getSearchProviders } from 'search-api';
 
 const updateSearchData = (action, state) => {
   const { ID, activeSearchProvider, queryData, data } = action;
@@ -147,7 +144,7 @@ const initialState = {
   displaySuggestions: false,
 };
 
-const search = (state = initialState, action) => {
+const search = (state, action) => {
   switch (action.type) {
     case DO_LOAD_DATA_STARTED:
       return {
@@ -233,28 +230,5 @@ const search = (state = initialState, action) => {
       return state;
   }
 };
-
-const selectSearchState = state => state[reducerNameSearch] && state[reducerNameSearch].searchState;
-const selectCountState = state => state[reducerNameSearch] && state[reducerNameSearch].countState;
-const selectErrorState = state => state[reducerNameSearch] && state[reducerNameSearch].errorState;
-const selectQueryState = state => state[reducerNameSearch] && state[reducerNameSearch].queryState;
-const selectLoadingState = state =>
-  state[reducerNameSearch] && state[reducerNameSearch].loadingState;
-const selectDisplaySuggestions = state =>
-  state[reducerNameSearch] && state[reducerNameSearch].displaySuggestions;
-const selectActiveSearchProvider = state =>
-  state[reducerNameSearch] && state[reducerNameSearch].activeSearchProvider;
-
-export const structuredSelector = createStructuredSelector({
-  searchState: selectSearchState,
-  countState: selectCountState,
-  errorState: selectErrorState,
-  queryState: selectQueryState,
-  loadingState: selectLoadingState,
-  displaySuggestions: selectDisplaySuggestions,
-  activeSearchProvider: selectActiveSearchProvider,
-});
-
-global.reducerRegistry.register(reducerNameSearch, search);
 
 export default search;
