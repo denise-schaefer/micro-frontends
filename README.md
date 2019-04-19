@@ -1,6 +1,4 @@
-# WIP: micro-frontends
-!!! This repo is still work in progress, do not use it yet
-
+# micro-frontends
 example repo for micro frontends with react and dependency inversion as integration pattern
 
 playground to learn how to integrate micro frontends, usages product and content search as example
@@ -64,7 +62,6 @@ Dependency graph without cycles
 ````
 .
 ├── composer
-│   ├── client
 │   └── server
 ├── content
 │   ├── client
@@ -129,10 +126,7 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
-### Scoped Packages
-### Store/Hooks
-1. remove @dm/store libs
-2. use scoped packages and updates libs or introduce react hooks
+### Scoped Packages Search API
 
 ### error handling
 add example and test it
