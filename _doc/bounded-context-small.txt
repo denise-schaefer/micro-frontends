@@ -3,8 +3,9 @@ skinparam componentStyle uml2
 
 skinparam component {
   BorderColor black
-  BackgroundColor #5DBDAF
+  BackgroundColor #FFC6DB
   ArrowColor black
+  FontSize 20
 }
 
 package "Search" {
