@@ -41,7 +41,7 @@ function render() {
 <script src="http://localhost:3012/content.js"></script>
 
 <script>
-    window.myNamespace.search.default.render('#root', {});
+    window.SearchLibrary.SearchContainer.render('#root', {});
 </script>
 
 </body>

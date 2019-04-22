@@ -1,10 +1,7 @@
 import byOrder from './util/sort';
 import isEmpty from './util/isEmpty';
 
-global.search = global.search || {};
-global.search.searchProviders = global.search.searchProviders || {};
-
-const { searchProviders } = global.search;
+const searchProviders = {};
 
 export const getSearchProviders = () => {
   if (isEmpty(searchProviders)) {

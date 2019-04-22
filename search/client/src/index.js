@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchContainer from './components/SearchContainer';
+import SearchContainerInternal from './components/SearchContainer';
 
-SearchContainer.render = function(selector, initialState) {
+SearchContainerInternal.render = function(selector, initialState) {
   document.addEventListener('DOMContentLoaded', function() {
     const props = {
       ...initialState,
@@ -11,4 +11,5 @@ SearchContainer.render = function(selector, initialState) {
   });
 };
 
-export default SearchContainer;
+export const SearchContainer = SearchContainerInternal;
+export * from 'search-api';

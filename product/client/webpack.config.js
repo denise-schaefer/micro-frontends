@@ -27,6 +27,7 @@ module.exports = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
+    'search-api': 'SearchLibrary',
   },
   resolve: {
     modules: ['node_modules', src],

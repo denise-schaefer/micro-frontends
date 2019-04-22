@@ -12,8 +12,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'search.js',
-    libraryTarget: 'this',
-    library: ['myNamespace', 'search'],
+    libraryTarget: 'umd',
+    library: ['SearchLibrary'],
   },
   plugins: [
     isProd &&
