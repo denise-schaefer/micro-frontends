@@ -1,5 +1,5 @@
 import React from 'react';
-import { getSearchProviders } from 'search-api/lib';
+import { getSearchProviders } from 'search-api';
 import PropTypes from 'prop-types';
 import SearchTab from './SearchTab';
 import isEmpty from '../util/isEmpty';
