@@ -36,24 +36,62 @@
 
 ---
 
-<img src="/images/Slide31.png"/>
+<h1>Suche mit einem Provider für Produktsuche</h1>
+
+<img src="/images/sequence_2.png" />
+
+---
+
+<h1>Dependency Inversion - Produkt</h1>
+
+<div class="split">
+    <source-code folder="sources"
+                 files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
+                 start-lines="15;2,11"
+                 end-lines="17;2,19">
+    </source-code>
+</div>
 
 <style>
-    #top {
-        padding-top: 0;
-        width: 100%;
-    }
-    img {
-        height: auto;
-        width: 100%;
-        max-height: unset;
-        max-width: unset;
+    .split {
+        height: calc(100% - 4em);
     }
 </style>
 
 ---
 
-<h1>Projektstruktur</h1>
+<h1>Dependency Inversion - Suche</h1>
+
+<div class="split">
+    <source-code folder="sources"
+                 files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
+                 start-lines="6;3,41,64,75,142,153,161;27,39,57;28"
+                 end-lines="13;3,42,64,81,142,153,161;27,41,63;28">
+    </source-code>
+</div>
+
+<style>
+    .split {
+        height: calc(100% - 4em);
+    }
+</style>
+
+---
+
+<h1>... und jetzt noch mit Provider für Contentsuche</h1>
+
+<img src="/images/sequence_3.png" />
+
+---
+
+<h1>... 0-Treffer -> Fallback und Suchvorschläge</h1>
+
+<img src="/images/sequence_4.png" />
+
+---
+
+<h1>Repo</h1>
+<a href="https://github.com/denise-schaefer/micro-frontends">https://github.com/denise-schaefer/micro-frontends</a>
 
 <div style="justify-content: center; display: flex">
 <pre style="text-align: left">
@@ -83,55 +121,18 @@
 
 ---
 
-<h1>Suche mit einem Provider für Produktsuche</h1>
-
-<img src="/images/sequence_2.png" />
-
----
-
-<h1>Dependency Inversion - Produkt</h1>
-
-<div class="split">
-    <source-code folder="sources"
-                 files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
-                 start-lines="18;11"
-                 end-lines="20;19">
-    </source-code>
-</div>
+<img src="/images/Slide31.png"/>
 
 <style>
-    .split {
-        height: calc(100% - 4em);
+    #top {
+        padding-top: 0;
+        width: 100%;
+    }
+    img {
+        height: auto;
+        width: 100%;
+        max-height: unset;
+        max-width: unset;
     }
 </style>
-
----
-
-<h1>Dependency Inversion - Suche</h1>
-
-<div class="split">
-    <source-code folder="sources"
-                 files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
-                 start-lines="9;3,41,64,75,142,153,161;27,39;28"
-                 end-lines="16;3,42,64,81,142,153,161;27,40;28">
-    </source-code>
-</div>
-
-<style>
-    .split {
-        height: calc(100% - 4em);
-    }
-</style>
-
----
-
-<h1>... und jetzt noch mit Provider für Contentsuche</h1>
-
-<img src="/images/sequence_3.png" />
-
----
-
-<h1>... 0-Treffer -> Fallback und Suchvorschläge</h1>
-
-<img src="/images/sequence_4.png" />
 
