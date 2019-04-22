@@ -126,8 +126,6 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
-### Scoped Packages Search API
-
 ### error handling
 add example and test it
 
