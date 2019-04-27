@@ -15,128 +15,137 @@ limitations under the License.
 */
 
 body {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    font-size: 2rem;
-    font-family: sans-serif;
-    color: rgb(51, 51, 51);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  font-family: sans-serif;
+  color: rgb(51, 51, 51);
 }
 
 h1 {
-    font-size: 1em;
-    margin-top: 0;
-    position: absolute;
-    top: 10px;
-    left: 0px;
-    text-align: left;
-    background: #DC738B;
-    width: calc(100% - 70px);
-    padding: 20px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    border-radius: 0 8px 8px 0;
-    text-transform: none;
-    font-weight: normal;
-    color: white;
+  font-size: 1em;
+  margin-top: 0;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  text-align: left;
+  background: #dc738b;
+  width: calc(100% - 70px);
+  padding: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border-radius: 0 8px 8px 0;
+  text-transform: none;
+  font-weight: normal;
+  color: white;
 }
 
-h2, h3 {
-    margin-top: 0;
+h2,
+h3 {
+  margin-top: 0;
 }
 
 img {
-    margin: 0 auto;
-    max-height: 70%;
-    max-width: 70%;
+  margin: 0 auto;
+  max-height: 70%;
+  max-width: 70%;
 }
 
 .logos {
-    display: flex;
-    margin: 30px auto 0 auto;
-    width: 100%;
+  display: flex;
+  margin: 30px auto 0 auto;
+  width: 100%;
 }
 
-a, a:visited {
-    color: rgb(0,122,204);
-	text-decoration: none;
+a,
+a:visited {
+  color: rgb(0, 122, 204);
+  text-decoration: none;
 }
-
 
 #top {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    width: calc(100% - 40px);
-    margin: 0 auto;
-    padding-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding-top: 1.5em;
 }
 
 .split {
-    display: flex;
-    height: calc(100% - 8em);
+  display: flex;
+  height: calc(100% - 8em);
 }
 
-web-term, web-browser, source-code {
-    flex: 1;
+web-term,
+web-browser,
+source-code {
+  flex: 1;
 }
 
-web-term:first-child, web-browser:first-child, source-code:first-child {
-    margin-right: 5px;
+web-term:first-child,
+web-browser:first-child,
+source-code:first-child {
+  margin-right: 5px;
 }
 
-web-term:last-child, web-browser:last-child, source-code:last-child {
-    margin-left: 5px;
+web-term:last-child,
+web-browser:last-child,
+source-code:last-child {
+  margin-left: 5px;
 }
 
-web-term:only-child, web-browser:only-child, source-code:only-child {
-    margin: 0;
+web-term:only-child,
+web-browser:only-child,
+source-code:only-child {
+  margin: 0;
 }
 
 #nav {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 #nav a {
-    width: 48px;
-    height: 48px;
-    display: inline-block;
-    border-radius: 24px;
-    line-height: 48px;
-    cursor: pointer;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #DC738B;
-    color: white !important;
-    font-weight: bold;
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  border-radius: 24px;
+  line-height: 48px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #dc738b;
+  color: white !important;
+  font-weight: bold;
 }
 
 #nav a:hover {
-    background-color: #DC738B;
+  background-color: #dc738b;
 }
 
 #nav a.disabled {
-	pointer-events: none;
-	cursor: default;
-	visibility: hidden;
+  pointer-events: none;
+  cursor: default;
+  visibility: hidden;
 }
 
 #progression {
-    height: 5px;
-    background-color: #DC738B;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: block;
-    border-radius: 0 2px 2px 0;
+  height: 5px;
+  background-color: #dc738b;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  border-radius: 0 2px 2px 0;
 }
 
 em {
-    font-style: normal;
-    color: #DC738B;
+  font-style: normal;
+  color: #dc738b;
 }
