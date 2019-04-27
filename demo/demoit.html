@@ -1,144 +1,161 @@
-<h1>Dependency Inversion - nur eine Abhängigkeitsrichtung</h1>
+<article class="section-solution">
+  <h1>Dependency Inversion - nur eine Abhängigkeitsrichtung</h1>
 
-<img src="/images/architecture.png" />
-
----
-
-<h1>Demo Suche</h1>
-
-<div class="split">
-  <web-browser src="https://www.dm.de/search/468652.html?type=product&q=balea"></web-browser>
-  <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
-</div>
-
-<style>
-  .split {
-    height: calc(100% - 4em);
-  }
-</style>
+  <img src="/images/architecture.png" />
+</article>
 
 ---
 
-<h1>Composition vs. Dependency Inversion</h1>
+<article class="section-solution">
+  <h1>Demo Suche</h1>
 
-<div class="split">
-  <source-code folder="comparison" files="composition.js" start-lines="" end-lines="">
-  </source-code>
-  <source-code folder="comparison" files="dependencyInversion.js" start-lines="" end-lines="">
-  </source-code>
-</div>
+  <div class="split">
+    <web-browser src="https://www.dm.de/search/468652.html?type=product&q=balea"></web-browser>
+    <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
+  </div>
 
-<style>
-  .split {
-    height: calc(100% - 4em);
-  }
-</style>
-
----
-
-<h1>Suche mit einem Provider für Produktsuche</h1>
-
-<img src="/images/sequence_2.png" />
+  <style>
+    .split {
+      height: calc(100% - 4em);
+    }
+  </style>
+</article>
 
 ---
 
-<h1>Dependency Inversion - Produkt</h1>
+<article class="section-solution">
+  <h1>Composition vs. Dependency Inversion</h1>
 
-<div class="split">
-  <source-code
-    folder="sources"
-    files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
-    start-lines="15;2,11"
-    end-lines="17;2,19"
+  <div class="split">
+    <source-code folder="comparison" files="composition.js" start-lines="" end-lines="">
+    </source-code>
+    <source-code folder="comparison" files="dependencyInversion.js" start-lines="" end-lines="">
+    </source-code>
+  </div>
+
+  <style>
+    .split {
+      height: calc(100% - 4em);
+    }
+  </style>
+</article>
+
+---
+
+<article class="section-solution">
+  <h1>Suche mit einem Provider für Produktsuche</h1>
+
+  <img src="/images/sequence_2.png" />
+</article>
+
+---
+
+<article class="section-solution">
+  <h1>Dependency Inversion - Produkt</h1>
+
+  <div class="split">
+    <source-code
+      folder="sources"
+      files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
+      start-lines="15;2,11"
+      end-lines="17;2,19"
+    >
+    </source-code>
+  </div>
+
+  <style>
+    .split {
+      height: calc(100% - 4em);
+    }
+  </style>
+</article>
+
+---
+
+<article class="section-solution">
+  <h1>Dependency Inversion - Suche</h1>
+
+  <div class="split">
+    <source-code
+      folder="sources"
+      files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
+      start-lines="6;3,41,64,75,142,153,161;27,39,57;28"
+      end-lines="13;3,42,64,81,142,153,161;27,41,63;28"
+    >
+    </source-code>
+  </div>
+
+  <style>
+    .split {
+      height: calc(100% - 4em);
+    }
+  </style>
+</article>
+
+---
+
+<article class="section-solution">
+  <h1>... und jetzt noch mit Provider für Contentsuche</h1>
+
+  <img src="/images/sequence_3.png" />
+
+  ---
+
+  <h1>... 0-Treffer -> Fallback und Suchvorschläge</h1>
+
+  <img src="/images/sequence_4.png" />
+</article>
+
+---
+
+<article class="section-solution">
+  <h1>Repo</h1>
+  <a href="https://github.com/denise-schaefer/micro-frontends"
+    >https://github.com/denise-schaefer/micro-frontends</a
   >
-  </source-code>
-</div>
 
-<style>
-  .split {
-    height: calc(100% - 4em);
-  }
-</style>
-
----
-
-<h1>Dependency Inversion - Suche</h1>
-
-<div class="split">
-  <source-code
-    folder="sources"
-    files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
-    start-lines="6;3,41,64,75,142,153,161;27,39,57;28"
-    end-lines="13;3,42,64,81,142,153,161;27,41,63;28"
-  >
-  </source-code>
-</div>
-
-<style>
-  .split {
-    height: calc(100% - 4em);
-  }
-</style>
+  <div style="justify-content: center; display: flex">
+    <pre style="text-align: left">
+        .
+        ├── composer
+        │   └── server
+        ├── content
+        │   ├── client
+        │   └── server
+        ├── product
+        │   ├── client
+        │   └── server
+        ├── search
+        │   ├── client
+        │   └── server
+        └── search-api
+            ├── lib
+            └── src
+    </pre>
+  </div>
+</article>
 
 ---
 
-<h1>... und jetzt noch mit Provider für Contentsuche</h1>
+<article class="section-solution">
+  <h1>HTML und JS laden</h1>
 
-<img src="/images/sequence_3.png" />
+  <img src="/images/sequence_1.png" />
 
----
+  ---
 
-<h1>... 0-Treffer -> Fallback und Suchvorschläge</h1>
+  <img src="/images/Slide31.png" />
 
-<img src="/images/sequence_4.png" />
-
----
-
-<h1>Repo</h1>
-<a href="https://github.com/denise-schaefer/micro-frontends"
-  >https://github.com/denise-schaefer/micro-frontends</a
->
-
-<div style="justify-content: center; display: flex">
-  <pre style="text-align: left">
-    .
-    ├── composer
-    │   └── server
-    ├── content
-    │   ├── client
-    │   └── server
-    ├── product
-    │   ├── client
-    │   └── server
-    ├── search
-    │   ├── client
-    │   └── server
-    └── search-api
-        ├── lib
-        └── src
-</pre
-  >
-</div>
-
----
-
-<h1>HTML und JS laden</h1>
-
-<img src="/images/sequence_1.png" />
-
----
-
-<img src="/images/Slide31.png" />
-
-<style>
-  #top {
-    padding-top: 0;
-    width: 100%;
-  }
-  img {
-    height: auto;
-    width: 100%;
-    max-height: unset;
-    max-width: unset;
-  }
-</style>
+  <style>
+    #top {
+      padding-top: 0;
+      width: 100%;
+    }
+    img {
+      height: auto;
+      width: 100%;
+      max-height: unset;
+      max-width: unset;
+    }
+  </style>
+</article>
