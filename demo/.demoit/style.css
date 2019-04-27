@@ -67,6 +67,12 @@ limitations under the License.
   --em-font-color: #dc738b;
 }
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 body {
   text-align: center;
   margin: 0;
@@ -102,9 +108,26 @@ h3 {
 }
 
 img {
-  margin: 0 auto;
+  /* margin: 0 auto;
   max-height: 70%;
-  max-width: 70%;
+  max-width: 70%; */
+}
+
+article[class^='section-'] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section.top {
+  /* auto grow element so that the footer is attached to the bottom */
+  flex: 1;
+
+  /* align content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logos {
@@ -202,4 +225,76 @@ source-code:only-child {
 em {
   font-style: normal;
   color: var(--em-font-color);
+}
+
+section.top {
+  flex: 1;
+}
+
+footer {
+  height: 8rem;
+  background-color: #bfbfbf;
+  width: 100vw;
+  padding: 2rem;
+  align-self: flex-end;
+}
+
+.background-wall {
+  width: 100vw;
+  height: 100vh;
+  background-color: #d9dad9;
+  background-image: url('/images/background.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.section-frontpage {
+  align-items: center;
+  justify-content: center;
+}
+
+span.o-magnifier {
+  /* visually hide letter */
+  color: transparent;
+  text-shadow: none;
+  /* and replace it with magnifier svg */
+  background-image: url(/images/magnifier2.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(198deg) translateY(0.25em);
+  display: inline-block;
+  width: 2em;
+  height: 1.1em;
+  margin-left: -1.25em;
+  margin-right: 0em;
+}
+
+span.i-fingerprint {
+  /* attach a fingerprint to the top of the letter */
+  position: relative;
+}
+span.i-fingerprint::after {
+  background-image: url(/images/fingerprint.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  content: '';
+  width: 0.2em;
+  height: 0.2em;
+  position: absolute;
+  top: -12px;
+  left: 5px;
+}
+
+.speaker-image-container {
+  position: relative;
+}
+.speaker-name {
+  position: absolute;
+  bottom: 2em;
+  left: 0;
+  right: 0;
+  font-weight: 500;
+  font-size: 3rem;
+  color: black;
 }
