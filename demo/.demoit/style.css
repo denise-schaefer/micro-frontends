@@ -14,6 +14,46 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+@font-face {
+  font-family: 'dmbrand';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/DMBrand-Regular.eot');
+  src: url('/fonts/DMBrand-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/DMBrand-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'dmbrand';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/DMBrand-Medium.eot');
+  src: url('/fonts/DMBrand-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/DMBrand-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'dmbrand';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/DMBrand-Bold.eot');
+  src: url('/fonts/DMBrand-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/DMBrand-Bold.woff') format('woff');
+}
+
+.section-history {
+  --title-background-color: #5cbdae;
+  --title-font-color: #000000;
+
+  --navigation-link-background-color: #5cbdae;
+  --navigation-link-background-color-hover: #5cbdae;
+  --navigation-link-font-color: #000000;
+
+  --progression-background-color: #5cbdae;
+
+  --em-font-color: #5cbdae;
+}
+
 .section-solution {
   --title-background-color: #dc738b;
   --title-font-color: #ffffff;
@@ -32,12 +72,13 @@ body {
   margin: 0;
   padding: 0;
   font-size: 2rem;
-  font-family: sans-serif;
+  font-family: 'dmbrand', sans-serif;
   color: rgb(51, 51, 51);
 }
 
 h1 {
   font-size: 1em;
+  font-weight: 500;
   margin-top: 0;
   position: absolute;
   top: 10px;
@@ -51,12 +92,12 @@ h1 {
   text-overflow: ellipsis;
   border-radius: 0 8px 8px 0;
   text-transform: none;
-  font-weight: normal;
   color: var(--title-font-color);
 }
 
 h2,
 h3 {
+  font-weight: 500;
   margin-top: 0;
 }
 
