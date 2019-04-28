@@ -42,7 +42,7 @@ limitations under the License.
 }
 
 img.slide {
-  height: 100%;
+  width: 100%;
 }
 
 *,
@@ -351,9 +351,39 @@ span.i-fingerprint::after {
   background: #d6e0df;
 }
 
-.chat-message-product-owner + .chat-message-developer,
-.chat-message-developer + .chat-message-product-owner {
-  margin-top: 1em;
+.chat-irc {
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+.chat-irc .chat-message {
+  border-radius: 0;
+  background: #3f3f3f;
+  color: white;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+.chat-irc .chat-message span {
+  flex: 1;
+}
+.chat-irc .chat-message small {
+  font-size: 1rem;
+  width: 8em;
+  text-align: right;
+  margin: unset;
+  margin-right: 1em;
+}
+.chat-irc .chat-message small::after {
+  content: ':';
+}
+
+.chat-message-gitoverride small {
+  color: lime;
+}
+.chat-message-frontente small {
+  color: orange;
 }
 
 /* =================================================================== */
