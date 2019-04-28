@@ -41,6 +41,14 @@ limitations under the License.
     url('/fonts/DMBrand-Bold.woff') format('woff');
 }
 
+:root {
+  --section-max-width: 1200px;
+}
+
+img.slide {
+  height: 100%;
+}
+
 .section-history {
   --title-background-color: #5cbdae;
   --title-font-color: #000000;
@@ -79,7 +87,7 @@ body {
   padding: 0;
   font-size: 2rem;
   font-family: 'dmbrand', sans-serif;
-  color: rgb(51, 51, 51);
+  color: black;
 }
 
 h1 {
@@ -114,20 +122,19 @@ img {
 }
 
 article[class^='section-'] {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-section.top {
-  /* auto grow element so that the footer is attached to the bottom */
+section {
+  width: 100%;
+  max-width: var(--section-max-width);
+  /* background-color: lime; */
   flex: 1;
-
-  /* align content */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .logos {
@@ -227,10 +234,6 @@ em {
   color: var(--em-font-color);
 }
 
-section.top {
-  flex: 1;
-}
-
 footer {
   height: 8rem;
   background-color: #bfbfbf;
@@ -258,7 +261,7 @@ span.o-magnifier {
   color: transparent;
   text-shadow: none;
   /* and replace it with magnifier svg */
-  background-image: url(/images/magnifier2.svg);
+  background-image: url(/images/magnifier.svg);
   background-repeat: no-repeat;
   background-size: contain;
   transform: rotate(198deg) translateY(0.25em);
@@ -286,15 +289,240 @@ span.i-fingerprint::after {
   left: 5px;
 }
 
-.speaker-image-container {
-  position: relative;
+.speaker-container {
+}
+.speaker-image {
+  margin: 1em;
+  width: 75%;
+  height: auto;
 }
 .speaker-name {
-  position: absolute;
-  bottom: 2em;
-  left: 0;
-  right: 0;
   font-weight: 500;
   font-size: 3rem;
-  color: black;
+}
+
+.title-foo {
+  margin: 0;
+  padding: 0;
+  font-weight: 1000;
+  font-size: 4rem;
+  text-transform: uppercase;
+  line-height: 1.5;
+  text-shadow: 3px -2px 0px #bfbfbf;
+}
+
+.title-foo.title-foo-underline {
+  position: relative;
+}
+
+.title-foo-underline::after {
+  content: attr(data-underline-color) '';
+  border-radius: 1em;
+  border: 5px solid var(--underline-color, black);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.calendar {
+  background-image: url('/images/calendar.png');
+  background-size: cover;
+  width: 37%;
+  height: 52%;
+  max-width: 400px;
+  max-height: 400px;
+  position: relative;
+}
+.calendar {
+  position: relative;
+}
+.calendar-text {
+  position: absolute;
+  top: 46%;
+  bottom: 21%;
+  left: 21%;
+  right: 22%;
+  padding: 0.5em;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-size: 85%;
+}
+
+.calendar-homepage {
+  position: absolute;
+  top: -10%;
+  right: 36%;
+  transform: rotate(-20deg);
+}
+.calendar-shop {
+  position: absolute;
+  top: 23%;
+  right: -3%;
+  transform: rotate(20deg);
+}
+.calendar-monolith {
+  position: absolute;
+  top: 56%;
+  right: 30%;
+  transform: rotate(-5deg);
+}
+
+.text {
+  font-size: 4rem;
+}
+
+.magnifier-container {
+  overflow: hidden;
+  position: absolute;
+  top: 27px;
+  bottom: 448px;
+  left: 61px;
+  right: 676px;
+  border-radius: 100%;
+}
+.magnifier-content {
+  zoom: 2;
+}
+
+.person-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.dialog-balloon {
+  border: 0.4em dashed black;
+  border-radius: 0.3em;
+  padding: 0.5em;
+}
+
+.backend-teams-container > div {
+  flex: 1;
+  transform: rotate(-90deg);
+  display: flex;
+  align-items: center;
+}
+
+/* =================================================================== */
+/* Utils */
+/* =================================================================== */
+
+.h-full {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.w-50 {
+  width: 50%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-70 {
+  width: 70%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+.self-start {
+  align-self: flex-end;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.p-1 {
+  padding: 0.25em;
+}
+.p-2 {
+  padding: 0.5em;
+}
+.p-4 {
+  padding: 1em;
+}
+.p-8 {
+  padding: 2em;
+}
+.pl-8 {
+  padding-left: 2em;
+}
+.pt-8 {
+  padding-top: 2em;
+}
+.pt-10 {
+  padding-top: 2.5em;
+}
+.pt-12 {
+  padding-top: 3em;
+}
+
+.mb-4 {
+  margin-bottom: 1em;
+}
+.mb-8 {
+  margin-bottom: 2em;
+}
+.mb-12 {
+  margin-bottom: 3em;
+}
+
+.relative {
+  position: relative;
+}
+
+.background-cyan {
+  background-color: #5cbdae;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.border-dashed {
+  border: 0.2em dashed black;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.text-white {
+  color: white;
 }
