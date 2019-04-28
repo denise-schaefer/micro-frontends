@@ -66,6 +66,12 @@ ul {
   padding: 0;
 }
 
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 h1 {
   font-size: 1em;
   font-weight: 500;
@@ -289,6 +295,67 @@ span.i-fingerprint::after {
   align-items: center;
 }
 
+.chat-container {
+  background-image: url(/images/iphone-x.png);
+  background-size: cover;
+  transform: rotate(-8deg);
+  width: 40%;
+  height: 110vh;
+  position: absolute;
+  left: 6%;
+  display: flex;
+  top: -1%;
+}
+
+.chat {
+  margin: 0 auto;
+  width: 86%;
+  font-size: 1.3rem;
+  margin-top: 5em;
+  border-top-left-radius: 6rem;
+  border-top-right-radius: 6rem;
+  font-family: Helvetica;
+}
+.chat small {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.chat-message {
+  margin-bottom: 0.2em;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 0.5em;
+  padding: 0.4em 0.4em;
+}
+
+.chat-unread-marker {
+  background-color: #ffffff;
+  margin-bottom: 0.5em;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #424242;
+  margin: 2em 0.5em;
+}
+
+.chat-message-product-owner {
+  text-align: left;
+  background: #f5f5f5;
+}
+
+.chat-message-developer {
+  text-align: right;
+  background: #d6e0df;
+}
+
+.chat-message-product-owner + .chat-message-developer,
+.chat-message-developer + .chat-message-product-owner {
+  margin-top: 1em;
+}
+
 /* =================================================================== */
 /* Utils */
 /* =================================================================== */
@@ -409,6 +476,15 @@ span.i-fingerprint::after {
 }
 .mb-12 {
   margin-bottom: 3em;
+}
+.mr-4 {
+  margin-right: 1em;
+}
+.mr-8 {
+  margin-right: 2em;
+}
+.mr-12 {
+  margin-right: 3em;
 }
 
 .relative {
