@@ -1,22 +1,18 @@
 <article class="section-frontpage background-wall">
-  <section class="top">
-    <div>
-      <div style="width: 60vw; border: 0.5em solid #5dbdae; border-radius: 1rem;">
+  <section class="flex-1 relative flex items-center justify-center">
+    <div style="width: 80%; border: 0.5em solid #5dbdae; border-radius: 1rem;">
+      <div
+        style="border: 0.5em solid #55b7d7; border-radius: 0rem; border-left: none; border-right: none;"
+      >
         <div
-          style="border: 0.5em solid #55b7d7; border-radius: 0rem; border-left: none; border-right: none;"
+          style="border: 0.5em solid #dc738b; border-radius: 0rem; border-left: none; border-right: none; display: flex; align-items: center; justify-content: center;"
         >
-          <div
-            style="border: 0.5em solid #dc738b; border-radius: 0rem; border-left: none; border-right: none; display: flex; align-items: center; justify-content: center; height: 35vh"
-          >
-            <p
-              style="font-weight: 1000; font-size: 4rem; text-transform: uppercase; color: black; line-height: 1.5; text-shadow: 3px -2px 0px #bfbfbf;"
-            >
-              M<span class="i-fingerprint">i</span>cr<span class="o-magnifier">o</span>-Fr<span
-                class="o-magnifier"
-                >o</span
-              >ntends<br /><span class="i-fingerprint">i</span>n React
-            </p>
-          </div>
+          <p class="title-foo p-8">
+            M<span class="i-fingerprint">i</span>cr<span class="o-magnifier">o</span>-Fr<span
+              class="o-magnifier"
+              >o</span
+            >ntends<br /><span class="i-fingerprint">i</span>n React
+          </p>
         </div>
       </div>
     </div>
@@ -36,15 +32,15 @@
 ---
 
 <article class="section-speaker background-wall">
-  <section class="top">
-    <div class="speaker-image-container">
-      <img src="/images/speaker-benny.1.png" style="margin: 1em; width: 55vmin; height: auto;" />
+  <section class="flex-1 flex flex-row">
+    <div class="speaker-container flex flex-column items-center justify-center">
+      <img class="speaker-image" src="/images/speaker-benny.png" />
       <span class="speaker-name">
         Benjamin Seber
       </span>
     </div>
-    <div class="speaker-image-container">
-      <img src="/images/speaker-denise.1.png" style="margin: 1em; width: 55vmin; height: auto;" />
+    <div class="speaker-container flex flex-column items-center justify-center">
+      <img class="speaker-image" src="/images/speaker-denise.png" />
       <span class="speaker-name">
         Denise Schäfer
       </span>
@@ -63,10 +59,221 @@
 ---
 
 <article class="section-flashback background-wall">
-  <section class="top">
-    <p>Rückblende</p>
+  <section class="flex-1 flex items-center justify-center">
+    <div class="flex flex-row">
+      <img
+        src="/images/lampe.png"
+        style="width: 5em; height: 4em; transform: translateX(2.25em) translateY(-1.5em);"
+      />
+      <p class="title-foo title-foo-underline" style="--underline-color: #5cbdae;">
+        Rückblende
+      </p>
+    </div>
   </section>
   <footer></footer>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex flex-column background-cyan">
+  <section class="flex flex-1 items-center justify-start relative">
+    <p class="text pl-8" style="font-size: 3rem;">
+      Was bisher<br /><span class="strong">geschah...</span>
+    </p>
+    <div class="calendar calendar-homepage">
+      <div>
+        <div class="calendar-text">
+          <b>2013</b><br />
+          Homepage mit CMS
+        </div>
+      </div>
+    </div>
+    <div class="calendar calendar-shop">
+      <div>
+        <div class="calendar-text">
+          <b>2015</b><br />
+          dm.de to shop
+        </div>
+      </div>
+    </div>
+    <div class="calendar calendar-monolith">
+      <div>
+        <div class="calendar-text">
+          <b>2015</b><br />
+          2 Monolithen im Mono-Repo
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex flex-column background-cyan">
+  <section class="relative flex flex-1 items-center justify-start">
+    <div class="magnifier-container">
+      <img
+        src="/images/coremedia-git-history/2013-joined.png"
+        width="600px"
+        class="magnifier-content"
+      />
+    </div>
+    <img src="/images/magnifier.svg" class="w-70" style="transform: translateY(-10%)" />
+    <p class="text pl-8" style="font-size: 3rem;">
+      CoreMedia<br />
+      <span class="strong">Git Historie</span>
+    </p>
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+<script src="/js/magnifier.js"></script>
+
+---
+
+<article class="section-flashback h-full flex flex-column background-cyan">
+  <section class="relative flex-1 flex flex-column flex-1 items-center">
+    <p class="text strong self-start pt-8">Anstieg der Contributor</p>
+    <img src="/images/coremedia-contributor.png" />
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex flex-column background-cyan">
+  <section class="relative flex-1 flex flex-column flex-1 items-center">
+    <p class="text self-start">Wir brauchen<br /><span class="strong">mehr Features!</span></p>
+    <div class="person-container">
+      <img src="/images/person.png" />
+      <p class="dialog-balloon" style="position: absolute; width: 35%; left: 23%; top: -31%;">
+        Krass, immer mehr Leute und alles wird ganz schön komplex!
+      </p>
+      <img src="/images/person.png" style="transform: scaleX(-1); zoom: 0.9;" />
+      <p class="dialog-balloon" style="position: absolute; width: 25%; right: 0; top: -13%;">
+        Ich hab' da ne Idee.
+      </p>
+    </div>
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex background-cyan">
+  <section class="relative flex flex-1 items-center">
+    <img
+      src="/images/monolith-to-micro-services.png"
+      style="width: 67%; transform: translateY(115px);"
+    />
+    <div class="flex flex-column p-8 text-left">
+      <p class="text">Micro-Services<br /><span class="strong">im Backend</span></p>
+      <img src="/images/monolith-to-micro-services--qr.png" style="" />
+    </div>
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex background-cyan">
+  <section class="relative flex flex-column flex-1 items-center">
+    <p class="mb-4">Frontend-Team</p>
+    <div class="border-dashed p-2 mb-12" style="width: 100%;">
+      <div class="bg-black text-white p-4">Responsive Team</div>
+    </div>
+    <p class="mb-8">Backend-Teams</p>
+    <div class="border-dashed p-8 flex backend-teams-container">
+      <div class="bg-black text-white p-4">Produkt Service</div>
+      <div class="bg-black text-white p-4">Reco Service</div>
+      <div class="bg-black text-white p-4">Payment Service</div>
+      <div class="bg-black text-white p-4">Cart Service</div>
+      <div class="bg-black text-white p-4">Content Service</div>
+    </div>
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex background-cyan">
+  <section class="relative flex flex-column flex-1 items-center">
+    <img class="slide" src="/images/slide-008-monolith-to-microservices.png" />
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex background-cyan">
+  <section class="relative flex flex-column flex-1 items-center">
+    <img class="slide" src="/images/slide-009-skalierung-teams.png" />
+  </section>
+</article>
+<style>
+  #top {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+</style>
+
+---
+
+<article class="section-flashback h-full flex background-cyan">
+  <section class="relative flex flex-column flex-1 items-center">
+    <img class="slide" src="/images/slide-010-backend-skalierung.png" />
+  </section>
 </article>
 <style>
   #top {
