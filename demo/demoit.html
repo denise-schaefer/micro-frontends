@@ -98,10 +98,14 @@
 
 ---
 
+<!-- preload big image for previous slide for the case we're navigating backwards -->
+<link rel="preload" href="/images/coremedia-git-history/2013-placeholder-light.png" as="image" />
+<link rel="preload" href="/images/coremedia-git-history/2013-joined-light.png" as="image" />
+
 <article class="flex flex-column w-screen h-full background-cyan">
-  <section class="relative flex-1 flex flex-column flex-1 items-center">
-    <p class="text self-start p-8">Anstieg der<br /><span class="strong">Contributor</span></p>
-    <img class="absolute" src="/images/coremedia-contributor.png" />
+  <section class="relative flex-1 flex flex-column items-end justify-end">
+    <img class="absolute" style="left: 0; bottom: 0;" src="/images/coremedia-contributor.png" />
+    <p class="text p-8">Anstieg der<br /><span class="strong">Contributor</span></p>
   </section>
 </article>
 
@@ -124,7 +128,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-cyan">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide" src="/images/slides/skalierung-teams.png" />
   </section>
 </article>
@@ -132,7 +136,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-cyan">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide" src="/images/slides/backend-skalierung.png" />
   </section>
 </article>
@@ -140,7 +144,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-cyan">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide" src="/images/slides/unabhaengigkeit-backend.png" />
   </section>
 </article>
@@ -206,7 +210,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-cyan">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide" src="/images/slides/wanted-cross-functional.png" />
   </section>
 </article>
@@ -214,7 +218,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-cyan">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide" src="/images/slides/frontend-projekte.png" />
   </section>
 </article>
@@ -258,7 +262,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-cyan">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide" src="/images/slides/frontend-verteilter-monolith.png" />
   </section>
 </article>
@@ -441,7 +445,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-salmon">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide" src="/images/slides/loesungsrahmen.png" />
   </section>
 </article>
@@ -606,7 +610,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-salmon">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide " src="/images/slides/composition-dependencyinversion.png" />
   </section>
 </article>
@@ -614,7 +618,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-salmon">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide " src="/images/slides/unabhaengigkeit-backend-und-frontend.png" />
   </section>
 </article>
@@ -622,7 +626,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-salmon">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide " src="/images/slides/lessons-learned.png" />
   </section>
 </article>
@@ -630,7 +634,7 @@
 ---
 
 <article class="flex flex-column w-screen h-full background-salmon">
-  <section class="relative flex-1 flex flex-column items-center">
+  <section class="relative flex-1 flex flex-column">
     <img class="slide " src="/images/slides/ausblick.png" />
   </section>
 </article>

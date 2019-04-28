@@ -42,7 +42,8 @@ limitations under the License.
 }
 
 img.slide {
-  width: 100%;
+  height: 100%;
+  width: auto;
 }
 
 *,
@@ -168,6 +169,7 @@ source-code:only-child {
   z-index: 10;
   display: block;
   border-radius: 0 2px 2px 0;
+  background-color: purple;
 }
 
 footer {
@@ -353,7 +355,7 @@ span.i-fingerprint::after {
 
 .chat-irc {
   font-family: monospace;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 .chat-irc .chat-message {
   border-radius: 0;
@@ -369,7 +371,7 @@ span.i-fingerprint::after {
   flex: 1;
 }
 .chat-irc .chat-message small {
-  font-size: 1rem;
+  font-size: 1.2rem;
   width: 8em;
   text-align: right;
   margin: unset;
@@ -430,15 +432,16 @@ span.i-fingerprint::after {
 .items-center {
   align-items: center;
 }
+.items-end {
+  align-items: flex-end;
+}
 
 .justify-start {
   justify-content: flex-start;
 }
-
 .justify-center {
   justify-content: center;
 }
-
 .justify-end {
   justify-content: flex-end;
 }
