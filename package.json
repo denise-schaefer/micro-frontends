@@ -12,7 +12,8 @@
     "search-api",
     "product",
     "content",
-    "composer"
+    "composer",
+    "slide-notes"
   ],
   "scripts": {
     "dev": "yarn build && yarn serve",

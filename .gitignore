@@ -4,3 +4,6 @@ node_modules/
 dist/
 lib/
 sources
+
+slide-notes/*png
+slide-notes/*html
