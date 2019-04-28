@@ -42,7 +42,7 @@ limitations under the License.
 }
 
 :root {
-  --section-max-width: 1200px;
+  --section-max-width: 1900px;
 }
 
 img.slide {
@@ -90,6 +90,12 @@ body {
   color: black;
 }
 
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-size: 1em;
   font-weight: 500;
@@ -115,26 +121,10 @@ h3 {
   margin-top: 0;
 }
 
-img {
-  /* margin: 0 auto;
-  max-height: 70%;
-  max-width: 70%; */
-}
-
-article[class^='section-'] {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 section {
-  width: 100%;
-  max-width: var(--section-max-width);
-  /* background-color: lime; */
-  flex: 1;
+  /* width: 100%; */
+  /* max-width: var(--section-max-width); */
+  /* flex: 1; */
 }
 
 .logos {
@@ -147,16 +137,6 @@ a,
 a:visited {
   color: rgb(0, 122, 204);
   text-decoration: none;
-}
-
-#top {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  width: calc(100% - 40px);
-  margin: 0 auto;
-  padding-top: 1.5em;
 }
 
 .split {
@@ -243,8 +223,6 @@ footer {
 }
 
 .background-wall {
-  width: 100vw;
-  height: 100vh;
   background-color: #d9dad9;
   background-image: url('/images/background.svg');
   background-repeat: no-repeat;
@@ -325,49 +303,6 @@ span.i-fingerprint::after {
   bottom: 0;
 }
 
-.calendar {
-  background-image: url('/images/calendar.png');
-  background-size: cover;
-  width: 37%;
-  height: 52%;
-  max-width: 400px;
-  max-height: 400px;
-  position: relative;
-}
-.calendar {
-  position: relative;
-}
-.calendar-text {
-  position: absolute;
-  top: 46%;
-  bottom: 21%;
-  left: 21%;
-  right: 22%;
-  padding: 0.5em;
-  font-size: 2rem;
-  line-height: 1.5;
-  font-size: 85%;
-}
-
-.calendar-homepage {
-  position: absolute;
-  top: -10%;
-  right: 36%;
-  transform: rotate(-20deg);
-}
-.calendar-shop {
-  position: absolute;
-  top: 23%;
-  right: -3%;
-  transform: rotate(20deg);
-}
-.calendar-monolith {
-  position: absolute;
-  top: 56%;
-  right: 30%;
-  transform: rotate(-5deg);
-}
-
 .text {
   font-size: 4rem;
 }
@@ -375,10 +310,10 @@ span.i-fingerprint::after {
 .magnifier-container {
   overflow: hidden;
   position: absolute;
-  top: 27px;
-  bottom: 448px;
-  left: 61px;
-  right: 676px;
+  top: -3%;
+  bottom: 47%;
+  left: 7%;
+  right: 37%;
   border-radius: 100%;
 }
 .magnifier-content {
@@ -407,6 +342,13 @@ span.i-fingerprint::after {
 /* =================================================================== */
 /* Utils */
 /* =================================================================== */
+
+.w-full {
+  width: 100%;
+}
+.w-screen {
+  width: 100vw;
+}
 
 .h-full {
   height: 100vh;
@@ -454,7 +396,7 @@ span.i-fingerprint::after {
 .self-start {
   align-self: flex-start;
 }
-.self-start {
+.self-end {
   align-self: flex-end;
 }
 
@@ -500,9 +442,18 @@ span.i-fingerprint::after {
 .relative {
   position: relative;
 }
+.absolute {
+  position: absolute;
+}
 
 .background-cyan {
   background-color: #5cbdae;
+}
+.background-blue {
+  background-color: #54b7d7;
+}
+.background-salmon {
+  background-color: #dc738b;
 }
 
 .text-left {
