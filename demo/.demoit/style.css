@@ -41,39 +41,9 @@ limitations under the License.
     url('/fonts/DMBrand-Bold.woff') format('woff');
 }
 
-:root {
-  --section-max-width: 1900px;
-}
-
 img.slide {
   height: 100%;
 }
-
-/* .section-history {
-  --title-background-color: #5cbdae;
-  --title-font-color: #000000;
-
-  --navigation-link-background-color: #5cbdae;
-  --navigation-link-background-color-hover: #5cbdae;
-  --navigation-link-font-color: #000000;
-
-  --progression-background-color: #5cbdae;
-
-  --em-font-color: #5cbdae;
-}
-
-.section-solution {
-  --title-background-color: #dc738b;
-  --title-font-color: #ffffff;
-
-  --navigation-link-background-color: #dc738b;
-  --navigation-link-background-color-hover: #dc738b;
-  --navigation-link-font-color: #ffffff;
-
-  --progression-background-color: #dc738b;
-
-  --em-font-color: #dc738b;
-} */
 
 *,
 *:after,
@@ -104,7 +74,6 @@ h1 {
   top: 10px;
   left: 0px;
   text-align: left;
-  background: var(--title-background-color);
   width: calc(100% - 70px);
   padding: 20px;
   overflow: hidden;
@@ -112,19 +81,12 @@ h1 {
   text-overflow: ellipsis;
   border-radius: 0 8px 8px 0;
   text-transform: none;
-  color: var(--title-font-color);
 }
 
 h2,
 h3 {
   font-weight: 500;
   margin-top: 0;
-}
-
-section {
-  /* width: 100%; */
-  /* max-width: var(--section-max-width); */
-  /* flex: 1; */
 }
 
 .logos {
@@ -183,13 +145,7 @@ source-code:only-child {
   cursor: pointer;
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--navigation-link-background-color);
-  color: var(--navigation-link-font-color) !important;
   font-weight: bold;
-}
-
-#nav a:hover {
-  background-color: var(--navigation-link-background-color-hover);
 }
 
 #nav a.disabled {
@@ -200,18 +156,12 @@ source-code:only-child {
 
 #progression {
   height: 5px;
-  background-color: var(--progression-background-color);
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 10;
   display: block;
   border-radius: 0 2px 2px 0;
-}
-
-em {
-  font-style: normal;
-  color: var(--em-font-color);
 }
 
 footer {
