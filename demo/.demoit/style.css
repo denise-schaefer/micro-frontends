@@ -49,7 +49,7 @@ img.slide {
   height: 100%;
 }
 
-.section-history {
+/* .section-history {
   --title-background-color: #5cbdae;
   --title-font-color: #000000;
 
@@ -73,7 +73,7 @@ img.slide {
   --progression-background-color: #dc738b;
 
   --em-font-color: #dc738b;
-}
+} */
 
 *,
 *:after,
@@ -364,6 +364,9 @@ span.i-fingerprint::after {
 .w-70 {
   width: 70%;
 }
+.w-80 {
+  width: 80%;
+}
 
 .flex {
   display: flex;
@@ -429,6 +432,25 @@ span.i-fingerprint::after {
   padding-top: 3em;
 }
 
+.pb-4 {
+  padding-bottom: 1em;
+}
+.pb-8 {
+  padding-bottom: 2em;
+}
+.pb-12 {
+  padding-bottom: 3em;
+}
+
+.mt-4 {
+  margin-top: 1em;
+}
+.mt-8 {
+  margin-top: 2em;
+}
+.mt-12 {
+  margin-top: 3em;
+}
 .mb-4 {
   margin-bottom: 1em;
 }

@@ -337,62 +337,49 @@
 
 ---
 
-<article class="section-solution">
-  <h1>Dependency Inversion - nur eine Abhängigkeitsrichtung</h1>
-
+<article class="w-screen h-full flex items-center justify-center">
+  <h1 class="text-white background-salmon">
+    Dependency Inversion - nur eine Abhängigkeitsrichtung
+  </h1>
   <img src="/images/architecture.png" />
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>Demo Suche</h1>
-
-  <div class="split">
+<article class="h-full flex">
+  <h1 class="text-white background-salmon">Demo Suche</h1>
+  <div class="w-screen h-full flex-1 flex flex-row p-4 pt-12 pb-8">
     <web-browser src="https://www.dm.de/search/468652.html?type=product&q=balea"></web-browser>
     <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
   </div>
-
-  <style>
-    .split {
-      height: calc(100% - 4em);
-    }
-  </style>
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>Composition vs. Dependency Inversion</h1>
-
-  <div class="split">
+<article class="h-full flex">
+  <h1 class="text-white background-salmon">Composition vs. Dependency Inversion</h1>
+  <div class="w-screen h-full flex-1 flex flex-row p-4 pt-12 pb-8">
     <source-code folder="comparison" files="composition.js" start-lines="" end-lines="">
     </source-code>
     <source-code folder="comparison" files="dependencyInversion.js" start-lines="" end-lines="">
     </source-code>
   </div>
-
-  <style>
-    .split {
-      height: calc(100% - 4em);
-    }
-  </style>
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>Suche mit einem Provider für Produktsuche</h1>
-
-  <img src="/images/sequence_2.png" />
+<article class="h-full flex">
+  <h1 class="text-white background-salmon">Suche mit einem Provider für Produktsuche</h1>
+  <section class="flex-1 flex items-center justify-center">
+    <img src="/images/sequence_2.png" />
+  </section>
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>Dependency Inversion - Produkt</h1>
-
-  <div class="split">
+<article class="h-full flex">
+  <h1 class="text-white background-salmon">Dependency Inversion - Produkt</h1>
+  <section class="flex-1 flex items-center justify-center p-4">
     <source-code
       folder="sources"
       files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
@@ -400,21 +387,14 @@
       end-lines="17;2,19"
     >
     </source-code>
-  </div>
-
-  <style>
-    .split {
-      height: calc(100% - 4em);
-    }
-  </style>
+  </section>
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>Dependency Inversion - Suche</h1>
-
-  <div class="split">
+<article class="h-full flex">
+  <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
+  <section class="flex-1 flex items-center justify-center p-4">
     <source-code
       folder="sources"
       files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
@@ -422,38 +402,35 @@
       end-lines="13;3,42,64,81,142,153,161;27,41,63;28"
     >
     </source-code>
-  </div>
-
-  <style>
-    .split {
-      height: calc(100% - 4em);
-    }
-  </style>
+  </section>
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>... und jetzt noch mit Provider für Contentsuche</h1>
-
-  <img src="/images/sequence_3.png" />
-
-  ---
-
-  <h1>... 0-Treffer -> Fallback und Suchvorschläge</h1>
-
-  <img src="/images/sequence_4.png" />
+<article class="h-full flex items-center justify-center">
+  <h1 class="text-white background-salmon">... und jetzt noch mit Provider für Contentsuche</h1>
+  <section>
+    <img class="w-80" src="/images/sequence_3.png" />
+  </section>
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>Repo</h1>
-  <a href="https://github.com/denise-schaefer/micro-frontends"
-    >https://github.com/denise-schaefer/micro-frontends</a
-  >
+<article class="h-full flex items-center justify-center">
+  <h1 class="text-white background-salmon">... 0-Treffer -> Fallback und Suchvorschläge</h1>
+  <section class="flex-1">
+    <img src="/images/sequence_4.png" />
+  </section>
+</article>
 
-  <div style="justify-content: center; display: flex">
+---
+
+<article class="h-full flex">
+  <h1 class="text-white background-salmon">Repo</h1>
+  <section class="flex-1 flex flex-column justify-center p-4 pt-12">
+    <a href="https://github.com/denise-schaefer/micro-frontends">
+      https://github.com/denise-schaefer/micro-frontends
+    </a>
     <pre style="text-align: left">
         .
         ├── composer
@@ -471,30 +448,22 @@
             ├── lib
             └── src
     </pre>
-  </div>
+  </section>
 </article>
 
 ---
 
-<article class="section-solution">
-  <h1>HTML und JS laden</h1>
+<article class="h-full flex items-center justify-center">
+  <h1 class="text-white background-salmon">HTML und JS laden</h1>
+  <section class="flex-1">
+    <img src="/images/sequence_1.png" />
+  </section>
+</article>
 
-  <img src="/images/sequence_1.png" />
+---
 
-  ---
-
-  <img src="/images/Slide31.png" />
-
-  <style>
-    #top {
-      padding-top: 0;
-      width: 100%;
-    }
-    img {
-      height: auto;
-      width: 100%;
-      max-height: unset;
-      max-width: unset;
-    }
-  </style>
+<article class="flex flex-column w-screen h-full background-salmon">
+  <section class="relative flex-1 flex flex-column items-center">
+    <img class="slide " src="/images/Slide31.png" />
+  </section>
 </article>
