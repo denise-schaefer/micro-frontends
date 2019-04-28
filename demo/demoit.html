@@ -564,47 +564,22 @@
 
 ---
 
-<article class="w-screen h-full flex items-center justify-center">
+<article class="container">
   <h1 class="text-white background-salmon">
     Dependency Inversion - nur eine Abhängigkeitsrichtung
   </h1>
-  <img src="/images/architecture.png" />
+  <img class="default" src="/images/architecture.png" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
 
 ---
 
-<article class="h-full flex">
+<article class="container">
   <h1 class="text-white background-salmon">Demo Suche</h1>
-  <div class="w-screen h-full flex-1 flex flex-row p-4 pt-12 pb-8">
+  <section class="split">
     <web-browser src="https://www.dm.de/search/468652.html?type=product&q=balea"></web-browser>
     <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
-  </div>
-</article>
-
-<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
-
----
-
-<article class="h-full flex">
-  <h1 class="text-white background-salmon">Composition vs. Dependency Inversion</h1>
-  <div class="w-screen h-full flex-1 flex flex-row p-4 pt-12 pb-8">
-    <source-code folder="comparison" files="composition.js" start-lines="" end-lines="">
-    </source-code>
-    <source-code folder="comparison" files="dependencyInversion.js" start-lines="" end-lines="">
-    </source-code>
-  </div>
-</article>
-
-<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
-
----
-
-<article class="h-full flex">
-  <h1 class="text-white background-salmon">Suche mit einem Provider für Produktsuche</h1>
-  <section class="flex-1 flex items-center justify-center">
-    <img src="/images/sequence_2.png" />
   </section>
 </article>
 
@@ -612,9 +587,32 @@
 
 ---
 
-<article class="h-full flex">
+<article class="container">
+  <h1 class="text-white background-salmon">Composition vs. Dependency Inversion</h1>
+  <section class="split">
+    <source-code folder="comparison" files="composition.js" start-lines="" end-lines="">
+    </source-code>
+    <source-code folder="comparison" files="dependencyInversion.js" start-lines="" end-lines="">
+    </source-code>
+  </section>
+</article>
+
+<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
+
+---
+
+<article class="container">
+  <h1 class="text-white background-salmon">Suche mit einem Provider für Produktsuche</h1>
+  <img class="default" src="/images/sequence_2.png" />
+</article>
+
+<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
+
+---
+
+<article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Produkt</h1>
-  <section class="flex-1 flex items-center justify-center p-4">
+  <section class="split">
     <source-code
       folder="sources"
       files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
@@ -629,9 +627,9 @@
 
 ---
 
-<article class="h-full flex">
+<article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
-  <section class="flex-1 flex items-center justify-center p-4">
+  <section class="split">
     <source-code
       folder="sources"
       files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
@@ -646,22 +644,18 @@
 
 ---
 
-<article class="h-full flex items-center justify-center">
+<article class="container">
   <h1 class="text-white background-salmon">... und jetzt noch mit Provider für Contentsuche</h1>
-  <section>
-    <img class="w-80" src="/images/sequence_3.png" />
-  </section>
+  <img class="default" src="/images/sequence_3.png" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
 
 ---
 
-<article class="h-full flex items-center justify-center">
+<article class="container">
   <h1 class="text-white background-salmon">... 0-Treffer -> Fallback und Suchvorschläge</h1>
-  <section class="flex-1">
-    <img src="/images/sequence_4.png" />
-  </section>
+  <img class="default" src="/images/sequence_4.png" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
@@ -671,26 +665,28 @@
 <article class="h-full flex">
   <h1 class="text-white background-salmon">Repo</h1>
   <section class="flex-1 flex flex-column justify-center p-4 pt-12">
-    <a href="https://github.com/denise-schaefer/micro-frontends">
-      https://github.com/denise-schaefer/micro-frontends
-    </a>
-    <pre style="text-align: left">
-        .
-        ├── composer
-        │   └── server
-        ├── content
-        │   ├── client
-        │   └── server
-        ├── product
-        │   ├── client
-        │   └── server
-        ├── search
-        │   ├── client
-        │   └── server
-        └── search-api
-            ├── lib
-            └── src
-    </pre>
+  <a href="https://github.com/denise-schaefer/micro-frontends">
+    https://github.com/denise-schaefer/micro-frontends
+  </a>
+    <div class="flex justify-center">
+      <pre style="text-align: left">
+.
+├── composer
+│   └── server
+├── content
+│   ├── client
+│   └── server
+├── product
+│   ├── client
+│   └── server
+├── search
+│   ├── client
+│   └── server
+└── search-api
+    ├── lib
+    └── src
+      </pre>
+    </div>
   </section>
 </article>
 
@@ -698,10 +694,18 @@
 
 ---
 
-<article class="h-full flex items-center justify-center">
+<article class="container">
   <h1 class="text-white background-salmon">HTML und JS laden</h1>
-  <section class="flex-1">
-    <img src="/images/sequence_1.png" />
+  <img class="default" src="/images/sequence_1.png" />
+</article>
+
+<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
+
+---
+
+<article class="flex flex-column w-screen h-full background-salmon">
+  <section class="relative flex-1 flex flex-column">
+    <img class="slide" src="/images/slides/composition-dependencyinversion.png" />
   </section>
 </article>
 
@@ -711,7 +715,7 @@
 
 <article class="flex flex-column w-screen h-full background-salmon">
   <section class="relative flex-1 flex flex-column">
-    <img class="slide " src="/images/slides/composition-dependencyinversion.png" />
+    <img class="slide" src="/images/slides/unabhaengigkeit-backend-und-frontend.png" />
   </section>
 </article>
 
@@ -721,7 +725,7 @@
 
 <article class="flex flex-column w-screen h-full background-salmon">
   <section class="relative flex-1 flex flex-column">
-    <img class="slide " src="/images/slides/unabhaengigkeit-backend-und-frontend.png" />
+    <img class="slide" src="/images/slides/lessons-learned.png" />
   </section>
 </article>
 
@@ -731,17 +735,7 @@
 
 <article class="flex flex-column w-screen h-full background-salmon">
   <section class="relative flex-1 flex flex-column">
-    <img class="slide " src="/images/slides/lessons-learned.png" />
-  </section>
-</article>
-
-<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
-
----
-
-<article class="flex flex-column w-screen h-full background-salmon">
-  <section class="relative flex-1 flex flex-column">
-    <img class="slide " src="/images/slides/ausblick.png" />
+    <img class="slide" src="/images/slides/ausblick.png" />
   </section>
 </article>
 

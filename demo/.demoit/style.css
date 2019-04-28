@@ -41,9 +41,15 @@ limitations under the License.
     url('/fonts/DMBrand-Bold.woff') format('woff');
 }
 
+img.default {
+  margin: 0 auto;
+  max-height: 80%;
+  max-width: 80%;
+}
+
 img.slide {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
 }
 
 *,
@@ -110,7 +116,7 @@ a:visited {
 
 .split {
   display: flex;
-  height: calc(100% - 8em);
+  height: calc(100% - 4em);
 }
 
 web-term,
@@ -223,6 +229,16 @@ span.i-fingerprint::after {
   position: absolute;
   top: -12px;
   left: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding-top: 1.5em;
 }
 
 .speaker-container {
