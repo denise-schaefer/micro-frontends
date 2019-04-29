@@ -33,7 +33,6 @@ skinparam component {
 [(redaktioneller) Content] --> [Suche]
 
 [Produkt] --> [Suche]
-[Produkt] --> [(redaktioneller) Content]
 [Produkt] --> [Tracking]
 [Produkt] --> [Composing]
 
