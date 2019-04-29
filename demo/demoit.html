@@ -611,13 +611,27 @@
 ---
 
 <article class="container">
+<h1>Dependency Inversion - Search-API</h1>
+    <div class="split">
+        <source-code folder="sources"
+                     files="search-api/src/api/registry.js"
+                     start-lines="6,15"
+                     end-lines="13,17">
+        </source-code>
+    </div>
+    <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
+</article>
+
+---
+
+<article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Produkt</h1>
   <section class="split">
     <source-code
       folder="sources"
-      files="search-api/src/api/registry.js product/client/src/ProductSearchInitializer.jsx"
-      start-lines="15;2,11"
-      end-lines="17;2,19"
+      files="product/client/src/ProductSearchInitializer.jsx"
+      start-lines="2,11"
+      end-lines="2,19"
     >
     </source-code>
   </section>
@@ -632,9 +646,9 @@
   <section class="split">
     <source-code
       folder="sources"
-      files="search-api/src/api/registry.js search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
-      start-lines="6;3,41,64,75,142,153,161;27,39,57;28"
-      end-lines="13;3,42,64,81,142,153,161;27,41,63;28"
+      files="search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
+      start-lines="3,41,64,75,142,153,161;27,39,57;28"
+      end-lines="3,42,64,81,142,153,161;27,41,63;28"
     >
     </source-code>
   </section>
