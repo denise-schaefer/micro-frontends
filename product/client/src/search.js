@@ -1,5 +1,8 @@
+export const ZERO_HITS = 'zero hits';
+export const CONTENT_ONLY = 'content only';
+
 const executeProductSearch = queryData => {
-  if (['', 'zero', 'content'].some(value => value === queryData.query)) {
+  if (['', ZERO_HITS, CONTENT_ONLY].some(value => value === queryData.query)) {
     return new Promise(resolve => {
       resolve({
         count: 0,
@@ -10,18 +13,20 @@ const executeProductSearch = queryData => {
   }
   return new Promise(resolve => {
     resolve({
-      count: 371,
+      count: 5,
       results: [
-        { id: '1', name: 'item 1 ' + queryData.query },
-        { id: '2', name: 'item 2 ' + queryData.query },
-        { id: '3', name: 'item 3 ' + queryData.query },
+        { id: '1', name: queryData.query + ' product 1' },
+        { id: '2', name: queryData.query + ' product 2' },
+        { id: '3', name: queryData.query + ' product 3' },
+        { id: '4', name: queryData.query + ' product 4' },
+        { id: '5', name: queryData.query + ' product 5' },
       ],
     });
   });
 };
 
 const executeProductCount = queryData => {
-  if (queryData.query === 'zero' || queryData.query === 'content') {
+  if (queryData.query === ZERO_HITS || queryData.query === CONTENT_ONLY) {
     return new Promise(resolve => {
       resolve({
         count: 0,
@@ -30,7 +35,7 @@ const executeProductCount = queryData => {
   }
   return new Promise(resolve => {
     resolve({
-      count: 371,
+      count: 5,
     });
   });
 };

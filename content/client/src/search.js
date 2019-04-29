@@ -1,5 +1,7 @@
+export const ZERO_HITS = 'zero hits';
+
 const executeContentSearch = queryData => {
-  if (['', 'zero'].some(value => value === queryData.query)) {
+  if (['', ZERO_HITS].some(value => value === queryData.query)) {
     return new Promise(resolve => {
       resolve({
         count: 0,
@@ -10,14 +12,18 @@ const executeContentSearch = queryData => {
   }
   return new Promise(resolve => {
     resolve({
-      count: 42,
-      results: ['a', 'b', 'c'],
+      count: 3,
+      results: [
+        { id: '1', name: queryData.query + ' content 1' },
+        { id: '2', name: queryData.query + ' content 2' },
+        { id: '3', name: queryData.query + ' content 3' },
+      ],
     });
   });
 };
 
 const executeContentCount = queryData => {
-  if (queryData.query === 'zero') {
+  if (queryData.query === ZERO_HITS) {
     return new Promise(resolve => {
       resolve({
         count: 0,
@@ -26,7 +32,7 @@ const executeContentCount = queryData => {
   }
   return new Promise(resolve => {
     resolve({
-      count: 42,
+      count: 3,
     });
   });
 };
