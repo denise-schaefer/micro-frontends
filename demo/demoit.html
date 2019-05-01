@@ -644,6 +644,17 @@
 ---
 
 <article class="container">
+  <h1 class="text-white background-salmon">Suche mit einem Provider für Produktsuche</h1>
+  <div class="split">
+    <web-term path="folder"></web-term>
+    <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
+  </div>
+</article>
+<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
+
+---
+
+<article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Search-API</h1>
   <div class="split">
     <source-code folder="sources"
@@ -677,13 +688,32 @@
 <article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
   <section class="split">
-    <source-code
+    <source-code style="max-width: 60%"
       folder="sources"
-      files="search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js search/client/src/components/SearchResultBody.jsx"
-      start-lines="3,41,64,75,142,153,161;27,39,57;28"
-      end-lines="3,42,64,81,142,153,161;27,41,63;28"
+      files="search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js"
+      start-lines="3,41,64,76,142,153,161;27,39,57"
+      end-lines="3,42,64,80,142,153,161;27,41,63"
     >
     </source-code>
+    <web-browser src="http://localhost:8080"></web-browser>
+  </section>
+</article>
+
+<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
+
+---
+
+<article class="container">
+  <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
+  <section class="split">
+    <source-code style="max-width: 60%"
+                 folder="sources"
+                 files="search/client/src/components/SearchContainer.jsx search/client/src/components/SearchResultHeader.jsx search/client/src/components/SearchResultBody.jsx"
+                 start-lines="3,41,64,76,142,153,161;9,19,26;7,28"
+                 end-lines="3,42,64,80,142,153,161;9,19,26;7,28"
+    >
+    </source-code>
+    <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
   </section>
 </article>
 
