@@ -126,6 +126,8 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 2. Start with ./demoit demo
 
 ## ToDos
+### Suspense/Loading optimization
+
 ### error handling
 add example and test it
 
