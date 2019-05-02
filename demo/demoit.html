@@ -267,10 +267,6 @@
           ungelesene Nachrichten
         </li>
         <li class="chat-message chat-message-product-owner">
-          Das wollte ich hören 👍
-          <small>21.01.2016 - 13:46</small>
-        </li>
-        <li class="chat-message chat-message-product-owner">
           Bitte was?
           <small>21.01.2016 - 13:46</small>
         </li>
@@ -657,10 +653,12 @@
 <article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Search-API</h1>
   <div class="split">
-    <source-code folder="sources"
-       files="search-api/src/api/registry.js"
-       start-lines="6,10"
-       end-lines="8,17">
+    <source-code
+      folder="sources"
+      files="search-api/src/api/registry.js"
+      start-lines="6,10"
+      end-lines="8,17"
+    >
     </source-code>
   </div>
 </article>
@@ -688,7 +686,8 @@
 <article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
   <section class="split">
-    <source-code style="max-width: 60%"
+    <source-code
+      style="max-width: 60%"
       folder="sources"
       files="search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js"
       start-lines="3,41,64,76,109,142,145;27,31,39,57"
@@ -706,11 +705,12 @@
 <article class="container">
   <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
   <section class="split">
-    <source-code style="max-width: 60%"
-                 folder="sources"
-                 files="search/client/src/components/SearchContainer.jsx search/client/src/components/SearchResultHeader.jsx search/client/src/components/SearchResultBody.jsx"
-                 start-lines="142,153,161;9,19,26;7,28"
-                 end-lines="142,153,161;9,19,26;7,28"
+    <source-code
+      style="max-width: 60%"
+      folder="sources"
+      files="search/client/src/components/SearchContainer.jsx search/client/src/components/SearchResultHeader.jsx search/client/src/components/SearchResultBody.jsx"
+      start-lines="142,153,161;9,19,26;7,28"
+      end-lines="142,153,161;9,19,26;7,28"
     >
     </source-code>
     <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
@@ -831,7 +831,7 @@
   <footer></footer>
 </article>
 
-<slide-notes data-slide-notes-server-url="http://localhost:3000" > </slide-notes>
+<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
 
 ---
 
@@ -839,9 +839,17 @@
   <section class="flex-1 flex flex-row justify-center">
     <div class="speaker-container flex flex-column items-center justify-center">
       <div class="relative">
-        <img class="speaker-image" src="/images/circle.png">
-        <div class="absolute" style="top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);">
-          <img src="/images/logo-synyx.svg" width="200" height="200" style="border: 1px solid white;" />
+        <img class="speaker-image" src="/images/circle.png" />
+        <div
+          class="absolute"
+          style="top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);"
+        >
+          <img
+            src="/images/logo-synyx.svg"
+            width="200"
+            height="200"
+            style="border: 1px solid white;"
+          />
         </div>
       </div>
       <div class="speaker-name">
@@ -850,8 +858,11 @@
     </div>
     <div class="speaker-container flex flex-column items-center justify-center">
       <div class="relative">
-        <img class="speaker-image" src="/images/circle.png">
-        <div class="absolute" style="top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);">
+        <img class="speaker-image" src="/images/circle.png" />
+        <div
+          class="absolute"
+          style="top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);"
+        >
           <img src="/images/logo-dmtech.svg" width="200" height="200" />
         </div>
       </div>
@@ -869,14 +880,14 @@
 
 <article class="flex flex-column items-center justify-center w-screen h-full background-wall">
   <section class="flex-1 flex flex-column items-center justify-center">
-      <div class="title-foo title-foo-underline" style="--underline-color: #5cbdae; width: 40%">
-        Feedback
-      </div>
-      <div class="p-4">
-        <img style="height: auto; width: 60%;" src="/images/feedback.png" />
-      </div>
+    <div class="title-foo title-foo-underline" style="--underline-color: #5cbdae; width: 40%">
+      Feedback
+    </div>
+    <div class="p-4">
+      <img style="height: auto; width: 60%;" src="/images/feedback.png" />
+    </div>
   </section>
   <footer></footer>
 </article>
 
-<slide-notes data-slide-notes-server-url="http://localhost:3000" > </slide-notes>
+<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
