@@ -1,2 +1,2 @@
-netstat -vanp tcp | grep 3012
-kill -9
+kill -9 `lsof -i:3012 -t`
+cd ../../content; yarn serve
