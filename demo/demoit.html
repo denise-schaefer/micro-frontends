@@ -601,7 +601,7 @@
   <h1 class="text-white background-salmon">
     Dependency Inversion - nur eine Abhängigkeitsrichtung
   </h1>
-  <img class="default" src="/images/architecture.png" />
+  <img class="default" src="/images/bounded-context-small.svg" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
@@ -636,7 +636,7 @@
 
 <article class="container">
   <h1 class="text-white background-salmon">Suche mit einem Provider für Produktsuche</h1>
-  <img class="default" src="/images/sequence_2.png" />
+  <img class="default" src="/images/sequence_2.svg" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
@@ -659,8 +659,8 @@
   <div class="split">
     <source-code folder="sources"
        files="search-api/src/api/registry.js"
-       start-lines="6,15"
-       end-lines="13,17">
+       start-lines="6,10"
+       end-lines="8,17">
     </source-code>
   </div>
 </article>
@@ -691,8 +691,8 @@
     <source-code style="max-width: 60%"
       folder="sources"
       files="search/client/src/components/SearchContainer.jsx search/client/src/components/state/actions.js"
-      start-lines="3,41,64,76,142,146;27,31,39,57"
-      end-lines="3,42,64,80,142,146;27,31,41,63"
+      start-lines="3,41,64,76,109,142,145;27,31,39,57"
+      end-lines="3,42,64,80,110,142,146;27,31,41,63"
     >
     </source-code>
     <web-browser src="http://localhost:8080"></web-browser>
@@ -723,7 +723,7 @@
 
 <article class="container">
   <h1 class="text-white background-salmon">... und jetzt noch mit Provider für Contentsuche</h1>
-  <img class="default" src="/images/sequence_3.png" />
+  <img class="default" src="/images/sequence_3.svg" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
@@ -732,7 +732,7 @@
 
 <article class="container">
   <h1 class="text-white background-salmon">... 0-Treffer -> Fallback und Suchvorschläge</h1>
-  <img class="default" src="/images/sequence_4.png" />
+  <img class="default" src="/images/sequence_4.svg" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
@@ -773,7 +773,7 @@
 
 <article class="container">
   <h1 class="text-white background-salmon">HTML und JS laden</h1>
-  <img class="default" src="/images/sequence_1.png" />
+  <img class="default" src="/images/sequence_1.svg" />
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
