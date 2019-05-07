@@ -52,6 +52,11 @@ img.slide {
   width: 100%;
 }
 
+img.fullHeight {
+  height: 100%;
+  width: auto;
+}
+
 *,
 *:after,
 *:before {
@@ -328,7 +333,7 @@ span.i-fingerprint::after {
 .chat {
   margin: 0 auto;
   width: 86%;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-top: 5em;
   border-top-left-radius: 6rem;
   border-top-right-radius: 6rem;
@@ -371,7 +376,7 @@ span.i-fingerprint::after {
 
 .chat-irc {
   font-family: monospace;
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 .chat-irc .chat-message {
   border-radius: 0;
