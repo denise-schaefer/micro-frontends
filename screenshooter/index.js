@@ -10,7 +10,9 @@ const mkdir = util.promisify(fs.mkdir);
 
 async function start({ target }) {
   const tmpDir = path.resolve(__dirname, 'tmp');
-  await mkdir(tmpDir);
+  if (!fs.existsSync(tmpDir)) {
+    await mkdir(tmpDir);
+  }
 
   const browser = await puppeteer.launch();
 
@@ -19,7 +21,7 @@ async function start({ target }) {
 
   const files = await visit(page);
 
-  await new Promise(resolve => {
+  await new Promise((resolve, reject) => {
     easyPdfMerge(files, target, error => {
       if (error) {
         return reject(error);

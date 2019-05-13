@@ -1918,6 +1918,10 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
+date-fns@1.30.1:
+  version "1.30.1"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -2080,6 +2084,10 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
+
+easy-pdf-merge@0.2.1:
+  version "0.2.1"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/easy-pdf-merge/-/easy-pdf-merge-0.2.1.tgz#f1a4dfdabb391c3d6b3b17c1f84df14cf60b1df0"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
