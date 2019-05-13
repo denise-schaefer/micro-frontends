@@ -1,0 +1,18 @@
+{
+  "name": "screenshooter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Benjamin Seber <seber@synyx.de> (https://www.synyx.de)",
+  "license": "MIT",
+  "dependencies": {
+    "date-fns": "1.30.1",
+    "easy-pdf-merge": "0.2.1",
+    "puppeteer": "1.15.0",
+    "rimraf": "2.6.3"
+  }
+}
