@@ -42,14 +42,16 @@ async function visit(page) {
 
   // navigation has two links. the first one is for "previous page" the second for "next page"
   // (note that we cannot use the keyboard "ArrowRight" as the integrated terminal on some slides is taking the keyboard focus)
-  const navLinks = Array.from(await page.$$('#nav a'));
-  const nextLink = navLinks[1];
+  const navArrowsComponent = await page.$('nav-arrows');
 
-  if (!nextLink) {
-    return file;
-  }
+  // the slide could display the terminal which takes the focus
+  // therefore pressing keyLeft or keyRight does not result in page navigation anymore
+  // however, focusing another element than the terminal solves this
+  navArrowsComponent.focus();
 
-  await nextLink.click();
+  // navigate to next slide
+  await page.keyboard.press('ArrowRight');
+
   await page.waitForSelector('#top');
 
   if (url === page.url()) {
