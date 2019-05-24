@@ -123,7 +123,7 @@ same as product
 Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 
 1. Install [Go](https://golang.org/ "Go")
-2. Start with ./demoit demo
+2. Start with ./demoit slides/demo
 
 ## ToDos
 ### Suspense/Loading optimization

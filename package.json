@@ -13,15 +13,15 @@
     "app/product",
     "app/content",
     "app/composer",
-    "slide-notes",
-    "screenshooter"
+    "slides/slide-notes",
+    "slides/screenshooter"
   ],
   "scripts": {
     "dev": "yarn build",
     "build": "yarn --cwd app/search-api build && yarn --cwd app/search build && yarn --cwd app/product build && yarn --cwd content app/build",
     "lint": "eslint --fix ./",
     "format": "prettier --write \"**/*.js\" \"**/*.jsx\"",
-    "pdf": "node ./screenshooter"
+    "pdf": "node ./slides/screenshooter"
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
