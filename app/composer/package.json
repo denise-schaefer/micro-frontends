@@ -1,0 +1,12 @@
+{
+  "name": "composer",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "express": "4.16.4",
+    "nodemon": "1.18.10",
+    "serve-favicon": "2.5.0"
+  }
+}

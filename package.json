@@ -8,17 +8,17 @@
   "author": "Denise Schäfer <denise.schaefer@dm.de>",
   "license": "MIT",
   "workspaces": [
-    "search",
-    "search-api",
-    "product",
-    "content",
-    "composer",
+    "app/search",
+    "app/search-api",
+    "app/product",
+    "app/content",
+    "app/composer",
     "slide-notes",
     "screenshooter"
   ],
   "scripts": {
-    "dev": "yarn build && yarn serve",
-    "build": "yarn --cwd search-api build && yarn --cwd search build && yarn --cwd product build && yarn --cwd content build",
+    "dev": "yarn build",
+    "build": "yarn --cwd app/search-api build && yarn --cwd app/search build && yarn --cwd app/product build && yarn --cwd content app/build",
     "lint": "eslint --fix ./",
     "format": "prettier --write \"**/*.js\" \"**/*.jsx\"",
     "pdf": "node ./screenshooter"
