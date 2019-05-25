@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "dev": "yarn build",
-    "build": "yarn --cwd app/search-api build && yarn --cwd app/search build && yarn --cwd app/product build && yarn --cwd content app/build",
+    "build": "yarn --cwd app/search-api build && yarn --cwd app/search build && yarn --cwd app/product build && yarn --cwd app/content build",
     "lint": "eslint --fix ./",
     "format": "prettier --write \"**/*.js\" \"**/*.jsx\"",
     "pdf": "node ./slides/screenshooter"
