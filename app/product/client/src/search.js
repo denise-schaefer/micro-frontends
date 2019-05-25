@@ -13,13 +13,44 @@ const executeProductSearch = queryData => {
   }
   return new Promise(resolve => {
     resolve({
-      count: 5,
+      count: 6,
       results: [
-        { id: '1', name: queryData.query + ' product 1' },
-        { id: '2', name: queryData.query + ' product 2' },
-        { id: '3', name: queryData.query + ' product 3' },
-        { id: '4', name: queryData.query + ' product 4' },
-        { id: '5', name: queryData.query + ' product 5' },
+        {
+          id: '1',
+          name: queryData.query + ' product 1',
+          price: '3,95 €',
+          image: 'http://localhost:3011/assets/product1.jpg',
+        },
+        {
+          id: '2',
+          name: queryData.query + ' product 2',
+          price: '1,99 €',
+          image: 'http://localhost:3011/assets/product2.jpg',
+        },
+        {
+          id: '3',
+          name: queryData.query + ' product 3',
+          price: '8,65 €',
+          image: 'http://localhost:3011/assets/product3.jpg',
+        },
+        {
+          id: '4',
+          name: queryData.query + ' product 4',
+          price: '2,95 €',
+          image: 'http://localhost:3011/assets/product4.jpg',
+        },
+        {
+          id: '5',
+          name: queryData.query + ' product 5',
+          price: '8,65 €',
+          image: 'http://localhost:3011/assets/product3.jpg',
+        },
+        {
+          id: '6',
+          name: queryData.query + ' product 6',
+          price: '2,95 €',
+          image: 'http://localhost:3011/assets/product4.jpg',
+        },
       ],
     });
   });
@@ -35,7 +66,7 @@ const executeProductCount = queryData => {
   }
   return new Promise(resolve => {
     resolve({
-      count: 5,
+      count: 6,
     });
   });
 };
