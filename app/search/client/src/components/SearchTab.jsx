@@ -6,6 +6,7 @@ export default function SearchTab({ searchProviderId, children, onClick, isActiv
   return (
     <Button
       style={{ margin: '5px' }}
+      variant="light"
       type="button"
       key={searchProviderId}
       active={isActive ? 'active' : ''}
