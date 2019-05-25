@@ -14,9 +14,21 @@ const executeContentSearch = queryData => {
     resolve({
       count: 3,
       results: [
-        { id: '1', name: queryData.query + ' content 1' },
-        { id: '2', name: queryData.query + ' content 2' },
-        { id: '3', name: queryData.query + ' content 3' },
+        {
+          id: '1',
+          name: queryData.query + ' Foto',
+          image: 'http://localhost:3012/assets/foto.jpg',
+        },
+        {
+          id: '2',
+          name: queryData.query + ' dm Marke',
+          image: 'http://localhost:3012/assets/dmmarke.jpg',
+        },
+        {
+          id: '3',
+          name: queryData.query + ' Pflege',
+          image: 'http://localhost:3012/assets/pflege.jpg',
+        },
       ],
     });
   });

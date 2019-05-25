@@ -4,7 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import {ZERO_HITS} from "./search";
+import Card from 'react-bootstrap/Card';
+import { ZERO_HITS } from './search';
 
 const ContentSearchResult = props => {
   const { queryData, data, fetchData } = props;
@@ -16,24 +17,42 @@ const ContentSearchResult = props => {
         {`Suche nach "${decodeURIComponent(queryData.query)}": ${count} counts`}
       </Row>
       <div>
-        <Row style={{ margin: '20px' }}>
-          <DropdownButton id="dropdown-basic-button" title="Suche nach...">
+        <Col>
+          <div style={{ maxWidth: '100%' }}>
+            {results.map(result => (
+              <Card key={result.gtin} style={{ margin: '10px' }}>
+                <Card.Body>
+                  <Card.Title>{result.name}</Card.Title>
+                  <Card.Subtitle>Lorem ipsum</Card.Subtitle>
+                </Card.Body>
+                <img width="100%" height="150px" src={result.image} alt={result.name} />
+                <Card.Body>
+                  <Card.Text>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                    vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            ))}
+          </div>
+          <DropdownButton
+            id="dropdown-basic-button"
+            variant="light"
+            title="Suche nach..."
+            style={{ margin: '10px' }}>
             <Dropdown.Item onClick={() => fetchData({ query: 'tier', searchType: 'product' })}>
               {`Suche nach "${decodeURIComponent('tier')}"`}
             </Dropdown.Item>
-            <Dropdown.Item onClick={() => fetchData({ query: 'content only', searchType: 'product' })}>
+            <Dropdown.Item
+              onClick={() => fetchData({ query: 'content only', searchType: 'product' })}>
               {`Suche nach "${decodeURIComponent('content only')}"`}
             </Dropdown.Item>
             <Dropdown.Item onClick={() => fetchData({ query: ZERO_HITS, searchType: 'product' })}>
               {`Suche nach "${decodeURIComponent(ZERO_HITS)}"`}
             </Dropdown.Item>
           </DropdownButton>
-          <div style={{ margin: '0 20px', maxWidth: '100%' }}>
-            {results.map(result => (
-              <div key={result.gtin}>{result.name}</div>
-            ))}
-          </div>
-        </Row>
+        </Col>
       </div>
     </Col>
   );
