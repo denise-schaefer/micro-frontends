@@ -11,9 +11,8 @@ module.exports = {
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'search.js',
+    filename: 'composer.js',
     libraryTarget: 'umd',
-    library: ['SearchLibrary'],
   },
   plugins: [
     isProd &&
@@ -23,11 +22,6 @@ module.exports = {
   ].filter(Boolean),
   module: {
     rules: [{ test: /\.jsx?$/, use: 'babel-loader' }],
-  },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    'react-bootstrap': 'ReactBootstrap',
   },
   resolve: {
     modules: ['node_modules', src],

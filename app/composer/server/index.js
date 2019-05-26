@@ -9,6 +9,15 @@ app.get('/', (_, res) => {
   res.send(html);
 });
 
+app.get('/composer.js', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../dist/composer.js'));
+});
+
+app.get('/css/:file', (req, res) => {
+  var { file } = req.params;
+  res.sendFile(path.resolve(__dirname, 'css/' + file));
+});
+
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.listen(8080, () => console.log('app listening on http://localhost:8080'));
 
@@ -20,22 +29,13 @@ function render() {
     <meta charset="UTF-8">
     <title>ui composing</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-  crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
 </head>
 <body>
 
 <div id="root"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.5/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.5/umd/react-dom.production.min.js"></script>
-<script
-  src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
-  crossorigin
-></script>
-
+<script src="/composer.js"></script>
 <script src="http://localhost:3010/search.js"></script>
 <script src="http://localhost:3011/product.js"></script>
 <script src="http://localhost:3012/content.js"></script>

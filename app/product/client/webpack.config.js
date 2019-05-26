@@ -28,6 +28,7 @@ module.exports = {
     react: 'React',
     'react-dom': 'ReactDOM',
     'search-api': 'SearchLibrary',
+    'react-bootstrap': 'ReactBootstrap',
   },
   resolve: {
     modules: ['node_modules', src],
