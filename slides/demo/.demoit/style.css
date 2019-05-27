@@ -579,3 +579,7 @@ span.i-fingerprint::after {
 .text-white {
   color: white;
 }
+
+.no-outline {
+  outline: none;
+}
