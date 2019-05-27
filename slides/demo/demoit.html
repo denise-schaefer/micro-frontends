@@ -603,18 +603,17 @@
 
 ---
 
-<article class="flex w-screen h-full background-salmon">
-  <section class="flex-1 flex flex-column justify-center">
-    <img class="slide" src="/images/slides/solution-domains.png" />
-  </section>
+<article class="container">
+    <h1>
+        Dependency Inversion am <b>Beispiel der Suche</b> auf dm.de
+    </h1>
+    <img class="default fullHeight" src="/images/bounded-context-focus.svg" />
 </article>
-
-<slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>
 
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">
+  <h1>
     Dependency Inversion - nur eine Abhängigkeitsrichtung
   </h1>
   <img class="default fullHeight" src="/images/bounded-context-small.svg" />
@@ -625,7 +624,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Demo Suche</h1>
+  <h1>Demo Suche</h1>
   <section class="split">
     <web-browser src="https://www.dm.de/search/468652.html?type=product&q=balea"></web-browser>
     <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
@@ -637,7 +636,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Composition vs. Dependency Inversion</h1>
+  <h1>Composition vs. Dependency Inversion</h1>
   <section class="split">
     <source-code folder="comparison" files="composition.js" start-lines="" end-lines="">
     </source-code>
@@ -651,7 +650,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Suche mit einem Provider für Produktsuche</h1>
+  <h1>Suche mit einem Provider für Produktsuche</h1>
   <img class="default fullHeight" src="/images/sequence_2.svg" />
 </article>
 
@@ -660,7 +659,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Suche mit einem Provider für Produktsuche</h1>
+  <h1>Suche mit einem Provider für Produktsuche</h1>
   <div class="split">
     <web-term path="folder"></web-term>
     <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
@@ -671,7 +670,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Dependency Inversion - Search-API</h1>
+  <h1>Dependency Inversion - Search-API</h1>
   <div class="split">
     <source-code
       folder="sources"
@@ -687,7 +686,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Dependency Inversion - Produkt</h1>
+  <h1>Dependency Inversion - Produkt</h1>
   <section class="split">
     <source-code
       folder="sources"
@@ -704,7 +703,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
+  <h1>Dependency Inversion - Suche</h1>
   <section class="split">
     <source-code
       style="max-width: 60%"
@@ -723,7 +722,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">Dependency Inversion - Suche</h1>
+  <h1>Dependency Inversion - Suche</h1>
   <section class="split">
     <source-code
       style="max-width: 60%"
@@ -742,7 +741,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">... und jetzt noch mit Provider für Contentsuche</h1>
+  <h1>... und jetzt noch mit Provider für Contentsuche</h1>
   <img class="default fullHeight" src="/images/sequence_3.svg" />
 </article>
 
@@ -751,7 +750,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">.. und jetzt noch mit Provider für Contentsuche</h1>
+  <h1>.. und jetzt noch mit Provider für Contentsuche</h1>
   <div class="split">
     <web-term path="folder"></web-term>
     <web-browser src="http://localhost:8080/?query=balea&searchType=product"></web-browser>
@@ -762,7 +761,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">... 0-Treffer -> Fallback und Suchvorschläge</h1>
+  <h1>... 0-Treffer -> Fallback und Suchvorschläge</h1>
   <img class="default fullHeight" src="/images/sequence_4.svg" />
 </article>
 
@@ -771,7 +770,7 @@
 ---
 
 <article class="h-full flex">
-  <h1 class="text-white background-salmon">Repo</h1>
+  <h1>Github Repo</h1>
   <section class="flex-1 flex flex-column justify-center p-4 pt-12">
     <a href="https://github.com/denise-schaefer/micro-frontends">
       https://github.com/denise-schaefer/micro-frontends
@@ -803,7 +802,7 @@
 ---
 
 <article class="container">
-  <h1 class="text-white background-salmon">HTML und JS laden</h1>
+  <h1>HTML und JS laden</h1>
   <img class="default fullHeight" src="/images/sequence_1.svg" />
 </article>
 
@@ -842,7 +841,7 @@
 ---
 
 <article class="h-full flex">
-  <h1 class="text-white bg-black">Einfache Skalierung, auch für weitere Apps - SEINZ.</h1>
+  <h1 class="border-bottom-black">Einfache Skalierung, auch für weitere Apps - SEINZ.</h1>
   <section class="flex-1 flex flex-column justify-center p-4 pt-12">
     <video class="no-outline" height="90%" loop controls autoplay>
       <source src="images/seinz.mp4" type="video/mp4">
@@ -873,7 +872,6 @@
       </p>
     </div>
   </section>
-  <footer></footer>
 </article>
 
 <slide-notes data-slide-notes-server-url="http://localhost:3000"> </slide-notes>

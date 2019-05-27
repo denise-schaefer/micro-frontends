@@ -4,13 +4,13 @@ skinparam componentStyle uml2
 skinparam backgroundColor transparent
 skinparam shadowing false
 
-[Produkt] #FFFFFF
-[(redaktioneller) Content] #FFFFFF
-[Suche] #FFFFFF
+[Produkt] #FFC6DB
+[(redaktioneller) Content] #FFC6DB
+[Suche] #FFC6DB
 
 skinparam component {
   BorderColor black
-  BackgroundColor #dc738b
+  BackgroundColor #FFFFFF
   ArrowColor black
   FontSize 20
 }

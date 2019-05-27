@@ -44,7 +44,7 @@ limitations under the License.
 img.default {
   margin: 0 auto;
   max-height: 80%;
-  max-width: 80%;
+  max-width: 100%;
 }
 
 img.slide {
@@ -85,20 +85,19 @@ ul {
 }
 
 h1 {
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 500;
   margin-top: 0;
   position: absolute;
-  top: 10px;
-  left: 0px;
+  top: 20px;
+  left: 0;
   text-align: left;
-  width: calc(100% - 70px);
-  padding: 20px;
+  padding: 10px 30px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  border-radius: 0 8px 8px 0;
   text-transform: none;
+  border-bottom: solid 3px #dc738b;
 }
 
 h2,
@@ -570,6 +569,10 @@ span.i-fingerprint::after {
 
 .border-dashed {
   border: 0.2em dashed black;
+}
+
+.border-bottom-black {
+  border-bottom: solid 3px black;
 }
 
 .bg-black {
