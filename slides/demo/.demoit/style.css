@@ -18,27 +18,27 @@ limitations under the License.
   font-family: 'dmbrand';
   font-style: normal;
   font-weight: 400;
-  src: url('/slides/demo/.demoit/fonts/DMBrand-Regular.eot');
-  src: url('/slides/demo/.demoit/fonts/DMBrand-Regular.eot?#iefix') format('embedded-opentype'),
-    url('/slides/demo/.demoit/fonts/DMBrand-Regular.woff') format('woff');
+  src: url('/fonts/DMBrand-Regular.eot');
+  src: url('/fonts/DMBrand-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/DMBrand-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'dmbrand';
   font-style: normal;
   font-weight: 500;
-  src: url('/slides/demo/.demoit/fonts/DMBrand-Medium.eot');
-  src: url('/slides/demo/.demoit/fonts/DMBrand-Medium.eot?#iefix') format('embedded-opentype'),
-    url('/slides/demo/.demoit/fonts/DMBrand-Medium.woff') format('woff');
+  src: url('/fonts/DMBrand-Medium.eot');
+  src: url('/fonts/DMBrand-Medium.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/DMBrand-Medium.woff') format('woff');
 }
 
 @font-face {
   font-family: 'dmbrand';
   font-style: normal;
   font-weight: 700;
-  src: url('/slides/demo/.demoit/fonts/DMBrand-Bold.eot');
-  src: url('/slides/demo/.demoit/fonts/DMBrand-Bold.eot?#iefix') format('embedded-opentype'),
-    url('/slides/demo/.demoit/fonts/DMBrand-Bold.woff') format('woff');
+  src: url('/fonts/DMBrand-Bold.eot');
+  src: url('/fonts/DMBrand-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/DMBrand-Bold.woff') format('woff');
 }
 
 img.default {
@@ -193,7 +193,7 @@ footer {
 
 .background-wall {
   background-color: #d9dad9;
-  background-image: url('/slides/demo/.demoit/images/background.svg');
+  background-image: url('/images/background.svg');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -208,7 +208,7 @@ span.o-magnifier {
   color: transparent;
   text-shadow: none;
   /* and replace it with magnifier svg */
-  background-image: url(/slides/demo/.demoit/images/magnifier.svg);
+  background-image: url(/images/magnifier.svg);
   background-repeat: no-repeat;
   background-size: contain;
   transform: rotate(198deg) translateY(0.25em);
@@ -224,7 +224,7 @@ span.i-fingerprint {
   position: relative;
 }
 span.i-fingerprint::after {
-  background-image: url(/slides/demo/.demoit/images/fingerprint.svg);
+  background-image: url(/images/fingerprint.svg);
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
@@ -319,7 +319,7 @@ span.i-fingerprint::after {
 }
 
 .chat-container {
-  background-image: url(/slides/demo/.demoit/images/iphone-x.png);
+  background-image: url(/images/iphone-x.png);
   background-size: cover;
   transform: rotate(-8deg);
   width: 40%;
