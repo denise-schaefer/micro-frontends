@@ -490,6 +490,10 @@ span.i-fingerprint::after {
 .p-8 {
   padding: 2em;
 }
+.px-2 {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
 .pl-8 {
   padding-left: 2em;
 }
@@ -547,6 +551,12 @@ span.i-fingerprint::after {
 .absolute {
   position: absolute;
 }
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
 .background-cyan {
   background-color: #5cbdae;
@@ -586,4 +596,8 @@ span.i-fingerprint::after {
 
 .no-outline {
   outline: none;
+}
+
+.font-mono {
+  font-family: monospace;
 }
