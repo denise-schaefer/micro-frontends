@@ -14,15 +14,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+const elementsThatShouldAppear = Array.from(document.querySelectorAll('[data-appear="next"]'));
+elementsThatShouldAppear.forEach(element => element.setAttribute('hidden', true));
+
+const elementGarbage = [];
+
 // Capture keydown events, and change slides accordingly
 document.addEventListener('keydown', event => {
   switch (event.key) {
     case 'ArrowRight':
     case ' ':
-      window.location.href = NextURL;
+      if (elementsThatShouldAppear.length === 0) {
+        window.location.href = NextURL;
+      } else {
+        const element = elementsThatShouldAppear.shift();
+        element.removeAttribute('hidden');
+        elementGarbage.push(element);
+      }
       break;
     case 'ArrowLeft':
-      window.location.href = PrevURL;
+      if (elementGarbage.length === 0) {
+        window.location.href = PrevURL;
+      } else {
+        const element = elementGarbage.pop();
+        element.setAttribute('hidden', true);
+        elementsThatShouldAppear.unshift(element);
+      }
       break;
     default:
       return;
@@ -48,6 +65,30 @@ function maximize(w) {
   w.style['box-sizing'] = 'border-box';
   w.style['z-index'] = '20';
 }
+
+customElements.define(
+  'scene-marker',
+  class extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' }).innerHTML = `
+        <svg viewBox="0 0 10 10" width="50px" height="80px" preserveAspectRatio="xMidYMax slice">
+          <style>
+            .text {
+              fill: white;
+              font: bold 5px monospace;
+            }
+          </style>
+          <rect x="0" y="0" width="10" height="7" />
+          <path d="M0 7 H10 L5 10 L0 7" fill="black" />
+          <text x="5" y="5" text-anchor="middle" class="text">
+            ${this.innerHTML}
+          </text>
+        </svg>
+      `;
+    }
+  }
+);
 
 const slideNotesTemplate = document.createElement('template');
 slideNotesTemplate.innerHTML = `
