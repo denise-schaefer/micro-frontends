@@ -47,6 +47,10 @@ img.default {
   max-width: 100%;
 }
 
+img.logo {
+  margin: 0 10px;
+}
+
 img.slide {
   height: auto;
   width: 100%;
@@ -187,7 +191,7 @@ footer {
   height: 8rem;
   background-color: #bfbfbf;
   width: 100vw;
-  padding: 2rem;
+  padding: 1rem;
   align-self: flex-end;
 }
 
