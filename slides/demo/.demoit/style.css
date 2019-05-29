@@ -460,6 +460,9 @@ span.i-fingerprint::after {
 .items-end {
   align-items: flex-end;
 }
+.items-start {
+  align-items: flex-start;
+}
 
 .justify-start {
   justify-content: flex-start;
@@ -497,6 +500,14 @@ span.i-fingerprint::after {
 .px-2 {
   padding-left: 0.5em;
   padding-right: 0.5em;
+}
+.px-4 {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.py-1 {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
 .pl-8 {
   padding-left: 2em;
