@@ -5,8 +5,5 @@ dist/
 lib/
 sources
 
-# the generated pdf
-slides.pdf
-
 slide-notes/*png
 slide-notes/*html

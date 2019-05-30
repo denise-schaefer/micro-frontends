@@ -42,15 +42,14 @@ async function visit(page) {
 
   // navigation has two links. the first one is for "previous page" the second for "next page"
   // (note that we cannot use the keyboard "ArrowRight" as the integrated terminal on some slides is taking the keyboard focus)
-  const navArrowsComponent = await page.$('nav-arrows');
+  const navLinks = Array.from(await page.$$('#nav a'));
+  const nextLink = navLinks[1];
 
-  // the slide could display the terminal which takes the focus
-  // therefore pressing keyLeft or keyRight does not result in page navigation anymore
-  // however, focusing another element than the terminal solves this
-  navArrowsComponent.focus();
+  if (!nextLink) {
+    return file;
+  }
 
-  // navigate to next slide
-  await page.keyboard.press('ArrowRight');
+  await nextLink.click();
 
   await page.waitForSelector('#top');
 
@@ -70,14 +69,14 @@ async function shoot(page) {
   const filepath = path.resolve(__dirname, 'tmp', filename);
 
   await page.reload({
-    waitUntil: 'domcontentloaded',
+    waitUntil: 'networkidle0',
   });
 
   await page.pdf({
     path: filepath,
     printBackground: true,
-    width: '1680px',
-    height: '1050px',
+    width: '1920px',
+    height: '1080px',
   });
 
   return filepath;
@@ -88,7 +87,7 @@ function getSlideNumberFromPage(page) {
   return slideNumberMatch ? Number(slideNumberMatch[0]) : 0;
 }
 
-const targetPdf = path.resolve(__dirname, '../slides.pdf');
+const targetPdf = path.resolve(__dirname, '../../slides.pdf');
 
 start({ target: targetPdf }).then(
   () => {
