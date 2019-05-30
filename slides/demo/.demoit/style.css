@@ -616,3 +616,15 @@ span.i-fingerprint::after {
 .font-mono {
   font-family: monospace;
 }
+
+.zIndexHigh {
+  z-index: 50;
+}
+
+.zIndexMedium {
+  z-index: 30;
+}
+
+.zIndexLow {
+  z-index: 10;
+}
