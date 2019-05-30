@@ -87,7 +87,7 @@ function getSlideNumberFromPage(page) {
   return slideNumberMatch ? Number(slideNumberMatch[0]) : 0;
 }
 
-const targetPdf = path.resolve(__dirname, '../../slides.pdf');
+const targetPdf = path.resolve(__dirname, '../slides.pdf');
 
 start({ target: targetPdf }).then(
   () => {
