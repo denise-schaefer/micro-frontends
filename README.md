@@ -125,6 +125,8 @@ Uses [demoit](https://github.com/dgageot/demoit "demoit") and Go
 1. Install [Go](https://golang.org/ "Go")
 2. Start with ./demoit slides/demo
 
+or use [PDF](slides/slides.pdf "pdf").
+
 ## ToDos
 ### Suspense/Loading optimization
 
