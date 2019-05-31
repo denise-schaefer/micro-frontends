@@ -13,7 +13,6 @@
     "app/product",
     "app/content",
     "app/composer",
-    "slides/slide-notes",
     "slides/screenshooter"
   ],
   "scripts": {

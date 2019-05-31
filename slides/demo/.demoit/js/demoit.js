@@ -90,44 +90,6 @@ customElements.define(
   }
 );
 
-const slideNotesTemplate = document.createElement('template');
-slideNotesTemplate.innerHTML = `
-  <style>
-    :host {
-      display: none;
-    }
-  </style>
-`;
-
-customElements.define(
-  'slide-notes',
-  class extends HTMLElement {
-    constructor() {
-      super();
-      this.attachShadow({ mode: 'open' });
-      this.shadowRoot.innerHTML = `<div id="notes">${this.innerHTML}</div>`;
-      this.shadowRoot.appendChild(slideNotesTemplate.content.cloneNode(true));
-    }
-
-    connectedCallback() {
-      const url = this.getAttribute('data-slide-notes-server-url');
-
-      const { protocol, hostname, port } = window.location;
-
-      const content = JSON.stringify({
-        html: this.shadowRoot.querySelector('#notes').innerHTML,
-        currentSlideUrl: `${window.location.href}`,
-        nextSlideUrl: `${protocol}//${hostname}:${port}${NextURL}`,
-      });
-
-      fetch(url, {
-        method: 'POST',
-        body: content,
-      });
-    }
-  }
-);
-
 customElements.define(
   'source-code',
   class extends HTMLElement {
