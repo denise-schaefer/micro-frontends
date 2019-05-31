@@ -49,8 +49,16 @@ async function visit(page) {
     return file;
   }
 
-  await nextLink.click();
+  const elementsToAppear = (await page.$$('[data-appear]')) || [];
+  const timesToClickForward = elementsToAppear.length;
 
+  // skip elements that should appear next on the same page
+  for (let i = 0; i < timesToClickForward; i++) {
+    await nextLink.click();
+  }
+
+  // navigate to next slide
+  await nextLink.click();
   await page.waitForSelector('#top');
 
   if (url === page.url()) {
