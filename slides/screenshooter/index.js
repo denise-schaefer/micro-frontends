@@ -42,8 +42,12 @@ async function visit(page) {
 
   const nextUrl = url.replace(/\/(\d+)?$/, (a, b) => `/${Number(b || 0) + 1}`);
 
-  const nextPageResponse = await page.goto(nextUrl);
-  if (nextPageResponse.status() !== 200) {
+  try {
+    const nextPageResponse = await page.goto(nextUrl);
+    if (nextPageResponse.status() !== 200) {
+      return [];
+    }
+  } catch (error) {
     return [];
   }
 
