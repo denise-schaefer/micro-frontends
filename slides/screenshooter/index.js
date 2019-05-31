@@ -40,32 +40,14 @@ async function visit(page) {
 
   const file = await shoot(page);
 
-  // navigation has two links. the first one is for "previous page" the second for "next page"
-  // (note that we cannot use the keyboard "ArrowRight" as the integrated terminal on some slides is taking the keyboard focus)
-  const navLinks = Array.from(await page.$$('#nav a'));
-  const nextLink = navLinks[1];
+  const nextUrl = url.replace(/\/(\d+)?$/, (a, b) => `/${Number(b || 0) + 1}`);
 
-  if (!nextLink) {
-    return file;
-  }
-
-  const elementsToAppear = (await page.$$('[data-appear]')) || [];
-  const timesToClickForward = elementsToAppear.length;
-
-  // skip elements that should appear next on the same page
-  for (let i = 0; i < timesToClickForward; i++) {
-    await nextLink.click();
-  }
-
-  // navigate to next slide
-  await nextLink.click();
-  await page.waitForSelector('#top');
-
-  if (url === page.url()) {
-    // last link links to the same page
-    // so when the url didn't change after click we're finished ٩( ᐛ )و
+  const nextPageResponse = await page.goto(nextUrl);
+  if (nextPageResponse.status() !== 200) {
     return [];
   }
+
+  await page.waitForSelector('#top');
 
   const moreFiles = await visit(page);
   return [file, ...moreFiles];
@@ -76,9 +58,16 @@ async function shoot(page) {
   const filename = `${getSlideNumberFromPage(page)}_${timestamp}.pdf`;
   const filepath = path.resolve(__dirname, 'tmp', filename);
 
+  // ensure loaded page before doing a screenshot
   await page.reload({
     waitUntil: 'networkidle0',
   });
+
+  // click through to create a screenshot of the finished slide
+  const elementsToAppear = await page.$$('[data-appear="next"]');
+  for (let i = 0; i < elementsToAppear.length; i++) {
+    await page.keyboard.press('ArrowRight');
+  }
 
   await page.pdf({
     path: filepath,
