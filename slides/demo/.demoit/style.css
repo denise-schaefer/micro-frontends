@@ -512,6 +512,9 @@ span.i-fingerprint::after {
 .pl-8 {
   padding-left: 2em;
 }
+.pr-4 {
+  padding-right: 1em;
+}
 .pt-8 {
   padding-top: 2em;
 }
