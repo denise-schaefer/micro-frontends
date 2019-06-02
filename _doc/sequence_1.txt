@@ -22,11 +22,11 @@ actor User
 User -> Browser : Search (query)
 Browser -> Composer: GET
 Browser <-- Composer: HTML
-Browser -> SearchAssetService: GET product JS
+Browser -> SearchAssetService: GET search JS
 Browser <-- SearchAssetService: JS
 Browser -> ProductAssetService: GET product JS
 Browser <-- ProductAssetService: JS
-Browser -> ContentAssetService: GET product JS
+Browser -> ContentAssetService: GET content JS
 Browser <-- ContentAssetService: JS
 User <-- Browser
 
