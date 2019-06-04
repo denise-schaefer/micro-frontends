@@ -181,7 +181,7 @@ customElements.define(
     text-align: left;
     color: #212121;
     padding: 2px 0;
-    font-size: 20px;
+    font-size: 24px;
     overflow-x: scroll;
 }
 
