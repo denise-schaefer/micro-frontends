@@ -1,0 +1,19 @@
+<script src="libraries.min.js"></script>
+<script src="content.min.js"></script>
+<script src="product.min.js"></script>
+
+<div id="navigation-container"></div>
+<script>
+  ReactDOM.render(
+    window.dm.content.Navigation,
+    document.getElementById('navigation-container')
+  );
+</script>
+
+<div id="product-grid-container"></div>
+<script>
+  ReactDOM.render(
+    window.dm.product.ProductGrid,
+    document.getElementById('product-grid-container')
+  );
+</script>
