@@ -16,20 +16,20 @@ package "Search" {
 package "Product" {
   [ProductUI]
   [ProductDataService]
-  [DataStorage]
+  [SearchPlatform (Product)]
 }
 
 package "Content" {
   [ContentUI]
   [ContentDataService]
-  [DataStorage (CMS)]
+  [SearchPlatform (Content)]
 }
 
 [ContentUI] --> [ContentDataService]
-[ContentDataService] -->  [DataStorage (CMS)]
+[ContentDataService] -->  [SearchPlatform (Content)]
 
 [ProductUI] -->  [ProductDataService]
-[ProductDataService] --> [DataStorage]
+[ProductDataService] --> [SearchPlatform (Product)]
 
 [SearchUI] --> [Search-API]
 [Search-API] <-- [ContentUI]
