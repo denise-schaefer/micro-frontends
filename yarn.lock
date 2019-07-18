@@ -727,6 +727,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.4.5":
+  version "7.5.5"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
+  integrity sha1-dPulbTXvvspEQJHHhQzNSU/S8TI=
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -939,9 +946,10 @@
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@restart/context/-/context-2.1.4.tgz#a99d87c299a34c28bd85bb489cb07bfd23149c02"
 
-"@restart/hooks@^0.2.3":
-  version "0.2.13"
-  resolved "https://registry.yarnpkg.com/@restart/hooks/-/hooks-0.2.13.tgz#de9a2dfd6dacac3b60f9b19614cdd49f90e434c3"
+"@restart/hooks@^0.3.0":
+  version "0.3.8"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/@restart/hooks/-/hooks-0.3.8.tgz#2f34f503d92ad95586c34f1175d6743f3a520a4e"
+  integrity sha1-LzT1A9kq2VWGw08RddZ0PzpSCk4=
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
@@ -5882,14 +5890,15 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-bootstrap@1.0.0-beta.8:
-  version "1.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.0.0-beta.8.tgz#88d545526abe61c591d4eb84abad82e7f432c111"
+react-bootstrap@1.0.0-beta.9:
+  version "1.0.0-beta.9"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/react-bootstrap/-/react-bootstrap-1.0.0-beta.9.tgz#3d9e429fd3d7a81db241aa824646c73e99a8566c"
+  integrity sha1-PZ5Cn9PXqB2yQaqCRkbHPpmoVmw=
   dependencies:
     "@babel/runtime" "^7.4.2"
     "@react-bootstrap/react-popper" "1.2.1"
     "@restart/context" "^2.1.4"
-    "@restart/hooks" "^0.2.3"
+    "@restart/hooks" "^0.3.0"
     classnames "^2.2.6"
     dom-helpers "^3.4.0"
     invariant "^2.2.4"
@@ -5898,7 +5907,7 @@ react-bootstrap@1.0.0-beta.8:
     prop-types "^15.7.2"
     prop-types-extra "^1.1.0"
     react-overlays "^1.2.0"
-    react-transition-group "^2.7.1"
+    react-transition-group "^4.0.0"
     uncontrollable "^6.1.0"
     warning "^4.0.3"
 
@@ -5918,10 +5927,6 @@ react-dom@16.8.6:
 react-is@^16.3.2, react-is@^16.8.1, react-is@^16.8.4:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
-
-react-lifecycles-compat@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
 react-overlays@^1.2.0:
   version "1.2.0"
@@ -5947,14 +5952,15 @@ react-popper@^1.3.2:
     typed-styles "^0.0.7"
     warning "^4.0.2"
 
-react-transition-group@^2.7.1:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
+react-transition-group@^4.0.0:
+  version "4.2.1"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/react-transition-group/-/react-transition-group-4.2.1.tgz#61fc9e36568bff9a1fe4e60fae323c8a6dbc0680"
+  integrity sha1-YfyeNlaL/5of5OYPrjI8im28BoA=
   dependencies:
+    "@babel/runtime" "^7.4.5"
     dom-helpers "^3.4.0"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
-    react-lifecycles-compat "^3.0.4"
 
 react@16.8.6:
   version "16.8.6"
