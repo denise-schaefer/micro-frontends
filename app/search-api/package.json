@@ -9,10 +9,10 @@
   },
   "main": "lib/index.js",
   "devDependencies": {
-    "@babel/cli": "7.4.3",
-    "@babel/core": "7.4.3",
-    "@babel/preset-env": "7.4.3",
+    "@babel/cli": "7.5.5",
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
     "@babel/preset-flow": "7.0.0",
-    "expect": "24.7.1"
+    "expect": "24.8.0"
   }
 }
