@@ -11,8 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "date-fns": "1.30.1",
-    "easy-pdf-merge": "0.2.1",
-    "puppeteer": "1.15.0",
+    "easy-pdf-merge": "0.2.2",
+    "puppeteer": "1.18.1",
     "rimraf": "2.6.3"
   }
 }
