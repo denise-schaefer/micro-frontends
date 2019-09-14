@@ -1023,10 +1023,10 @@
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@restart/context/-/context-2.1.4.tgz#a99d87c299a34c28bd85bb489cb07bfd23149c02"
 
-"@restart/hooks@^0.3.0":
-  version "0.3.8"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/@restart/hooks/-/hooks-0.3.8.tgz#2f34f503d92ad95586c34f1175d6743f3a520a4e"
-  integrity sha1-LzT1A9kq2VWGw08RddZ0PzpSCk4=
+"@restart/hooks@^0.3.11":
+  version "0.3.13"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/@restart/hooks/-/hooks-0.3.13.tgz#656a62d6be3f3d72b9437101c557c864c0b34e36"
+  integrity sha1-ZWpi1r4/PXK5Q3EBxVfIZMCzTjY=
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
@@ -2211,9 +2211,10 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@1.30.1:
-  version "1.30.1"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+date-fns@2.2.1:
+  version "2.2.1"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/date-fns/-/date-fns-2.2.1.tgz#b3f79cf56760af106050c686f4c72586a3383ee9"
+  integrity sha1-s/ec9WdgrxBgUMaG9MclhqM4Puk=
 
 date-now@^0.1.4:
   version "0.1.4"
@@ -5354,15 +5355,15 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-bootstrap@1.0.0-beta.9:
-  version "1.0.0-beta.9"
-  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/react-bootstrap/-/react-bootstrap-1.0.0-beta.9.tgz#3d9e429fd3d7a81db241aa824646c73e99a8566c"
-  integrity sha1-PZ5Cn9PXqB2yQaqCRkbHPpmoVmw=
+react-bootstrap@1.0.0-beta.12:
+  version "1.0.0-beta.12"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/react-bootstrap/-/react-bootstrap-1.0.0-beta.12.tgz#49fb83e288b1b5fa86e4c51e145630ec8b8598bb"
+  integrity sha1-SfuD4oixtfqG5MUeFFYw7IuFmLs=
   dependencies:
     "@babel/runtime" "^7.4.2"
     "@react-bootstrap/react-popper" "1.2.1"
     "@restart/context" "^2.1.4"
-    "@restart/hooks" "^0.3.0"
+    "@restart/hooks" "^0.3.11"
     classnames "^2.2.6"
     dom-helpers "^3.4.0"
     invariant "^2.2.4"
@@ -5372,7 +5373,7 @@ react-bootstrap@1.0.0-beta.9:
     prop-types-extra "^1.1.0"
     react-overlays "^1.2.0"
     react-transition-group "^4.0.0"
-    uncontrollable "^6.1.0"
+    uncontrollable "^7.0.0"
     warning "^4.0.3"
 
 react-context-toolbox@^2.0.2:
@@ -5673,6 +5674,13 @@ ret@~0.1.10:
 rimraf@2.6.3, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
+  dependencies:
+    glob "^7.1.3"
+
+rimraf@3.0.0:
+  version "3.0.0"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/rimraf/-/rimraf-3.0.0.tgz#614176d4b3010b75e5c390eb0ee96f6dc0cebb9b"
+  integrity sha1-YUF21LMBC3Xlw5DrDulvbcDOu5s=
   dependencies:
     glob "^7.1.3"
 
@@ -6415,10 +6423,18 @@ uglify-js@^3.1.4:
     commander "~2.20.0"
     source-map "~0.6.1"
 
-uncontrollable@^6.0.0, uncontrollable@^6.1.0:
+uncontrollable@^6.0.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/uncontrollable/-/uncontrollable-6.1.0.tgz#45dcf54b76bf07e0ddf7c1a669caf935d2e101d5"
   dependencies:
+    invariant "^2.2.4"
+
+uncontrollable@^7.0.0:
+  version "7.0.1"
+  resolved "https://artifactory.dm-drogeriemarkt.com:443/api/npm/repo-npm/uncontrollable/-/uncontrollable-7.0.1.tgz#9451ecd13ed480c3e8318c2ee5f0f7522b13b33c"
+  integrity sha1-lFHs0T7UgMPoMYwu5fD3UisTszw=
+  dependencies:
+    "@babel/runtime" "^7.4.5"
     invariant "^2.2.4"
 
 undefsafe@^2.0.2:

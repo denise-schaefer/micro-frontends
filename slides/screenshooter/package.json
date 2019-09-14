@@ -10,9 +10,9 @@
   "author": "Benjamin Seber <seber@synyx.de> (https://www.synyx.de)",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "1.30.1",
+    "date-fns": "2.2.1",
     "easy-pdf-merge": "0.2.2",
     "puppeteer": "1.20.0",
-    "rimraf": "2.6.3"
+    "rimraf": "3.0.0"
   }
 }
