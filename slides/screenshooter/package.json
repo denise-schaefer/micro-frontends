@@ -12,7 +12,7 @@
   "dependencies": {
     "date-fns": "2.8.1",
     "easy-pdf-merge": "0.2.2",
-    "puppeteer": "1.20.0",
+    "puppeteer": "2.0.0",
     "rimraf": "3.0.0"
   }
 }

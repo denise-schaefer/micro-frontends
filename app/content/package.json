@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "express": "4.17.1",
-    "nodemon": "1.19.2",
+    "nodemon": "2.0.2",
     "react": "16.12.0",
-    "react-bootstrap": "1.0.0-beta.12",
+    "react-bootstrap": "1.0.0-beta.16",
     "react-dom": "16.12.0",
     "search-api": "^1.0.0"
   },

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/es/FormControl';
 import Button from 'react-bootstrap/Button';
 
 export function SearchInput({ onSubmit, query = '' }) {
@@ -22,7 +21,7 @@ export function SearchInput({ onSubmit, query = '' }) {
 
   return (
     <Form inline onSubmit={event => handleSubmit(event)}>
-      <FormControl
+      <Form.Control
         type="search"
         name="query"
         placeholder="Search"
