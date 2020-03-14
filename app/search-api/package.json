@@ -12,7 +12,6 @@
     "@babel/cli": "7.7.7",
     "@babel/core": "7.7.7",
     "@babel/preset-env": "7.7.7",
-    "@babel/preset-flow": "7.7.4",
-    "expect": "24.9.0"
+    "@babel/preset-flow": "7.7.4"
   }
 }
