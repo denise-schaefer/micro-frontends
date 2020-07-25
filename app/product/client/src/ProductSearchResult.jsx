@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import { CONTENT_ONLY, ZERO_HITS } from './search';
 import Card from 'react-bootstrap/Card';
 
-const ProductSearchResult = props => {
+const ProductSearchResult = (props) => {
   const { queryData, data, fetchData } = props;
   const { count, results } = data;
 
@@ -17,7 +17,7 @@ const ProductSearchResult = props => {
         {`Suche nach "${decodeURIComponent(queryData.query)}": ${count} counts`}
       </Row>
       <Row className="justify-content-center" style={{ maxWidth: '1200px', margin: 'auto' }}>
-        {results.map(result => (
+        {results.map((result) => (
           <Card key={result.gtin} style={{ margin: `5px` }}>
             <Card.Body>
               <Card.Title>{result.name}</Card.Title>

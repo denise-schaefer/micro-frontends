@@ -10,9 +10,9 @@ export default function SearchFallback({ query, searchState }) {
   function getSuggestions() {
     const suggestions = [];
     if (!isEmpty(searchState)) {
-      getObjectValues(searchState).forEach(entry => {
+      getObjectValues(searchState).forEach((entry) => {
         if (entry.suggestions && entry.suggestions.length > 0) {
-          entry.suggestions.forEach(suggestion => suggestions.push(suggestion));
+          entry.suggestions.forEach((suggestion) => suggestions.push(suggestion));
         }
       });
     }

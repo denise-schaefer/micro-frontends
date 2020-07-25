@@ -12,7 +12,7 @@ export default function SearchResultHeader({
   countState,
   onTabClick,
 }) {
-  const getTabFor = searchProvider => {
+  const getTabFor = (searchProvider) => {
     const data = countState[searchProvider.ID];
     if (!isEmpty(activeSearchProvider)) {
       return (
@@ -36,7 +36,7 @@ export default function SearchResultHeader({
         <h1>{`Suche nach "${decodeURIComponent(query)}"`}</h1>
       </Row>
       <Row className="justify-content-center">
-        {getSearchProviders().map(provider => getTabFor(provider))}
+        {getSearchProviders().map((provider) => getTabFor(provider))}
       </Row>
     </Col>
   );

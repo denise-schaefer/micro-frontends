@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Card from 'react-bootstrap/Card';
 import { ZERO_HITS } from './search';
 
-const ContentSearchResult = props => {
+const ContentSearchResult = (props) => {
   const { queryData, data, fetchData } = props;
   const { count, results } = data;
 
@@ -17,7 +17,7 @@ const ContentSearchResult = props => {
         {`Suche nach "${decodeURIComponent(queryData.query)}": ${count} counts`}
       </Row>
       <Col style={{ maxWidth: '900px', margin: 'auto' }}>
-        {results.map(result => (
+        {results.map((result) => (
           <Card key={result.gtin} style={{ margin: '10px' }}>
             <Card.Body>
               <Card.Title>{result.name}</Card.Title>

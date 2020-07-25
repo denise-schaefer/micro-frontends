@@ -10,7 +10,7 @@ export default function SearchTab({ searchProviderId, children, onClick, isActiv
       type="button"
       key={searchProviderId}
       active={isActive ? 'active' : ''}
-      onClick={event => onClick(event)}>
+      onClick={(event) => onClick(event)}>
       {children}
     </Button>
   );

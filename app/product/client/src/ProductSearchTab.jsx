@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from './util/isEmpty';
 
-const ProductSearchTab = props => {
+const ProductSearchTab = (props) => {
   const { data } = props;
 
   let count;

@@ -11,9 +11,9 @@ export const initialize = () => {
   registerSearchProvider({
     ID: SEARCH_PROVIDER_ID,
     order: ORDER,
-    execute_search: queryData => executeContentSearch(queryData),
-    execute_count: queryData => executeContentCount(queryData),
-    getTabComponent: data => <ContentSearchTab data={data} />,
+    execute_search: (queryData) => executeContentSearch(queryData),
+    execute_count: (queryData) => executeContentCount(queryData),
+    getTabComponent: (data) => <ContentSearchTab data={data} />,
     getResultComponent: (queryData, data, fetchData) => (
       <ContentSearchResult queryData={queryData} data={data} fetchData={fetchData} />
     ),

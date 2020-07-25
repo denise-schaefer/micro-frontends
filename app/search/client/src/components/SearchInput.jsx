@@ -20,13 +20,13 @@ export function SearchInput({ onSubmit, query = '' }) {
   }
 
   return (
-    <Form inline onSubmit={event => handleSubmit(event)}>
+    <Form inline onSubmit={(event) => handleSubmit(event)}>
       <Form.Control
         type="search"
         name="query"
         placeholder="Search"
         value={value}
-        onChange={event => handleChange(event)}
+        onChange={(event) => handleChange(event)}
         className="mr-sm-2"
       />
       <Button variant="outline-success" type="submit">

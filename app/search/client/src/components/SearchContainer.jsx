@@ -19,7 +19,7 @@ const readQueryDataFromUrl = () => {
   return queryString ? qs.parse(queryString.substring(1, queryString.length)) : null;
 };
 
-const handlePushHistory = queryData => {
+const handlePushHistory = (queryData) => {
   const queryString = `?${qs.stringify(queryData, {
     encode: false,
     indices: false,
@@ -28,11 +28,11 @@ const handlePushHistory = queryData => {
   window.history.pushState({ ...queryData }, null, queryString);
 };
 
-const getActiveSearchProvider = searchType => {
+const getActiveSearchProvider = (searchType) => {
   const searchProviders = getSearchProviders();
 
   const activeSearchProviderFromSearchType = searchProviders.filter(
-    searchProvider => searchType && searchProvider.ID === searchType.toLowerCase()
+    (searchProvider) => searchType && searchProvider.ID === searchType.toLowerCase()
   )[0];
 
   return activeSearchProviderFromSearchType || searchProviders[0];
@@ -62,7 +62,7 @@ export default function SearchContainer() {
   } = state;
 
   const handleSearch = (activeSearchProviderID, queryData) => {
-    searchProviders.forEach(provider => {
+    searchProviders.forEach((provider) => {
       dispatch(
         doLoadCount({
           searchProviderId: provider.ID,
@@ -88,18 +88,18 @@ export default function SearchContainer() {
     }
   }, []);
 
-  const getQueryStateFor = searchProvider => {
+  const getQueryStateFor = (searchProvider) => {
     return !isEmpty(queryState) && searchProvider && !isEmpty(queryState[searchProvider.ID])
       ? queryState[searchProvider.ID]
       : null;
   };
 
-  const onTabClick = searchProvider => {
+  const onTabClick = (searchProvider) => {
     handlePushHistory(getQueryStateFor(searchProvider));
     handleSearch(searchProvider.ID, getQueryStateFor(searchProvider));
   };
 
-  const fetchData = queryData => {
+  const fetchData = (queryData) => {
     const searchType = queryData ? queryData.searchType : '';
     const activeSearchProvider = getActiveSearchProvider(searchType);
     handlePushHistory(queryData);
@@ -112,7 +112,7 @@ export default function SearchContainer() {
   };
 
   useEffect(() => {
-    const handleHistoryPopState = event => {
+    const handleHistoryPopState = (event) => {
       const newState = event.state;
 
       if (newState) {
@@ -143,7 +143,7 @@ export default function SearchContainer() {
       <Navbar className="bg-light justify-content-between" style={{ marginBottom: '20px' }}>
         <Navbar.Brand>micro-frontends</Navbar.Brand>
         <SearchInput
-          onSubmit={query => submitSearch(activeSearchProvider.ID, query)}
+          onSubmit={(query) => submitSearch(activeSearchProvider.ID, query)}
           query={queryDataFromUrl && queryDataFromUrl.query}
         />
       </Navbar>
@@ -154,7 +154,7 @@ export default function SearchContainer() {
               query={getQueryStateFor(activeSearchProvider).query}
               activeSearchProvider={activeSearchProvider}
               countState={countState}
-              onTabClick={searchProvider => onTabClick(searchProvider)}
+              onTabClick={(searchProvider) => onTabClick(searchProvider)}
             />
           </Row>
           <Row className="justify-content-center">

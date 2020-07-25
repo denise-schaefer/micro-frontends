@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
 
-const removeDuplicatesFromArray = suggestions =>
+const removeDuplicatesFromArray = (suggestions) =>
   suggestions.reduce((prev, curr) => {
     if (prev.indexOf(curr) < 0) {
       prev.push(curr);
@@ -10,9 +10,9 @@ const removeDuplicatesFromArray = suggestions =>
     return prev;
   }, []);
 
-const getSuggestionLinks = suggestions =>
+const getSuggestionLinks = (suggestions) =>
   removeDuplicatesFromArray(suggestions)
-    .map(suggestion => {
+    .map((suggestion) => {
       const queryParams = {
         query: suggestion,
       };
