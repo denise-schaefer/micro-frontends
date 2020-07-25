@@ -58,7 +58,7 @@ async function visit(page) {
 }
 
 async function shoot(page) {
-  const timestamp = format(new Date(), 'YYYY-MM-dd-HH.mm.ss');
+  const timestamp = format(new Date(), 'yyyy-MM-dd-HH.mm.ss');
   const filename = `${getSlideNumberFromPage(page)}_${timestamp}.pdf`;
   const filepath = path.resolve(__dirname, 'tmp', filename);
 
