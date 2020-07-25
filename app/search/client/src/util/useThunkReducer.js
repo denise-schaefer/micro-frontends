@@ -9,20 +9,20 @@ import { useCallback, useRef, useState } from 'react';
  * @param {Function} [init]
  * @returns {[*, Dispatch]}
  */
-function useThunkReducer(reducer, initialArg, init = a => a) {
+function useThunkReducer(reducer, initialArg, init = (a) => a) {
   const [hookState, setHookState] = useState(init(initialArg));
 
   const state = useRef(hookState);
   const getState = useCallback(() => state.current, [state]);
   const setState = useCallback(
-    newState => {
+    (newState) => {
       state.current = newState;
       setHookState(newState);
     },
     [state, setHookState]
   );
 
-  const reduce = useCallback(action => reducer(getState(), action), [reducer, getState]);
+  const reduce = useCallback((action) => reducer(getState(), action), [reducer, getState]);
 
   /**
    * @callback Thunk
@@ -37,7 +37,7 @@ function useThunkReducer(reducer, initialArg, init = a => a) {
    * @returns {void|*}
    */
   const dispatch = useCallback(
-    action =>
+    (action) =>
       typeof action === 'function' ? action(dispatch, getState) : setState(reduce(action)),
     [getState, setState, reduce]
   );

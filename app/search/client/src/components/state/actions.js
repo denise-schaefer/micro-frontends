@@ -1,7 +1,7 @@
 import isEmpty from '../../util/isEmpty';
 import { getSearchProviders } from 'search-api';
 
-const createActionName = name => `search/search/${name}`;
+const createActionName = (name) => `search/search/${name}`;
 export const RESET_SEARCH_STATE = createActionName('RESET_SEARCH_STATE');
 
 export const DO_LOAD_DATA_STARTED = createActionName('LOAD_DATA_STARTED');
@@ -16,7 +16,7 @@ export const DO_LOAD_SUGGESTIONS_STARTED = createActionName('LOAD_SUGGESTIONS_ST
 export const DO_LOAD_SUGGESTIONS_FINISHED = createActionName('LOAD_SUGGESTIONS_FINISHED');
 export const DO_LOAD_SUGGESTIONS_FAILED = createActionName('LOAD_SUGGESTIONS_FAILED');
 
-const hasNoValidResult = data => {
+const hasNoValidResult = (data) => {
   if (isEmpty(data)) {
     return true;
   }
@@ -25,10 +25,10 @@ const hasNoValidResult = data => {
 };
 
 function doLoadData({ searchProviderId, queryData, providers }) {
-  return dispatch => {
+  return (dispatch) => {
     const idNormalized = searchProviderId.toLowerCase();
 
-    const searchProvider = providers.find(provider => provider.ID === idNormalized);
+    const searchProvider = providers.find((provider) => provider.ID === idNormalized);
     if (searchProvider) {
       dispatch({
         type: DO_LOAD_DATA_STARTED,
@@ -38,7 +38,7 @@ function doLoadData({ searchProviderId, queryData, providers }) {
 
       return searchProvider
         .execute_search(queryData)
-        .then(data => {
+        .then((data) => {
           if (hasNoValidResult(data)) {
             const nextProvider = findNextSearchProvider(providers, searchProviderId);
             if (nextProvider) {
@@ -63,7 +63,7 @@ function doLoadData({ searchProviderId, queryData, providers }) {
           });
           return data;
         })
-        .catch(error => {
+        .catch((error) => {
           dispatch({
             type: DO_LOAD_DATA_FAILED,
             ID: idNormalized,
@@ -79,10 +79,10 @@ function doLoadData({ searchProviderId, queryData, providers }) {
 }
 
 function doLoadCount({ searchProviderId, providers, queryData }) {
-  return dispatch => {
+  return (dispatch) => {
     const idNormalized = searchProviderId.toLowerCase();
 
-    const searchProvider = providers.find(provider => provider.ID === idNormalized);
+    const searchProvider = providers.find((provider) => provider.ID === idNormalized);
 
     dispatch({
       type: DO_LOAD_COUNT_STARTED,
@@ -92,7 +92,7 @@ function doLoadCount({ searchProviderId, providers, queryData }) {
 
     return searchProvider
       .execute_count(queryData)
-      .then(data => {
+      .then((data) => {
         dispatch({
           type: DO_LOAD_COUNT_FINISHED,
           ID: idNormalized,
@@ -100,7 +100,7 @@ function doLoadCount({ searchProviderId, providers, queryData }) {
         });
         return data;
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({
           type: DO_LOAD_COUNT_FAILED,
           ID: idNormalized,
@@ -112,24 +112,24 @@ function doLoadCount({ searchProviderId, providers, queryData }) {
 }
 
 function doLoadSuggestions({ queryData }) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch({
       type: DO_LOAD_SUGGESTIONS_STARTED,
     });
 
     const searchProviders = getSearchProviders();
-    searchProviders.forEach(searchProvider => {
+    searchProviders.forEach((searchProvider) => {
       const idNormalized = searchProvider.ID.toLowerCase();
       searchProvider
         .execute_search(queryData)
-        .then(data => {
+        .then((data) => {
           dispatch({
             type: DO_LOAD_SUGGESTIONS_FINISHED,
             ID: idNormalized,
             data,
           });
         })
-        .catch(error => {
+        .catch((error) => {
           dispatch({
             type: DO_LOAD_SUGGESTIONS_FAILED,
             ID: idNormalized,

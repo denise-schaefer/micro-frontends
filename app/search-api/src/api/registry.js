@@ -3,7 +3,7 @@ import isEmpty from './util/isEmpty';
 
 const searchProviders = {};
 
-export const registerSearchProvider = provider => {
+export const registerSearchProvider = (provider) => {
   searchProviders[provider.ID] = { ...provider };
 };
 
@@ -12,10 +12,10 @@ export const getSearchProviders = () => {
     throw new Error('No SearchProvider registered!');
   }
   return Object.keys(searchProviders)
-    .map(key => searchProviders[key])
+    .map((key) => searchProviders[key])
     .sort(byOrder);
 };
 
-export const removeSearchProvider = ID => {
+export const removeSearchProvider = (ID) => {
   delete searchProviders[ID];
 };

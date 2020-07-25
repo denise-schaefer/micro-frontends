@@ -1,9 +1,9 @@
 export const ZERO_HITS = 'zero hits';
 export const CONTENT_ONLY = 'content only';
 
-const executeProductSearch = queryData => {
-  if (['', ZERO_HITS, CONTENT_ONLY].some(value => value === queryData.query)) {
-    return new Promise(resolve => {
+const executeProductSearch = (queryData) => {
+  if (['', ZERO_HITS, CONTENT_ONLY].some((value) => value === queryData.query)) {
+    return new Promise((resolve) => {
       resolve({
         count: 0,
         suggestions: ['suggestion 1', 'suggestion 2'],
@@ -11,7 +11,7 @@ const executeProductSearch = queryData => {
       });
     });
   }
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     resolve({
       count: 6,
       results: [
@@ -56,15 +56,15 @@ const executeProductSearch = queryData => {
   });
 };
 
-const executeProductCount = queryData => {
+const executeProductCount = (queryData) => {
   if (queryData.query === ZERO_HITS || queryData.query === CONTENT_ONLY) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       resolve({
         count: 0,
       });
     });
   }
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     resolve({
       count: 6,
     });

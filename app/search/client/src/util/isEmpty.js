@@ -1,7 +1,7 @@
 // Speed up calls to hasOwnProperty
 const { hasOwnProperty } = Object.prototype;
 
-const isEmpty = obj => {
+const isEmpty = (obj) => {
   if (obj === undefined) {
     return true;
   }

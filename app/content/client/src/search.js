@@ -1,9 +1,9 @@
 export const ZERO_HITS = 'zero hits';
 
 // dummy search data
-const executeContentSearch = queryData => {
-  if (['', ZERO_HITS].some(value => value === queryData.query)) {
-    return new Promise(resolve => {
+const executeContentSearch = (queryData) => {
+  if (['', ZERO_HITS].some((value) => value === queryData.query)) {
+    return new Promise((resolve) => {
       resolve({
         count: 0,
         results: [],
@@ -11,8 +11,8 @@ const executeContentSearch = queryData => {
       });
     });
   }
-  if (['payback'].some(value => value === queryData.query)) {
-    return new Promise(resolve => {
+  if (['payback'].some((value) => value === queryData.query)) {
+    return new Promise((resolve) => {
       resolve({
         count: 3,
         results: [
@@ -25,7 +25,7 @@ const executeContentSearch = queryData => {
       });
     });
   }
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     resolve({
       count: 3,
       results: [
@@ -49,15 +49,15 @@ const executeContentSearch = queryData => {
   });
 };
 
-const executeContentCount = queryData => {
+const executeContentCount = (queryData) => {
   if (queryData.query === ZERO_HITS) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       resolve({
         count: 0,
       });
     });
   }
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     resolve({
       count: 3,
     });

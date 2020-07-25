@@ -22,7 +22,7 @@ async function start({ target }) {
   const files = await visit(page);
 
   await new Promise((resolve, reject) => {
-    easyPdfMerge(files, target, error => {
+    easyPdfMerge(files, target, (error) => {
       if (error) {
         return reject(error);
       }
@@ -95,7 +95,7 @@ start({ target: targetPdf }).then(
     console.log('\nsuccessfully generated %s\n', targetPdf);
     process.exit(0);
   },
-  error => {
+  (error) => {
     console.error('\n🙀 failed to generate PDF\n');
     console.error(error.message || error);
     process.exit(1);
