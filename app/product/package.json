@@ -14,8 +14,8 @@
     "babel-loader": "8.2.2",
     "bootstrap": "4.5.2",
     "terser-webpack-plugin": "4.2.0",
-    "webpack": "4.44.1",
-    "webpack-cli": "3.3.12"
+    "webpack": "5.37.1",
+    "webpack-cli": "4.7.0"
   },
   "scripts": {
     "dev": "yarn build:watch & yarn serve",
