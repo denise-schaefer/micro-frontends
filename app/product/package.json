@@ -13,7 +13,7 @@
     "@babel/core": "7.14.3",
     "babel-loader": "8.2.2",
     "bootstrap": "4.5.2",
-    "terser-webpack-plugin": "4.2.0",
+    "terser-webpack-plugin": "5.1.2",
     "webpack": "5.37.1",
     "webpack-cli": "4.7.0"
   },

@@ -15,12 +15,7 @@ module.exports = {
     libraryTarget: 'umd',
     library: ['SearchLibrary'],
   },
-  plugins: [
-    isProd &&
-      new TerserPlugin({
-        cache: true,
-      }),
-  ].filter(Boolean),
+  plugins: [isProd && new TerserPlugin()].filter(Boolean),
   module: {
     rules: [{ test: /\.jsx?$/, use: 'babel-loader' }],
   },
