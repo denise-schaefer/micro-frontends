@@ -14,7 +14,7 @@
     "babel-loader": "8.2.2",
     "bootstrap": "5.0.1",
     "terser-webpack-plugin": "5.1.2",
-    "webpack": "5.37.1",
+    "webpack": "5.38.1",
     "webpack-cli": "4.7.0"
   },
   "scripts": {
