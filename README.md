@@ -20,16 +20,16 @@ To scale with multiple teams in a micro services environment
 ````
 yarn build
 
-cd composer
+cd app/composer
 yarn serve
 
-cd search
+cd app/search
 yarn serve
 
-cd product
+cd app/product
 yarn serve
 
-cd content
+cd app/content
 yarn serve
 ````
 
