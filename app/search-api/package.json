@@ -9,9 +9,9 @@
   },
   "main": "lib/index.js",
   "devDependencies": {
-    "@babel/cli": "7.17.6",
-    "@babel/core": "7.17.8",
-    "@babel/preset-env": "7.16.11",
-    "@babel/preset-flow": "7.16.7"
+    "@babel/cli": "7.19.3",
+    "@babel/core": "7.20.2",
+    "@babel/preset-env": "7.20.2",
+    "@babel/preset-flow": "7.18.6"
   }
 }

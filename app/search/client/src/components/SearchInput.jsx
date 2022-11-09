@@ -20,7 +20,7 @@ export function SearchInput({ onSubmit, query = '' }) {
   }
 
   return (
-    <Form inline onSubmit={(event) => handleSubmit(event)}>
+    <Form inline onSubmit={(event) => handleSubmit(event)} style={{ display: 'flex' }}>
       <Form.Control
         type="search"
         name="query"
