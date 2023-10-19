@@ -7,7 +7,9 @@ SearchContainerInternal.render = function (selector, initialState) {
     const props = {
       ...initialState,
     };
-    ReactDOM.render(React.createElement(SearchContainer, props), document.querySelector(selector));
+    const container = document.querySelector(selector);
+    const root = ReactDOM.createRoot(container);
+    root.render(React.createElement(SearchContainer, props));
   });
 };
 
