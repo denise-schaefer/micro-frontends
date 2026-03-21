@@ -2,20 +2,20 @@
   "name": "product",
   "version": "1.0.0",
   "dependencies": {
-    "express": "4.21.0",
-    "nodemon": "3.1.7",
+    "express": "5.2.1",
+    "nodemon": "3.1.14",
     "react": "18.3.1",
-    "react-bootstrap": "2.10.4",
+    "react-bootstrap": "2.10.10",
     "react-dom": "18.3.1",
     "search-api": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.25.2",
-    "babel-loader": "9.2.1",
-    "bootstrap": "5.3.3",
-    "terser-webpack-plugin": "5.3.10",
-    "webpack": "5.104.1",
-    "webpack-cli": "5.1.4"
+    "@babel/core": "7.29.0",
+    "babel-loader": "10.1.1",
+    "bootstrap": "5.3.8",
+    "terser-webpack-plugin": "5.4.0",
+    "webpack": "5.105.4",
+    "webpack-cli": "7.0.2"
   },
   "scripts": {
     "dev": "yarn build:watch & yarn serve",

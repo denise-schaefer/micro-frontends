@@ -6,15 +6,15 @@
     "serve": "nodemon server/index.js"
   },
   "dependencies": {
-    "bootstrap": "5.3.3",
-    "express": "4.21.0",
-    "nodemon": "3.1.7",
+    "bootstrap": "5.3.8",
+    "express": "5.2.1",
+    "nodemon": "3.1.14",
     "react": "18.3.1",
-    "react-bootstrap": "2.10.4",
+    "react-bootstrap": "2.10.10",
     "react-dom": "18.3.1",
-    "serve-favicon": "2.5.0"
+    "serve-favicon": "2.5.1"
   },
   "devDependencies": {
-    "eslint-config-prettier": "9.1.0"
+    "eslint-config-prettier": "10.1.8"
   }
 }
