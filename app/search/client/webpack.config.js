@@ -22,6 +22,7 @@ module.exports = {
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
+    'react-dom/client': 'ReactDOMClient',
     'react-bootstrap': 'ReactBootstrap',
   },
   resolve: {

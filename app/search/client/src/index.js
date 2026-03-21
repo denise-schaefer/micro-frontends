@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import SearchContainerInternal from './components/SearchContainer';
 
 SearchContainerInternal.render = function (selector, initialState) {
@@ -8,7 +8,7 @@ SearchContainerInternal.render = function (selector, initialState) {
       ...initialState,
     };
     const container = document.querySelector(selector);
-    const root = ReactDOM.createRoot(container);
+    const root = createRoot(container);
     root.render(React.createElement(SearchContainer, props));
   });
 };
